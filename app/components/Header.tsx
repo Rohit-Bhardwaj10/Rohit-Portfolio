@@ -2,6 +2,7 @@
 
 import { Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
+import Stamp from "./Stamp";
 
 export default function Header() {
   const [date, setDate] = useState("");
@@ -27,7 +28,7 @@ export default function Header() {
           {date}
         </div>
         <div className="flex gap-4 items-center">
-          <span className="hidden md:inline">Price: Free</span>
+          <span className="hidden md:inline">Late Night Edition</span>
           <button className="hover:bg-zinc-100 p-1 rounded-full transition-colors">
             <Sun size={14} className="dark:hidden" />
             <Moon size={14} className="hidden dark:block" />
@@ -36,7 +37,10 @@ export default function Header() {
       </div>
 
       {/* Main Masthead */}
-      <div className="text-center py-8 md:py-12 px-4">
+      <div className="text-center py-8 md:py-12 px-4 relative">
+        <div className="absolute top-4 right-4 md:top-8 md:right-20 lg:right-40 transform rotate-12 opacity-80 pointer-events-none">
+           <Stamp />
+        </div>
         <h1 className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-serif font-black tracking-tight leading-none mb-2">
             Rohit Bhardwaj
         </h1>
