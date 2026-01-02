@@ -27,7 +27,7 @@ export default function Header() {
           {date}
         </div>
         <div className="flex gap-4 items-center">
-          <span className="hidden md:inline">Late Night Edition</span>
+          <span className="hidden md:inline opacity-50">Late Night Edition</span>
         </div>
       </div>
 

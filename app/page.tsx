@@ -84,26 +84,34 @@ export default function Home() {
               <div className="px-6 py-3 md:px-8 md:py-4 stitch-b">
                  <h2 className="text-3xl md:text-4xl font-serif font-bold text-zinc-900">Professional Experience</h2>
               </div>
-              <div className="flex flex-col">
+              <div className="relative border-l border-zinc-400 ml-8 md:ml-10 my-8 flex flex-col gap-10 pr-6">
                 {/* Experience Item 1 */}
-                <div className="p-6 md:p-8 stitch-b">
-                   <div className="flex justify-between items-baseline mb-1">
+                <div className="relative pl-6 md:pl-8">
+                   {/* Line Mask Top */}
+                   <div className="absolute -left-[1px] top-0 h-2 w-1 bg-[#C4BCB2]"></div>
+                   {/* Dot */}
+                   <div className="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full bg-zinc-900 outline outline-4 outline-[#C4BCB2] z-10"></div>
+                   <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2">
                       <h3 className="text-lg font-bold uppercase tracking-wider text-zinc-900">BarterNow</h3>
-                      <span className="font-mono text-[10px] text-zinc-600 uppercase tracking-widest">2024 - Present</span>
+                      <span className="font-mono text-[10px] text-zinc-600 uppercase tracking-widest mt-1 sm:mt-0">2024 - Present</span>
                    </div>
-                   <p className="font-serif italic text-zinc-700 mb-4 text-base">Backend Developer Intern</p>
-                   <p className="text-zinc-600 leading-relaxed text-base">
+                   <p className="font-serif italic text-zinc-700 mb-3 text-base">Backend Developer Intern</p>
+                   <p className="text-zinc-600 leading-relaxed text-sm md:text-base">
                      Working on scalable backend architecture, optimizing database performance, and building robust API services. Implemented caching strategies and query optimization to improve response times. Collaborated with cross-functional teams to design and develop RESTful APIs serving thousands of daily users.
                    </p>
                 </div>
                 {/* Experience Item 2 */}
-                <div className="p-6 md:p-8">
-                   <div className="flex justify-between items-baseline mb-1">
+                <div className="relative pl-6 md:pl-8">
+                   {/* Line Mask Bottom */}
+                   <div className="absolute -left-[1px] top-2 bottom-0 w-1 bg-[#C4BCB2]"></div>
+                   {/* Dot */}
+                   <div className="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full bg-zinc-900 outline outline-4 outline-[#C4BCB2] z-10"></div>
+                   <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2">
                       <h3 className="text-lg font-bold uppercase tracking-wider text-zinc-900">Freelance</h3>
-                      <span className="font-mono text-[10px] text-zinc-600 uppercase tracking-widest">2023 - Present</span>
+                      <span className="font-mono text-[10px] text-zinc-600 uppercase tracking-widest mt-1 sm:mt-0">2023 - Present</span>
                    </div>
-                   <p className="font-serif italic text-zinc-700 mb-4 text-base">Full Stack Developer</p>
-                   <p className="text-zinc-600 leading-relaxed text-base">
+                   <p className="font-serif italic text-zinc-700 mb-3 text-base">Full Stack Developer</p>
+                   <p className="text-zinc-600 leading-relaxed text-sm md:text-base">
                      Developed multiple end-to-end production-grade systems and developer tools, focusing on performance, scalability, and clean code architecture. Built responsive web applications using modern frameworks and delivered projects that handled high traffic loads.
                    </p>
                 </div>
@@ -171,6 +179,7 @@ export default function Home() {
             <p className="text-xs font-mono">© 2025 The Dev Chronicles. All rights reserved.</p>
           </div>
           <div className="flex gap-6 text-xs font-mono uppercase tracking-widest">
+            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Resume</a>
             <a href="#" className="hover:text-white transition-colors">Twitter</a>
             <a href="#" className="hover:text-white transition-colors">LinkedIn</a>
             <a href="#" className="hover:text-white transition-colors">Github</a>

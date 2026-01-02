@@ -18,10 +18,10 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-wrap gap-4">
-            <button className="bg-zinc-900 text-zinc-50 px-8 py-4 text-sm font-bold uppercase tracking-widest shadow-[5px_5px_0px_0px_#71717a] hover:shadow-[2px_2px_0px_0px_#71717a] hover:translate-x-[3px] hover:translate-y-[3px] transition-all border border-zinc-900">
+            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="bg-zinc-900 text-zinc-50 px-8 py-4 text-sm font-bold uppercase tracking-widest shadow-[5px_5px_0px_0px_#71717a] hover:shadow-[2px_2px_0px_0px_#71717a] hover:translate-x-[3px] hover:translate-y-[3px] transition-all border border-zinc-900 cursor-pointer inline-block text-center">
               Read Resume
-            </button>
-            <button className="border border-zinc-900 bg-transparent text-zinc-900 px-8 py-4 text-sm font-bold uppercase tracking-widest shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[3px] hover:translate-y-[3px] transition-all hover:bg-zinc-50">
+            </a>
+            <button className="border border-zinc-900 bg-transparent text-zinc-900 px-8 py-4 text-sm font-bold uppercase tracking-widest shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[3px] hover:translate-y-[3px] transition-all hover:bg-zinc-50 cursor-pointer">
               Contact
             </button>
           </div>
