@@ -6,36 +6,36 @@ import ProjectCard from "./components/ProjectCard";
 export default function Home() {
   const projects = [
     {
-      title: "Kisan Mitra",
-      description: "An AI-powered agricultural advisory platform helping farmers with crop disease detection and market prices.",
-      tags: ["Python", "Flask", "TensorFlow", "React"],
+      title: "Flashmon",
+      description: "A lightweight CLI tool for auto-reloading Node.js applications on file changes, similar to Nodemon but with improved performance and cleaner logging.",
+      tags: ["TypeScript", "Node.js", "Commander.js", "Chokidar"],
       year: "2024",
       link: "#",
-      github: "#"
+      github: "https://github.com/Rohit-Bhardwaj10/flashmon"
     },
     {
-      title: "Crypt",
-      description: "Secure file encryption and sharing platform using AES-256 encryption algorithm.",
-      tags: ["Next.js", "Node.js", "PostgreSQL"],
-      year: "2023",
+      title: "DePIN Uptime Monitor",
+      description: "A monitoring and rewards system for decentralized validators. Tracks uptime, logs performance, and automates payouts via on-chain execution.",
+      tags: ["Next.js", "PostgreSQL", "Solana", "Docker"],
+      year: "2024",
       link: "#",
-      github: "#"
+      github: "https://github.com/Rohit-Bhardwaj10/stay-up"
     },
     {
-      title: "Mindful",
-      description: "A mental health tracking application with daily journals and mood analytics.",
-      tags: ["React Native", "Firebase"],
-      year: "2023",
+      title: "Events Flow",
+      description: "A full-stack event management platform for creating, listing, and registering for events with integrated online payments via Razorpay.",
+      tags: ["TypeScript", "Next.js", "Razorpay"],
+      year: "2024",
       link: "#",
-      github: "#"
+      github: "https://github.com/Rohit-Bhardwaj10/EventFlow"
     },
     {
-      title: "Spartan",
-      description: "Fitness tracking dashboard for high-performance athletes.",
-      tags: ["Vue.js", "D3.js", "Express"],
-      year: "2022",
+      title: "DHiree",
+      description: "Decentralized freelance platform connecting developers with companies. Ensures transparent job postings and secure payments via Ethereum smart contracts.",
+      tags: ["React", "Solidity", "Hardhat", "IPFS"],
+      year: "2024",
       link: "#",
-      github: "#"
+      github: "https://github.com/Rohit-Bhardwaj10/D-Hiree"
     }
   ];
 
@@ -77,23 +77,23 @@ export default function Home() {
                 {/* Experience Item 1 */}
                 <div>
                    <div className="flex justify-between items-baseline mb-1">
-                      <h3 className="text-base font-bold uppercase tracking-wider text-zinc-900">Excelerate</h3>
-                      <span className="font-mono text-[10px] text-zinc-400 uppercase tracking-widest">Nov 2024 - Nov 2024</span>
+                      <h3 className="text-base font-bold uppercase tracking-wider text-zinc-900">BarterNow</h3>
+                      <span className="font-mono text-[10px] text-zinc-400 uppercase tracking-widest">2024 - Present</span>
                    </div>
-                   <p className="font-serif italic text-zinc-500 mb-4">Data Engineer Early Intern</p>
+                   <p className="font-serif italic text-zinc-500 mb-4">Backend Developer Intern</p>
                    <p className="text-zinc-600 leading-relaxed text-sm">
-                     Assisted in building data pipelines and optimizing data flow. Collaborated with the team to improve data quality and accessibility.
+                     Working on scalable backend architecture, optimizing database performance, and building robust API services.
                    </p>
                 </div>
                 {/* Experience Item 2 */}
                 <div>
                    <div className="flex justify-between items-baseline mb-1">
-                      <h3 className="text-base font-bold uppercase tracking-wider text-zinc-900">Headstarter AI</h3>
-                      <span className="font-mono text-[10px] text-zinc-400 uppercase tracking-widest">Aug 2024 - Sep 2024</span>
+                      <h3 className="text-base font-bold uppercase tracking-wider text-zinc-900">Freelance</h3>
+                      <span className="font-mono text-[10px] text-zinc-400 uppercase tracking-widest">2023 - Present</span>
                    </div>
-                   <p className="font-serif italic text-zinc-500 mb-4">Software Engineer Intern</p>
+                   <p className="font-serif italic text-zinc-500 mb-4">Full Stack Developer</p>
                    <p className="text-zinc-600 leading-relaxed text-sm">
-                     Developed features for the AI-powered platform using Next.js. Implemented responsive UI components and integrated APIs.
+                     Developed multiple end-to-end production-grade systems and developer tools, focusing on performance, scalability, and clean code architecture.
                    </p>
                 </div>
               </div>
@@ -112,24 +112,24 @@ export default function Home() {
 
              <div className="grid grid-cols-1 md:grid-cols-2">
                  <div className="md:border-r border-b border-zinc-300 border-dashed p-6 md:p-8 flex flex-col h-full">
-                    <span className="font-mono text-[10px] text-zinc-400 uppercase tracking-widest mb-3">Jan 12, 2025</span>
-                    <h3 className="text-2xl font-serif font-bold text-zinc-900 mb-3 hover:underline">Understanding Distributed Systems</h3>
+                    <span className="font-mono text-[10px] text-zinc-400 uppercase tracking-widest mb-3">Oct 22, 2025</span>
+                    <h3 className="text-2xl font-serif font-bold text-zinc-900 mb-3 hover:underline">The Centralized Core of Decentralization</h3>
                     <p className="text-zinc-600 leading-relaxed mb-6 flex-1">
-                      A comprehensive guide to building resilient and scalable applications in the modern cloud era. Strategies for consistency and availability.
+                      Rethinking Web3’s Infrastructure. Examining the reliance of decentralized networks on centralized cloud providers and efficient infrastructure patterns.
                     </p>
                     <div className="flex items-center gap-2 mt-auto">
-                        <span className="text-zinc-400 text-[10px] font-mono uppercase tracking-wider">#Architecture</span>
+                        <span className="text-zinc-400 text-[10px] font-mono uppercase tracking-wider">#Web3</span>
                     </div>
                  </div>
 
                  <div className="border-b border-zinc-300 border-dashed p-6 md:p-8 flex flex-col h-full">
-                    <span className="font-mono text-[10px] text-zinc-400 uppercase tracking-widest mb-3">Dec 28, 2024</span>
-                    <h3 className="text-2xl font-serif font-bold text-zinc-900 mb-3 hover:underline">The Future of React</h3>
+                    <span className="font-mono text-[10px] text-zinc-400 uppercase tracking-widest mb-3">Jun 9, 2025</span>
+                    <h3 className="text-2xl font-serif font-bold text-zinc-900 mb-3 hover:underline">Backend Scaling Strategies</h3>
                     <p className="text-zinc-600 leading-relaxed mb-6 flex-1">
-                      Exploring Server Components, Suspense, and the evolution of frontend patterns. How these changes impact developer experience.
+                      A deep dive into load balancing, database sharding, and caching strategies for building high-traffic, resilient systems.
                     </p>
                     <div className="flex items-center gap-2 mt-auto">
-                        <span className="text-zinc-400 text-[10px] font-mono uppercase tracking-wider">#Frontend</span>
+                        <span className="text-zinc-400 text-[10px] font-mono uppercase tracking-wider">#SystemDesign</span>
                     </div>
                  </div>
              </div>
@@ -141,9 +141,9 @@ export default function Home() {
                  <h2 className="text-3xl md:text-4xl font-serif font-bold text-zinc-900">Education</h2>
               </div>
               <div className="px-6 py-4 md:px-8 md:py-6">
-                 <h3 className="font-serif font-bold text-lg mb-1">Bachelor of Technology</h3>
-                 <p className="text-zinc-500 mb-1">Computer Science</p>
-                 <p className="font-mono text-xs text-zinc-400">2021 - 2025</p>
+                 <h3 className="font-serif font-bold text-lg mb-1">ABES Engineering College, AKTU</h3>
+                 <p className="text-zinc-500 mb-1">Bachelor in Computer Science and Engineering</p>
+                 <p className="font-mono text-xs text-zinc-400">Sept 2023 - May 2027</p>
               </div>
            </div>
         </div>
@@ -152,7 +152,7 @@ export default function Home() {
       <footer className="border-t border-zinc-900 bg-zinc-900 text-zinc-400 p-8 md:p-12">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-center md:text-left">
-            <h2 className="font-serif text-2xl text-zinc-100 mb-2">SHORYA BANSAL</h2>
+            <h2 className="font-serif text-2xl text-zinc-100 mb-2">ROHIT BHARDWAJ</h2>
             <p className="text-xs font-mono">© 2025 The Dev Chronicles. All rights reserved.</p>
           </div>
           <div className="flex gap-6 text-xs font-mono uppercase tracking-widest">
