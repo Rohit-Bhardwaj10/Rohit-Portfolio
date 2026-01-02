@@ -65,14 +65,13 @@ export default function Home() {
              {/* Section Header */}
              <div className="px-6 py-3 md:px-8 md:py-4 stitch-b flex justify-between items-end">
                 <h2 className="text-3xl md:text-4xl font-serif font-bold">Featured Works</h2>
-                <span className="font-mono text-xs text-zinc-700 mb-1 uppercase tracking-widest">Selected Projects • 2022-2024</span>
+                <span className="font-mono text-xs text-zinc-700 mb-1 uppercase tracking-widest">Selected Projects • 2023-2024</span>
              </div>
 
              <div className="grid grid-cols-1 md:grid-cols-2">
                 {projects.map((project, index) => (
                   <div key={index} className={`
-                    ${index % 2 === 0 ? 'md:stitch-br' : ''} 
-                    stitch-b last:[background-image:none]
+                    ${index % 2 === 0 ? 'desktop-stitch-br' : 'desktop-stitch-b'} 
                   `}>
                     <ProjectCard {...project} />
                   </div>
@@ -85,27 +84,27 @@ export default function Home() {
               <div className="px-6 py-3 md:px-8 md:py-4 stitch-b">
                  <h2 className="text-3xl md:text-4xl font-serif font-bold text-zinc-900">Professional Experience</h2>
               </div>
-              <div className="px-6 py-4 md:px-8 md:py-6 flex flex-col gap-10">
+              <div className="flex flex-col">
                 {/* Experience Item 1 */}
-                <div>
+                <div className="p-6 md:p-8 stitch-b">
                    <div className="flex justify-between items-baseline mb-1">
-                      <h3 className="text-base font-bold uppercase tracking-wider text-zinc-900">BarterNow</h3>
+                      <h3 className="text-lg font-bold uppercase tracking-wider text-zinc-900">BarterNow</h3>
                       <span className="font-mono text-[10px] text-zinc-600 uppercase tracking-widest">2024 - Present</span>
                    </div>
-                   <p className="font-serif italic text-zinc-700 mb-4">Backend Developer Intern</p>
-                   <p className="text-zinc-600 leading-relaxed text-sm">
-                     Working on scalable backend architecture, optimizing database performance, and building robust API services.
+                   <p className="font-serif italic text-zinc-700 mb-4 text-base">Backend Developer Intern</p>
+                   <p className="text-zinc-600 leading-relaxed text-base">
+                     Working on scalable backend architecture, optimizing database performance, and building robust API services. Implemented caching strategies and query optimization to improve response times. Collaborated with cross-functional teams to design and develop RESTful APIs serving thousands of daily users.
                    </p>
                 </div>
                 {/* Experience Item 2 */}
-                <div>
+                <div className="p-6 md:p-8">
                    <div className="flex justify-between items-baseline mb-1">
-                      <h3 className="text-base font-bold uppercase tracking-wider text-zinc-900">Freelance</h3>
+                      <h3 className="text-lg font-bold uppercase tracking-wider text-zinc-900">Freelance</h3>
                       <span className="font-mono text-[10px] text-zinc-600 uppercase tracking-widest">2023 - Present</span>
                    </div>
-                   <p className="font-serif italic text-zinc-700 mb-4">Full Stack Developer</p>
-                   <p className="text-zinc-600 leading-relaxed text-sm">
-                     Developed multiple end-to-end production-grade systems and developer tools, focusing on performance, scalability, and clean code architecture.
+                   <p className="font-serif italic text-zinc-700 mb-4 text-base">Full Stack Developer</p>
+                   <p className="text-zinc-600 leading-relaxed text-base">
+                     Developed multiple end-to-end production-grade systems and developer tools, focusing on performance, scalability, and clean code architecture. Built responsive web applications using modern frameworks and delivered projects that handled high traffic loads.
                    </p>
                 </div>
               </div>
@@ -123,7 +122,7 @@ export default function Home() {
              </div>
 
              <div className="grid grid-cols-1 md:grid-cols-2">
-                 <div className="stitch-b md:stitch-r p-6 md:p-8 flex flex-col h-full">
+                 <div className="desktop-stitch-r p-6 md:p-8 flex flex-col h-full">
                     <span className="font-mono text-[10px] text-zinc-600 uppercase tracking-widest mb-3">Oct 22, 2025</span>
                     <Link href="https://dev.to/rohit_bhardwaj_94db62db7b/the-centralized-core-of-decentralization-rethinking-web3s-infrastructure-40da" target="_blank" rel="noopener noreferrer">
                       <h3 className="text-2xl font-serif font-bold text-zinc-900 mb-3 hover:underline cursor-pointer">The Centralized Core of Decentralization</h3>
@@ -153,7 +152,7 @@ export default function Home() {
 
            {/* Education (Col 4) */}
            <div className="lg:col-span-4 flex flex-col">
-              <div className="px-6 py-2 md:px-8 md:py-3 stitch-b">
+              <div className="px-6 py-2 md:px-8 md:py-3 stitch-b flex items-end">
                  <h2 className="text-3xl md:text-4xl font-serif font-bold text-zinc-900">Education</h2>
               </div>
               <div className="px-6 py-4 md:px-8 md:py-6">

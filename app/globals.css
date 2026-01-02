@@ -115,27 +115,7 @@ h1, h2, h3, h4, h5, h6 {
     border-right: none !important;
   }
 
-  /* Responsive Utilities */
-  @media (min-width: 768px) {
-    .md\:stitch-r {
-        background-image: repeating-linear-gradient(to bottom, #71717a 0, #71717a 8px, transparent 8px, transparent 13px);
-        background-position: right;
-        background-size: 1px 100%;
-        background-repeat: no-repeat;
-        border-right: none !important;
-    }
-    .md\:stitch-br {
-         background-image: 
-            repeating-linear-gradient(to right, #71717a 0, #71717a 8px, transparent 8px, transparent 13px),
-            repeating-linear-gradient(to bottom, #71717a 0, #71717a 8px, transparent 8px, transparent 13px);
-        background-position: bottom, right;
-        background-size: 100% 1px, 1px 100%;
-        background-repeat: no-repeat;
-        border-bottom: none !important;
-        border-right: none !important;
-    }
-  }
-
+  /* Existing lg classes inside @layer utilities */
   @media (min-width: 1024px) {
     .lg\:stitch-r {
         background-image: repeating-linear-gradient(to bottom, #71717a 0, #71717a 8px, transparent 8px, transparent 13px);
@@ -162,4 +142,30 @@ h1, h2, h3, h4, h5, h6 {
         border-right: none !important;
     }
   }
+}
+
+/* Global Responsive Utilities - Defined outside layer for priority */
+@media (min-width: 768px) {
+    .desktop-stitch-br {
+         background-image: 
+            repeating-linear-gradient(to right, #71717a 0, #71717a 8px, transparent 8px, transparent 13px),
+            repeating-linear-gradient(to bottom, #71717a 0, #71717a 8px, transparent 8px, transparent 13px) !important;
+        background-position: bottom, right !important;
+        background-size: 100% 1px, 1px 100% !important;
+        background-repeat: no-repeat !important;
+    }
+
+    .desktop-stitch-r {
+        background-image: repeating-linear-gradient(to bottom, #71717a 0, #71717a 8px, transparent 8px, transparent 13px) !important;
+        background-position: right !important;
+        background-size: 1px 100% !important;
+        background-repeat: no-repeat !important;
+    }
+
+    .desktop-stitch-b {
+        background-image: repeating-linear-gradient(to right, #71717a 0, #71717a 8px, transparent 8px, transparent 13px) !important;
+        background-position: bottom !important;
+        background-size: 100% 1px !important;
+        background-repeat: no-repeat !important;
+    }
 }
