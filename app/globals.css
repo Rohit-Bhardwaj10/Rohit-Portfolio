@@ -4,7 +4,8 @@
   --font-serif: var(--font-instrument-serif);
   --font-sans: var(--font-inter);
   
-  --color-background: #f4f1ea;
+  /* "Stone" grey-beige, specific user request */
+  --color-background: #C4BCB2; 
   --color-foreground: #18181b;
 
   --animate-spin-slow: spin 8s linear infinite;
@@ -28,17 +29,137 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .bg-paper-pattern {
-  background-image: radial-gradient(#00000005 1px, transparent 1px);
-  background-size: 20px 20px;
+  /* Noise texture integration */
+  position: relative;
+}
+
+.bg-paper-pattern::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  opacity: 1;
+  pointer-events: none;
+  background: 
+    radial-gradient(circle at center, rgba(0,0,0,0.8) 1px, transparent 1px);
+  background-size: 10px 10px;
+}
+
+/* Optional: Vignette overlay for depth */
+.bg-paper-pattern::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.03) 100%);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #09090b;
-    --foreground: #fafafa;
+    --background: #1c1c1c; /* Softer dark gray, not pitch black */
+    --foreground: #e6e2d6;
   }
   
-  .bg-paper-pattern {
-    background-image: radial-gradient(#ffffff05 1px, transparent 1px);
+  .bg-paper-pattern::before {
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opactiy='1'/%3E%3C/svg%3E");
+  }
+}
+
+/* Custom dashed "Stitch" borders */
+@layer utilities {
+  .stitch-b {
+    background-image: repeating-linear-gradient(to right, #71717a 0, #71717a 8px, transparent 8px, transparent 13px);
+    background-position: bottom;
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+    border-bottom: none !important;
+  }
+  
+  .stitch-t {
+    background-image: repeating-linear-gradient(to right, #71717a 0, #71717a 8px, transparent 8px, transparent 13px);
+    background-position: top;
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+    border-top: none !important;
+  }
+
+  .stitch-tb {
+     background-image: 
+        repeating-linear-gradient(to right, #71717a 0, #71717a 8px, transparent 8px, transparent 13px),
+        repeating-linear-gradient(to right, #71717a 0, #71717a 8px, transparent 8px, transparent 13px);
+    background-position: top, bottom;
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+    border-top: none !important;
+    border-bottom: none !important;
+  }
+
+  .stitch-r {
+    background-image: repeating-linear-gradient(to bottom, #71717a 0, #71717a 8px, transparent 8px, transparent 13px);
+    background-position: right;
+    background-size: 1px 100%;
+    background-repeat: no-repeat;
+    border-right: none !important;
+  }
+  
+  .stitch-br {
+     background-image: 
+        repeating-linear-gradient(to right, #71717a 0, #71717a 8px, transparent 8px, transparent 13px),
+        repeating-linear-gradient(to bottom, #71717a 0, #71717a 8px, transparent 8px, transparent 13px);
+    background-position: bottom, right;
+    background-size: 100% 1px, 1px 100%;
+    background-repeat: no-repeat;
+    border-bottom: none !important;
+    border-right: none !important;
+  }
+
+  /* Responsive Utilities */
+  @media (min-width: 768px) {
+    .md\:stitch-r {
+        background-image: repeating-linear-gradient(to bottom, #71717a 0, #71717a 8px, transparent 8px, transparent 13px);
+        background-position: right;
+        background-size: 1px 100%;
+        background-repeat: no-repeat;
+        border-right: none !important;
+    }
+    .md\:stitch-br {
+         background-image: 
+            repeating-linear-gradient(to right, #71717a 0, #71717a 8px, transparent 8px, transparent 13px),
+            repeating-linear-gradient(to bottom, #71717a 0, #71717a 8px, transparent 8px, transparent 13px);
+        background-position: bottom, right;
+        background-size: 100% 1px, 1px 100%;
+        background-repeat: no-repeat;
+        border-bottom: none !important;
+        border-right: none !important;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .lg\:stitch-r {
+        background-image: repeating-linear-gradient(to bottom, #71717a 0, #71717a 8px, transparent 8px, transparent 13px);
+        background-position: right;
+        background-size: 1px 100%;
+        background-repeat: no-repeat;
+        border-right: none !important;
+    }
+    .lg\:stitch-b {
+        background-image: repeating-linear-gradient(to right, #71717a 0, #71717a 8px, transparent 8px, transparent 13px);
+        background-position: bottom;
+        background-size: 100% 1px;
+        background-repeat: no-repeat;
+        border-bottom: none !important;
+    }
+    .lg\:stitch-br {
+         background-image: 
+            repeating-linear-gradient(to right, #71717a 0, #71717a 8px, transparent 8px, transparent 13px),
+            repeating-linear-gradient(to bottom, #71717a 0, #71717a 8px, transparent 8px, transparent 13px);
+        background-position: bottom, right;
+        background-size: 100% 1px, 1px 100%;
+        background-repeat: no-repeat;
+        border-bottom: none !important;
+        border-right: none !important;
+    }
   }
 }

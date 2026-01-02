@@ -21,26 +21,17 @@ export default function ProjectCard({ title, description, tags, link, github, ye
       
       <div className="flex flex-wrap gap-x-3 gap-y-1 mb-6">
         {tags.map((tag) => (
-          <span key={tag} className="text-zinc-400 text-[10px] font-mono uppercase tracking-wider">
+          <span key={tag} className="text-zinc-600 text-[10px] font-mono uppercase tracking-wider">
             #{tag}
           </span>
         ))}
       </div>
 
-      <div className="pt-4 border-t border-zinc-300 border-dashed flex gap-6">
-        {link && (
-            <Link 
-              href={link} 
-              className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-zinc-500 hover:text-zinc-900 transition-colors"
-            >
-              <ArrowUpRight size={14} />
-              LIVE
-            </Link>
-        )}
+      <div className="pt-4 stitch-t flex gap-6">
         {github && (
             <Link 
               href={github} 
-              className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-zinc-500 hover:text-zinc-900 transition-colors"
+              className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-zinc-700 hover:text-zinc-900 transition-colors"
             >
               <Github size={14} />
               GITHUB

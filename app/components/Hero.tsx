@@ -3,9 +3,9 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 lg:border-b border-zinc-300 border-dashed">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 lg:stitch-b">
       {/* Left Column: Intro */}
-      <div className="order-2 lg:order-1 p-6 md:p-8 lg:border-r border-b lg:border-b-0 border-zinc-300 border-dashed flex flex-col justify-center">
+      <div className="order-2 lg:order-1 p-6 md:p-8 stitch-b lg:stitch-r flex flex-col justify-center">
         <div className="max-w-xl">
           <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-serif font-bold leading-[1.1] tracking-tight mb-4 text-zinc-900">
             MEET YOUR <br/>
@@ -28,7 +28,7 @@ export default function Hero() {
 
           <div className="mt-12 pt-8 border-t border-zinc-900/20 border-dashed grid grid-cols-2 md:grid-cols-3 gap-8">
              <div>
-                <h4 className="font-mono text-xs uppercase tracking-widest text-zinc-500 mb-4">Expertise</h4>
+                <h4 className="font-mono text-xs uppercase tracking-widest text-zinc-700 mb-4">Expertise</h4>
                 <ul className="space-y-2 text-sm font-medium">
                    <li className="flex items-center gap-2">
                      <span className="w-1 h-1 bg-zinc-400 rounded-full"></span>
@@ -45,7 +45,7 @@ export default function Hero() {
                 </ul>
              </div>
              <div>
-                 <h4 className="font-mono text-xs uppercase tracking-widest text-zinc-500 mb-4">Focus</h4>
+                 <h4 className="font-mono text-xs uppercase tracking-widest text-zinc-700 mb-4">Focus</h4>
                  <ul className="space-y-2 text-sm font-medium">
                     <li className="flex items-center gap-2">
                       <span className="w-1 h-1 bg-zinc-400 rounded-full"></span>
@@ -66,7 +66,7 @@ export default function Hero() {
                     <p className="font-serif italic text-sm leading-relaxed text-zinc-700">
                       "Good design is as little design as possible."
                     </p>
-                    <p className="text-[10px] font-mono text-zinc-500 mt-2 uppercase">— Dieter Rams</p>
+                    <p className="text-[10px] font-mono text-zinc-700 mt-2 uppercase">— Dieter Rams</p>
                 </div>
              </div>
           </div>
@@ -89,18 +89,18 @@ export default function Hero() {
           </div>
           
           <div className="text-center mb-8">
-            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-500">
+            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-700">
                 Fig A. The Developer
             </span>
           </div>
 
           {/* Divider */}
-          <div className="w-full h-px border-t border-zinc-300 border-dashed mb-8"></div>
+          <div className="w-full h-px stitch-t mb-8"></div>
 
           {/* Connect Section */}
           <div className="w-full grid grid-cols-2 gap-8">
             <div>
-                <h3 className="font-mono text-xs uppercase tracking-widest text-zinc-500 mb-6">Connect</h3>
+                <h3 className="font-mono text-xs uppercase tracking-widest text-zinc-700 mb-6">Connect</h3>
                 <div className="flex flex-col gap-4">
                     <a href="#" className="flex items-center gap-3 group">
                         <Mail className="w-4 h-4 text-zinc-700 group-hover:text-zinc-900" />
@@ -123,23 +123,23 @@ export default function Hero() {
 
             {/* Toolkit Section */}
             <div>
-                <h3 className="font-mono text-xs uppercase tracking-widest text-zinc-500 mb-6">Toolkit</h3>
+                <h3 className="font-mono text-xs uppercase tracking-widest text-zinc-700 mb-6">Toolkit</h3>
                 <div className="flex flex-col gap-4">
-                     <span className="font-mono text-sm uppercase tracking-wider text-zinc-700">Next.Js <span className="text-zinc-400">19</span></span>
-                     <span className="font-mono text-sm uppercase tracking-wider text-zinc-700">Express.Js <span className="text-zinc-400">15</span></span>
+                     <span className="font-mono text-sm uppercase tracking-wider text-zinc-700">Next.Js <span className="text-zinc-600">19</span></span>
+                     <span className="font-mono text-sm uppercase tracking-wider text-zinc-700">Express.Js <span className="text-zinc-600">15</span></span>
                      <span className="font-mono text-sm uppercase tracking-wider text-zinc-700">TypeScript</span>
-                     <span className="font-mono text-sm uppercase tracking-wider text-zinc-700">Tailwind <span className="text-zinc-400">4.0</span></span>
+                     <span className="font-mono text-sm uppercase tracking-wider text-zinc-700">Tailwind <span className="text-zinc-600">4.0</span></span>
                 </div>
             </div>
           </div>
           
-          <div className="w-full mt-12 pt-8 border-t border-zinc-300 border-dashed grid grid-cols-2 gap-8">
+          <div className="w-full mt-12 pt-8 stitch-t grid grid-cols-2 gap-8">
              <div>
-                <h3 className="font-mono text-xs uppercase tracking-widest text-zinc-500 mb-2">Location</h3>
+                <h3 className="font-mono text-xs uppercase tracking-widest text-zinc-700 mb-2">Location</h3>
                 <p className="font-serif text-lg">Remotely Available</p>
              </div>
              <div>
-                <h3 className="font-mono text-xs uppercase tracking-widest text-zinc-500 mb-2">Status</h3>
+                <h3 className="font-mono text-xs uppercase tracking-widest text-zinc-700 mb-2">Status</h3>
                 <div className="flex items-center gap-2">
                     <span className="relative flex h-2 w-2">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
