@@ -1,6 +1,6 @@
 "use client";
 
-import { ScrollFadeIn, AnimatedTimeline, TimelineItem } from "./animations";
+import { ScrollFadeIn, AnimatedTimeline, TimelineItem, TextScramble } from "./animations";
 import Link from "next/link";
 import ProjectCard from "./ProjectCard";
 
@@ -27,7 +27,9 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
            {/* Section Header */}
            <ScrollFadeIn delay={0} duration={0.6}>
              <div className="px-6 py-3 md:px-8 md:py-4 stitch-b flex justify-between items-end">
-                <h2 className="text-3xl md:text-4xl font-serif font-bold">Featured Works</h2>
+                <h2 className="text-3xl md:text-4xl font-serif font-bold">
+                  <TextScramble text="Featured Works" duration={1} />
+                </h2>
                 <span className="font-mono text-xs text-zinc-700 mb-1 uppercase tracking-widest">Selected Projects • 2023-2024</span>
              </div>
            </ScrollFadeIn>
@@ -43,7 +45,7 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
                   <div className={`
                     ${index % 2 === 0 ? 'desktop-stitch-br' : 'desktop-stitch-b'} 
                   `}>
-                    <ProjectCard {...project} />
+                    <ProjectCard {...project} index={index} />
                   </div>
                 </ScrollFadeIn>
               ))}
@@ -54,7 +56,9 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
         <div className="lg:col-span-4 stitch-b flex flex-col">
             <ScrollFadeIn delay={0.1} duration={0.6}>
               <div className="px-6 py-3 md:px-8 md:py-4 stitch-b">
-                 <h2 className="text-3xl md:text-4xl font-serif font-bold text-zinc-900">Professional Experience</h2>
+                 <h2 className="text-3xl md:text-4xl font-serif font-bold text-zinc-900">
+                   <TextScramble text="Professional Experience" duration={1.2} />
+                 </h2>
               </div>
             </ScrollFadeIn>
             
@@ -94,7 +98,9 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
            {/* Section Header */}
            <ScrollFadeIn delay={0} duration={0.6}>
              <div className="px-6 py-2 md:px-8 md:py-3 stitch-b flex justify-between items-end">
-                <h2 className="text-3xl md:text-4xl font-serif font-bold">Recent Writings</h2>
+                <h2 className="text-3xl md:text-4xl font-serif font-bold">
+                  <TextScramble text="Recent Writings" duration={1} />
+                </h2>
                 <span className="font-mono text-xs text-zinc-700 mb-1 uppercase tracking-widest">Thoughts & Insights</span>
              </div>
            </ScrollFadeIn>
@@ -136,7 +142,9 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
          <div className="lg:col-span-4 flex flex-col">
             <ScrollFadeIn delay={0.1} duration={0.6}>
               <div className="px-6 py-2 md:px-8 md:py-3 stitch-b flex items-end">
-                 <h2 className="text-3xl md:text-4xl font-serif font-bold text-zinc-900">Education</h2>
+                 <h2 className="text-3xl md:text-4xl font-serif font-bold text-zinc-900">
+                   <TextScramble text="Education" duration={0.8} />
+                 </h2>
               </div>
             </ScrollFadeIn>
             <ScrollFadeIn delay={0.2} duration={0.5}>

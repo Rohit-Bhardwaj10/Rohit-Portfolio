@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Mail, Linkedin, Twitter, Github } from "lucide-react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { FadeIn, TypeWriter, MagneticButton } from "./animations";
+import { FadeIn, TypeWriter, MagneticButton, TiltCard } from "./animations";
 import ContactModal from "./ContactModal";
 
 export default function Hero() {
@@ -103,23 +103,24 @@ export default function Hero() {
           {/* Image Card */}
           <div className="w-full max-w-md">
             <FadeIn delay={0.5} duration={0.8} direction="none">
-              <motion.div 
-                className="border border-zinc-900 bg-white p-2 md:p-3 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] mb-4"
-                whileHover={{ 
-                  boxShadow: "12px 12px 0px 0px rgba(0,0,0,1)",
-                  y: -4
-                }}
-                transition={{ duration: 0.2 }}
-              >
-                <div className="relative aspect-square w-full border border-zinc-200 bg-zinc-50 overflow-hidden">
-                   <Image 
-                     src="/image.png" 
-                     alt="The Developer"
-                     fill
-                     className="object-cover object-top filter grayscale contrast-125"
-                   />
-                </div>
-              </motion.div>
+              <TiltCard tiltAmount={12} glareEnabled={true}>
+                <motion.div 
+                  className="border border-zinc-900 bg-white p-2 md:p-3 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] mb-4"
+                  whileHover={{ 
+                    boxShadow: "12px 12px 0px 0px rgba(0,0,0,1)",
+                  }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <div className="relative aspect-square w-full border border-zinc-200 bg-zinc-50 overflow-hidden">
+                     <Image 
+                       src="/image.png" 
+                       alt="The Developer"
+                       fill
+                       className="object-cover object-top filter grayscale contrast-125"
+                     />
+                  </div>
+                </motion.div>
+              </TiltCard>
             </FadeIn>
             
             <FadeIn delay={0.7} duration={0.5}>

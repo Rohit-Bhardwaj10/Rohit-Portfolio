@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Instrument_Serif, Inter } from "next/font/google";
 import "./globals.css";
 import SmoothScrollProvider from "./components/SmoothScrollProvider";
+import CustomCursor from "./components/CustomCursor";
 
 const instrumentSerif = Instrument_Serif({
   weight: "400",
@@ -30,6 +31,7 @@ export default function RootLayout({
         className={`${instrumentSerif.variable} ${inter.variable} antialiased bg-[#C4BCB2] text-zinc-900 dark:bg-zinc-950 dark:text-zinc-50 font-sans`}
       >
         <SmoothScrollProvider>
+          <CustomCursor />
           {children}
         </SmoothScrollProvider>
       </body>

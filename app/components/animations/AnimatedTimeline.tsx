@@ -10,7 +10,7 @@ interface AnimatedTimelineProps {
 
 export default function AnimatedTimeline({ children, className = "" }: AnimatedTimelineProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: false, margin: "-100px" });
 
   return (
     <div ref={ref} className={`relative ml-8 md:ml-10 my-8 flex flex-col gap-10 pr-6 ${className}`}>
@@ -35,7 +35,7 @@ interface TimelineItemProps {
 
 export function TimelineItem({ children, index, isFirst = false, isLast = false }: TimelineItemProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const isInView = useInView(ref, { once: false, margin: "-50px" });
 
   return (
     <motion.div 
