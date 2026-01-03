@@ -20,7 +20,7 @@ export default function TextScramble({
   className = "",
   duration = 0.8,
   scrambleSpeed = 30,
-  characterSet = defaultChars + japaneseChars,
+  characterSet = defaultChars,
   autoStart = false,
   startDelay = 0,
 }: TextScrambleProps) {
