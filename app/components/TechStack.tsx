@@ -32,8 +32,8 @@ export default function TechStack() {
       </div>
 
       {/* Gradient Masks for smooth fade */}
-      <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-[#C4BCB2] to-transparent z-10" />
-      <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-[#C4BCB2] to-transparent z-10" />
+      <div className="absolute left-0 top-0 bottom-[1px] w-20 bg-gradient-to-r from-[#C4BCB2] to-transparent z-10" />
+      <div className="absolute right-0 top-0 bottom-[1px] w-20 bg-gradient-to-l from-[#C4BCB2] to-transparent z-10" />
 
       {/* Marquee Container */}
       <div className="flex whitespace-nowrap marquee-container hover:pause-animation">

@@ -1,4 +1,4 @@
-import { Github, ExternalLink } from "lucide-react";
+import { Github, ExternalLink, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 
 interface ProjectProps {
@@ -13,7 +13,7 @@ interface ProjectProps {
 
 export default function ProjectCard({ title, description, tags, link, github, year, index = 0 }: ProjectProps) {
   return (
-    <div className="relative h-full p-6 md:p-8">
+    <div className="relative h-full p-6 md:p-8 flex flex-col">
       {/* Project number - top corner */}
       <div className="absolute top-4 right-4">
         <span className="text-5xl md:text-6xl font-serif font-black text-zinc-900/10 leading-none">
@@ -34,7 +34,7 @@ export default function ProjectCard({ title, description, tags, link, github, ye
       </h3>
 
       {/* Description */}
-      <p className="text-zinc-700 text-sm md:text-base leading-relaxed mb-6 flex-1">
+      <p className="text-zinc-700 text-sm md:text-base leading-relaxed mb-6 flex-1 line-clamp-3">
         {description}
       </p>
 
@@ -61,6 +61,7 @@ export default function ProjectCard({ title, description, tags, link, github, ye
           >
             <Github size={14} />
             <span>Github</span>
+            <ArrowUpRight size={14} />
           </Link>
         )}
         {link && link !== "#" && (

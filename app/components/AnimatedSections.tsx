@@ -4,6 +4,7 @@ import { ScrollFadeIn, AnimatedTimeline, TimelineItem, TextScramble } from "./an
 import Link from "next/link";
 import ProjectCard from "./ProjectCard";
 import ThroughMyLens from "./ThroughMyLens";
+import { ArrowUpRight, BookOpen } from "lucide-react";
 
 interface Project {
   title: string;
@@ -27,9 +28,10 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
         <div className="lg:col-span-8 stitch-b lg:stitch-br">
            {/* Section Header */}
            <ScrollFadeIn delay={0} duration={0.6}>
-             <div className="px-6 py-3 md:px-8 md:py-4 stitch-b flex justify-between items-end">
+             <div className="px-6 py-3 md:px-8 md:py-4 stitch-b lg:stitch-br flex justify-between items-end bg-[#C4BCB2] relative z-10">
                 <h2 className="text-3xl md:text-4xl font-serif font-bold">
-                  <TextScramble text="Featured Works" duration={1} />
+                  <span className="md:hidden">Featured Works</span>
+                  <TextScramble className="hidden md:inline-block" text="Featured Works" duration={1} />
                 </h2>
                 <span className="font-mono text-xs text-zinc-700 mb-1 uppercase tracking-widest">Selected Projects • 2023-2024</span>
              </div>
@@ -42,9 +44,11 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
                   delay={0.1 * index} 
                   duration={0.5}
                   direction={index % 2 === 0 ? "left" : "right"}
+                  className="h-full"
                 >
                   <div className={`
                     ${index % 2 === 0 ? 'desktop-stitch-br' : 'desktop-stitch-b'} 
+                    h-full
                   `}>
                     <ProjectCard {...project} index={index} />
                   </div>
@@ -56,9 +60,10 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
         {/* Sidebar Area (Experience) */}
         <div className="lg:col-span-4 stitch-b flex flex-col">
             <ScrollFadeIn delay={0.1} duration={0.6}>
-              <div className="px-6 py-3 md:px-8 md:py-4 stitch-b">
+              <div className="px-6 py-3 md:px-8 md:py-4 stitch-b bg-[#C4BCB2] relative z-10">
                  <h2 className="text-3xl md:text-4xl font-serif font-bold text-zinc-900">
-                   <TextScramble text="Professional Experience" duration={1.2} />
+                   <span className="md:hidden">Experience</span>
+                   <TextScramble className="hidden md:inline-block" text="Experience" duration={1.2} />
                  </h2>
               </div>
             </ScrollFadeIn>
@@ -96,19 +101,20 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
       {/* Row 2: Recent Writings & Education */}
       <div className="grid grid-cols-1 lg:grid-cols-12">
          {/* Recent Writings (Col 8) */}
-         <div className="lg:col-span-8 lg:stitch-r">
+         <div className="lg:col-span-8 stitch-b lg:stitch-br">
            {/* Section Header */}
            <ScrollFadeIn delay={0} duration={0.6}>
-             <div className="px-6 py-2 md:px-8 md:py-3 stitch-b flex justify-between items-end">
+             <div className="px-6 py-2 md:px-8 md:py-3 stitch-b lg:stitch-br flex justify-between items-end bg-[#C4BCB2] relative z-10">
                 <h2 className="text-3xl md:text-4xl font-serif font-bold">
-                  <TextScramble text="Recent Writings" duration={1} />
+                  <span className="md:hidden">Recent Writings</span>
+                  <TextScramble className="hidden md:inline-block" text="Recent Writings" duration={1} />
                 </h2>
                 <span className="font-mono text-xs text-zinc-700 mb-1 uppercase tracking-widest">Thoughts & Insights</span>
              </div>
            </ScrollFadeIn>
 
            <div className="grid grid-cols-1 md:grid-cols-2">
-               <ScrollFadeIn delay={0.1} duration={0.5} direction="left">
+               <ScrollFadeIn delay={0.1} duration={0.5} direction="left" className="h-full">
                  <div className="desktop-stitch-r p-6 md:p-8 flex flex-col h-full">
                     <span className="font-mono text-[10px] text-zinc-600 uppercase tracking-widest mb-3">Oct 22, 2025</span>
                     <Link href="https://dev.to/rohit_bhardwaj_94db62db7b/the-centralized-core-of-decentralization-rethinking-web3s-infrastructure-40da" target="_blank" rel="noopener noreferrer">
@@ -117,13 +123,25 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
                     <p className="text-zinc-600 leading-relaxed mb-6 flex-1">
                       Rethinking Web3's Infrastructure. Examining the reliance of decentralized networks on centralized cloud providers and efficient infrastructure patterns.
                     </p>
-                    <div className="flex items-center gap-2 mt-auto">
+                    <div className="flex items-center gap-2 mb-6">
                         <span className="text-zinc-600 text-[10px] font-mono uppercase tracking-wider">#Web3</span>
+                    </div>
+                    <div className="pt-4 stitch-t flex items-center gap-6">
+                      <Link 
+                        href="https://dev.to/rohit_bhardwaj_94db62db7b/the-centralized-core-of-decentralization-rethinking-web3s-infrastructure-40da"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-zinc-700 hover:text-zinc-900 transition-colors"
+                      >
+                        <BookOpen size={14} />
+                        <span>Read Article</span>
+                        <ArrowUpRight size={14} />
+                      </Link>
                     </div>
                  </div>
                </ScrollFadeIn>
 
-               <ScrollFadeIn delay={0.2} duration={0.5} direction="right">
+               <ScrollFadeIn delay={0.2} duration={0.5} direction="right" className="h-full">
                  <div className="p-6 md:p-8 flex flex-col h-full">
                     <span className="font-mono text-[10px] text-zinc-600 uppercase tracking-widest mb-3">Jun 9, 2025</span>
                     <Link href="https://medium.com/@beastslayer23456/backend-scaling-strategies-for-high-traffic-systems-16c8d3ffccd2" target="_blank" rel="noopener noreferrer">
@@ -132,8 +150,20 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
                     <p className="text-zinc-600 leading-relaxed mb-6 flex-1">
                       A deep dive into load balancing, database sharding, and caching strategies for building high-traffic, resilient systems.
                     </p>
-                    <div className="flex items-center gap-2 mt-auto">
+                    <div className="flex items-center gap-2 mb-6">
                         <span className="text-zinc-600 text-[10px] font-mono uppercase tracking-wider">#SystemDesign</span>
+                    </div>
+                    <div className="pt-4 stitch-t flex items-center gap-6">
+                      <Link 
+                        href="https://medium.com/@beastslayer23456/backend-scaling-strategies-for-high-traffic-systems-16c8d3ffccd2"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-zinc-700 hover:text-zinc-900 transition-colors"
+                      >
+                        <BookOpen size={14} />
+                        <span>Read Article</span>
+                        <ArrowUpRight size={14} />
+                      </Link>
                     </div>
                  </div>
                </ScrollFadeIn>
@@ -141,11 +171,12 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
          </div>
 
          {/* Education (Col 4) */}
-         <div className="lg:col-span-4 flex flex-col">
+         <div className="lg:col-span-4 flex flex-col stitch-b">
             <ScrollFadeIn delay={0.1} duration={0.6}>
-              <div className="px-6 py-2 md:px-8 md:py-3 stitch-b flex items-end">
+              <div className="px-6 py-2 md:px-8 md:py-3 stitch-b flex items-end bg-[#C4BCB2] relative z-10">
                  <h2 className="text-3xl md:text-4xl font-serif font-bold text-zinc-900">
-                   <TextScramble text="Education" duration={0.8} />
+                   <span className="md:hidden">Education</span>
+                   <TextScramble className="hidden md:inline-block" text="Education" duration={0.8} />
                  </h2>
               </div>
             </ScrollFadeIn>

@@ -34,7 +34,7 @@ export default function Hero() {
             <FadeIn delay={2.5} duration={0.6}>
               <div className="flex flex-wrap gap-4">
                 <MagneticButton strength={0.25}>
-                  <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="bg-zinc-900 text-zinc-50 px-8 py-4 text-sm font-bold uppercase tracking-widest shadow-[5px_5px_0px_0px_#71717a] hover:shadow-[2px_2px_0px_0px_#71717a] hover:translate-x-[3px] hover:translate-y-[3px] transition-all border border-zinc-900 cursor-pointer inline-block text-center">
+                  <a href="/Rohit_CV.pdf" target="_blank" rel="noopener noreferrer" className="bg-zinc-900 text-zinc-50 px-8 py-4 text-sm font-bold uppercase tracking-widest shadow-[5px_5px_0px_0px_#71717a] hover:shadow-[2px_2px_0px_0px_#71717a] hover:translate-x-[3px] hover:translate-y-[3px] transition-all border border-zinc-900 cursor-pointer inline-block text-center">
                     Read Resume
                   </a>
                 </MagneticButton>

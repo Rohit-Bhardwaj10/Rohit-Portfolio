@@ -17,7 +17,7 @@ export default function Home() {
       title: "DePIN Uptime Monitor",
       description: "A monitoring and rewards system for decentralized validators. Tracks uptime, logs performance, and automates payouts via on-chain execution.",
       tags: ["Next.js", "PostgreSQL", "Solana", "Docker"],
-      year: "2024",
+      year: "2025",
       link: "#",
       github: "https://github.com/Rohit-Bhardwaj10/stay-up"
     },
@@ -25,7 +25,7 @@ export default function Home() {
       title: "Events Flow",
       description: "A full-stack event management platform for creating, listing, and registering for events with integrated online payments via Razorpay.",
       tags: ["TypeScript", "Next.js", "Razorpay"],
-      year: "2024",
+      year: "2025",
       link: "#",
       github: "https://github.com/Rohit-Bhardwaj10/EventFlow"
     },
@@ -33,14 +33,14 @@ export default function Home() {
       title: "DHiree",
       description: "Decentralized freelance platform connecting developers with companies. Ensures transparent job postings and secure payments via Ethereum smart contracts.",
       tags: ["React", "Solidity", "Hardhat", "IPFS"],
-      year: "2024",
+      year: "2025",
       link: "#",
       github: "https://github.com/Rohit-Bhardwaj10/D-Hiree"
     }
   ];
 
   return (
-    <div className="min-h-screen text-zinc-900 bg-[#C4BCB2] relative">
+    <div className="min-h-screen text-zinc-900 bg-[#C4BCB2] relative overflow-x-hidden w-full">
       {/* Grain texture overlay */}
       <div 
         className="fixed inset-0 pointer-events-none" 
@@ -67,7 +67,7 @@ export default function Home() {
             <p className="text-xs font-mono">© 2025 The Dev Chronicles. All rights reserved.</p>
           </div>
           <div className="flex gap-6 text-xs font-mono uppercase tracking-widest">
-            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Resume</a>
+            <a href="/Rohit_CV.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Resume</a>
             <a href="https://x.com/whoisrohit45" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Twitter</a>
             <a href="https://www.linkedin.com/in/dev-rohitbhardwaj/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LinkedIn</a>
             <a href="https://github.com/Rohit-Bhardwaj10/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Github</a>
