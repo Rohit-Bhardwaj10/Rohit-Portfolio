@@ -1,7 +1,7 @@
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import AnimatedSections from "./components/AnimatedSections";
-import TechStack from "./components/TechStack";
+import TechStack from "./components/Techstack";
 
 export default function Home() {
   const projects = [

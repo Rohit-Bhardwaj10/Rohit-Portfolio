@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Mail, Linkedin, Twitter, Github } from "lucide-react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { FadeIn, TypeWriter, MagneticButton, TiltCard, TextScramble } from "./animations";
+import { FadeIn, TypeWriter, MagneticButton, TiltCard } from "./animations";
 import ContactModal from "./ContactModal";
 
 export default function Hero() {
@@ -16,10 +16,13 @@ export default function Hero() {
         {/* Left Column: Intro */}
         <div className="order-2 lg:order-1 p-6 md:p-8 stitch-b lg:stitch-r flex flex-col justify-center">
           <div className="max-w-xl">
-            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-serif font-bold leading-[1.1] tracking-tight mb-4 text-zinc-900 flex flex-col items-start">
-               <TextScramble text="MEET YOUR" autoStart startDelay={500} duration={1.2} />
-               <TextScramble text="NEW FAVOURITE" autoStart startDelay={1700} duration={1.2} />
-               <TextScramble text="DEVELOPER" autoStart startDelay={2900} duration={1.2} />
+            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-serif font-bold leading-[1.1] tracking-tight mb-4 text-zinc-900">
+              <TypeWriter 
+                lines={["MEET YOUR", "NEW FAVOURITE", "DEVELOPER"]}
+                delay={0.8}
+                showCursor={true}
+                cursorClassName="text-zinc-400 font-light ml-1"
+              />
             </h1>
             
             <FadeIn delay={2.2} duration={0.6}>
