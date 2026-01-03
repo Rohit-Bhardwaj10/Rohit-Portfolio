@@ -1,21 +1,28 @@
 "use client";
 
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 
 interface TextScrambleProps {
   text: string;
   className?: string;
   duration?: number;
   scrambleSpeed?: number;
+  characterSet?: string;
+  autoStart?: boolean;
+  startDelay?: number;
 }
 
-const chars = "!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+const defaultChars = "!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+const japaneseChars = "アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズヅブプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン";
 
 export default function TextScramble({
   text,
   className = "",
   duration = 0.8,
   scrambleSpeed = 30,
+  characterSet = defaultChars + japaneseChars,
+  autoStart = false,
+  startDelay = 0,
 }: TextScrambleProps) {
   const [displayText, setDisplayText] = useState(text);
   const isAnimating = useRef(false);
@@ -39,7 +46,7 @@ export default function TextScramble({
     // Start with scrambled text
     setDisplayText(
       textArray
-        .map((char) => (char === " " ? " " : chars[Math.floor(Math.random() * chars.length)]))
+        .map((char) => (char === " " ? " " : characterSet[Math.floor(Math.random() * characterSet.length)]))
         .join("")
     );
 
@@ -50,7 +57,7 @@ export default function TextScramble({
           .map((char, index) => {
             if (index < currentIndex) return char;
             if (char === " ") return " ";
-            return chars[Math.floor(Math.random() * chars.length)];
+            return characterSet[Math.floor(Math.random() * characterSet.length)];
           })
           .join("")
       );
@@ -65,7 +72,17 @@ export default function TextScramble({
         isAnimating.current = false;
       }
     }, revealPerChar);
-  }, [text, duration, scrambleSpeed]);
+  }, [text, duration, scrambleSpeed, characterSet]);
+
+  useEffect(() => {
+    if (autoStart) {
+      // Small delay to ensure client-side hydration doesn't mismatch instantly or looks better
+      const timer = setTimeout(() => {
+        scramble();
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+  }, [autoStart, scramble]);
 
   const handleMouseEnter = () => {
     scramble();

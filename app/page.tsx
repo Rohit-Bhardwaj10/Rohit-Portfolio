@@ -1,7 +1,7 @@
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import AnimatedSections from "./components/AnimatedSections";
-
+import TechStack from "./components/TechStack";
 
 export default function Home() {
   const projects = [
@@ -56,6 +56,7 @@ export default function Home() {
       
       <main>
         <Hero />
+        <TechStack />
         <AnimatedSections projects={projects} />
       </main>
 
