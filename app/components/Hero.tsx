@@ -152,15 +152,15 @@ export default function Hero() {
                             <Mail className="w-4 h-4 text-zinc-700 group-hover:text-zinc-900 transition-colors" />
                             <span className="font-mono text-sm uppercase tracking-wider text-zinc-700 group-hover:underline decoration-1 underline-offset-4">Email</span>
                         </button>
-                        <a href="#" className="flex items-center gap-3 group">
+                        <a href="https://www.linkedin.com/in/dev-rohitbhardwaj/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 group">
                             <Linkedin className="w-4 h-4 text-zinc-700 group-hover:text-zinc-900 transition-colors" />
                             <span className="font-mono text-sm uppercase tracking-wider text-zinc-700 group-hover:underline decoration-1 underline-offset-4">LinkedIn</span>
                         </a>
-                        <a href="#" className="flex items-center gap-3 group">
+                        <a href="https://x.com/whoisrohit45" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 group">
                             <Twitter className="w-4 h-4 text-zinc-700 group-hover:text-zinc-900 transition-colors" />
                             <span className="font-mono text-sm uppercase tracking-wider text-zinc-700 group-hover:underline decoration-1 underline-offset-4">Twitter</span>
                         </a>
-                        <a href="#" className="flex items-center gap-3 group">
+                        <a href="https://github.com/Rohit-Bhardwaj10/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 group">
                             <Github className="w-4 h-4 text-zinc-700 group-hover:text-zinc-900 transition-colors" />
                             <span className="font-mono text-sm uppercase tracking-wider text-zinc-700 group-hover:underline decoration-1 underline-offset-4">GitHub</span>
                         </a>

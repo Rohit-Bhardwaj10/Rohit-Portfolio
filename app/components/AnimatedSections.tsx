@@ -3,6 +3,7 @@
 import { ScrollFadeIn, AnimatedTimeline, TimelineItem, TextScramble } from "./animations";
 import Link from "next/link";
 import ProjectCard from "./ProjectCard";
+import ThroughMyLens from "./ThroughMyLens";
 
 interface Project {
   title: string;
@@ -91,6 +92,7 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
         </div>
       </div>
 
+
       {/* Row 2: Recent Writings & Education */}
       <div className="grid grid-cols-1 lg:grid-cols-12">
          {/* Recent Writings (Col 8) */}
@@ -156,6 +158,9 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
             </ScrollFadeIn>
          </div>
       </div>
+      
+      {/* Photography Section (Ended) */}
+      <ThroughMyLens />
     </>
   );
 }

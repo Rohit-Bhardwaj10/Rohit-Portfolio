@@ -165,6 +165,16 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/* Hide scrollbar - Global Utility */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
 /* Global Responsive Utilities - Defined outside layer for priority */
 @media (min-width: 768px) {
     .desktop-stitch-br {
