@@ -20,15 +20,15 @@ export default function Stamp() {
             d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"
           />
         </defs>
-        <text className="text-[8px] font-bold fill-green-600 uppercase tracking-wider">
+        <text className="text-[8px] font-bold fill-zinc-600 uppercase tracking-wider">
           <textPath href="#circle">
             OPEN TO WORK • OPEN TO WORK • OPEN TO WORK • 
           </textPath>
         </text>
       </svg>
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="w-10 h-10 md:w-20 md:h-20 rounded-full border-2 border-green-600 flex items-center justify-center bg-transparent">
-          <span className="text-green-600 font-bold text-xs md:text-xl rotate-[-12deg]">HIRE<br/>ME</span>
+        <div className="w-10 h-10 md:w-20 md:h-20 rounded-full border-2 border-zinc-600 flex items-center justify-center bg-transparent">
+          <span className="text-zinc-600 font-bold text-[9px] md:text-base rotate-[-12deg] leading-none text-center">SAY<br/>HELLO</span>
         </div>
       </div>
     </div>

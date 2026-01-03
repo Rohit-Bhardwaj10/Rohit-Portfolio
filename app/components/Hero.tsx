@@ -18,7 +18,7 @@ export default function Hero() {
           <div className="max-w-xl">
             <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-serif font-bold leading-[1.1] tracking-tight mb-4 text-zinc-900">
               <TypeWriter 
-                lines={["MEET YOUR", "NEW FAVOURITE", "DEVELOPER"]}
+                lines={["TURNING YOUR", "IDEAS INTO", "DIGITAL MAGIC"]}
                 delay={0.8}
                 showCursor={true}
                 cursorClassName="text-zinc-400 font-light ml-1"
