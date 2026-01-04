@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --font-serif: var(--font-instrument-serif);
-  --font-sans: var(--font-inter);
+  --font-serif: var(--font-titillium);
+  --font-sans: var(--font-quicksand);
   
   /* "Stone" grey-beige, specific user request */
   --color-background: #C4BCB2; 
@@ -19,7 +19,7 @@
 }
 
 body {
-  font-family: var(--font-inter);
+  font-family: var(--font-quicksand);
   background: var(--color-background);
   color: var(--color-foreground);
 }
@@ -46,7 +46,7 @@ html.lenis, html.lenis body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-instrument-serif);
+  font-family: var(--font-titillium);
 }
 
 .bg-paper-pattern {
@@ -91,76 +91,46 @@ h1, h2, h3, h4, h5, h6 {
 /* Custom dashed "Stitch" borders */
 @layer utilities {
   .stitch-b {
-    background-image: repeating-linear-gradient(to right, #71717a 0, #71717a 8px, transparent 8px, transparent 13px);
-    background-position: bottom;
-    background-size: 100% 1px;
-    background-repeat: no-repeat;
-    border-bottom: none !important;
+    border-bottom: 1px solid rgba(24, 24, 27, 0.15);
+    background-image: none !important;
   }
   
   .stitch-t {
-    background-image: repeating-linear-gradient(to right, #71717a 0, #71717a 8px, transparent 8px, transparent 13px);
-    background-position: top;
-    background-size: 100% 1px;
-    background-repeat: no-repeat;
-    border-top: none !important;
+    border-top: 1px solid rgba(24, 24, 27, 0.15);
+    background-image: none !important;
   }
 
   .stitch-tb {
-     background-image: 
-        repeating-linear-gradient(to right, #71717a 0, #71717a 8px, transparent 8px, transparent 13px),
-        repeating-linear-gradient(to right, #71717a 0, #71717a 8px, transparent 8px, transparent 13px);
-    background-position: top, bottom;
-    background-size: 100% 1px;
-    background-repeat: no-repeat;
-    border-top: none !important;
-    border-bottom: none !important;
+    border-top: 1px solid rgba(24, 24, 27, 0.15);
+    border-bottom: 1px solid rgba(24, 24, 27, 0.15);
+    background-image: none !important;
   }
 
   .stitch-r {
-    background-image: repeating-linear-gradient(to bottom, #71717a 0, #71717a 8px, transparent 8px, transparent 13px);
-    background-position: right;
-    background-size: 1px 100%;
-    background-repeat: no-repeat;
-    border-right: none !important;
+    border-right: 1px solid rgba(24, 24, 27, 0.15);
+    background-image: none !important;
   }
   
   .stitch-br {
-     background-image: 
-        repeating-linear-gradient(to right, #71717a 0, #71717a 8px, transparent 8px, transparent 13px),
-        repeating-linear-gradient(to bottom, #71717a 0, #71717a 8px, transparent 8px, transparent 13px);
-    background-position: bottom, right;
-    background-size: 100% 1px, 1px 100%;
-    background-repeat: no-repeat;
-    border-bottom: none !important;
-    border-right: none !important;
+    border-bottom: 1px solid rgba(24, 24, 27, 0.15);
+    border-right: 1px solid rgba(24, 24, 27, 0.15);
+    background-image: none !important;
   }
 
   /* Existing lg classes inside @layer utilities */
   @media (min-width: 1024px) {
     .lg\:stitch-r {
-        background-image: repeating-linear-gradient(to bottom, #71717a 0, #71717a 8px, transparent 8px, transparent 13px);
-        background-position: right;
-        background-size: 1px 100%;
-        background-repeat: no-repeat;
-        border-right: none !important;
+        border-right: 1px solid rgba(24, 24, 27, 0.15);
+        background-image: none !important;
     }
     .lg\:stitch-b {
-        background-image: repeating-linear-gradient(to right, #71717a 0, #71717a 8px, transparent 8px, transparent 13px);
-        background-position: bottom;
-        background-size: 100% 1px;
-        background-repeat: no-repeat;
-        border-bottom: none !important;
+        border-bottom: 1px solid rgba(24, 24, 27, 0.15);
+        background-image: none !important;
     }
     .lg\:stitch-br {
-         background-image: 
-            repeating-linear-gradient(to right, #71717a 0, #71717a 8px, transparent 8px, transparent 13px),
-            repeating-linear-gradient(to bottom, #71717a 0, #71717a 8px, transparent 8px, transparent 13px);
-        background-position: bottom, right;
-        background-size: 100% 1px, 1px 100%;
-        background-repeat: no-repeat;
-        border-bottom: none !important;
-        border-right: none !important;
+        border-bottom: 1px solid rgba(24, 24, 27, 0.15);
+        border-right: 1px solid rgba(24, 24, 27, 0.15);
+        background-image: none !important;
     }
   }
 }
@@ -178,25 +148,18 @@ h1, h2, h3, h4, h5, h6 {
 /* Global Responsive Utilities - Defined outside layer for priority */
 @media (min-width: 768px) {
     .desktop-stitch-br {
-         background-image: 
-            repeating-linear-gradient(to right, #71717a 0, #71717a 8px, transparent 8px, transparent 13px),
-            repeating-linear-gradient(to bottom, #71717a 0, #71717a 8px, transparent 8px, transparent 13px) !important;
-        background-position: bottom, right !important;
-        background-size: 100% 1px, 1px 100% !important;
-        background-repeat: no-repeat !important;
+        border-bottom: 1px solid rgba(24, 24, 27, 0.15) !important;
+        border-right: 1px solid rgba(24, 24, 27, 0.15) !important;
+        background-image: none !important;
     }
 
     .desktop-stitch-r {
-        background-image: repeating-linear-gradient(to bottom, #71717a 0, #71717a 8px, transparent 8px, transparent 13px) !important;
-        background-position: right !important;
-        background-size: 1px 100% !important;
-        background-repeat: no-repeat !important;
+        border-right: 1px solid rgba(24, 24, 27, 0.15) !important;
+        background-image: none !important;
     }
 
     .desktop-stitch-b {
-        background-image: repeating-linear-gradient(to right, #71717a 0, #71717a 8px, transparent 8px, transparent 13px) !important;
-        background-position: bottom !important;
-        background-size: 100% 1px !important;
-        background-repeat: no-repeat !important;
+        border-bottom: 1px solid rgba(24, 24, 27, 0.15) !important;
+        background-image: none !important;
     }
 }

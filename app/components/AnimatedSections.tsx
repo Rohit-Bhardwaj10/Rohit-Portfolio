@@ -1,6 +1,7 @@
 "use client";
 
 import { ScrollFadeIn, AnimatedTimeline, TimelineItem, TextScramble } from "./animations";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import ProjectCard from "./ProjectCard";
 import ThroughMyLens from "./ThroughMyLens";
@@ -77,7 +78,7 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
                     <span className="font-mono text-[10px] text-zinc-600 uppercase tracking-widest mt-1 sm:mt-0">2024 - Present</span>
                  </div>
                  <p className="font-serif italic text-zinc-700 mb-3 text-base">Backend Developer Intern</p>
-                 <p className="text-zinc-600 leading-relaxed text-sm md:text-base">
+                 <p className="text-zinc-600 leading-relaxed text-sm md:text-base font-medium">
                    Working on scalable backend architecture, optimizing database performance, and building robust API services. Implemented caching strategies and query optimization to improve response times. Collaborated with cross-functional teams to design and develop RESTful APIs serving thousands of daily users.
                  </p>
               </TimelineItem>
@@ -89,7 +90,7 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
                     <span className="font-mono text-[10px] text-zinc-600 uppercase tracking-widest mt-1 sm:mt-0">2023 - Present</span>
                  </div>
                  <p className="font-serif italic text-zinc-700 mb-3 text-base">Full Stack Developer</p>
-                 <p className="text-zinc-600 leading-relaxed text-sm md:text-base">
+                 <p className="text-zinc-600 leading-relaxed text-sm md:text-base font-medium">
                    Developed multiple end-to-end production-grade systems and developer tools, focusing on performance, scalability, and clean code architecture. Built responsive web applications using modern frameworks and delivered projects that handled high traffic loads.
                  </p>
               </TimelineItem>
@@ -120,7 +121,7 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
                     <Link href="https://dev.to/rohit_bhardwaj_94db62db7b/the-centralized-core-of-decentralization-rethinking-web3s-infrastructure-40da" target="_blank" rel="noopener noreferrer">
                       <h3 className="text-2xl font-serif font-bold text-zinc-900 mb-3 hover:underline cursor-pointer">The Centralized Core of Decentralization</h3>
                     </Link>
-                    <p className="text-zinc-600 leading-relaxed mb-6 flex-1">
+                    <p className="text-zinc-600 leading-relaxed mb-6 flex-1 font-medium">
                       Rethinking Web3's Infrastructure. Examining the reliance of decentralized networks on centralized cloud providers and efficient infrastructure patterns.
                     </p>
                     <div className="flex items-center gap-2 mb-6">
@@ -147,7 +148,7 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
                     <Link href="https://medium.com/@beastslayer23456/backend-scaling-strategies-for-high-traffic-systems-16c8d3ffccd2" target="_blank" rel="noopener noreferrer">
                       <h3 className="text-2xl font-serif font-bold text-zinc-900 mb-3 hover:underline cursor-pointer">Backend Scaling Strategies</h3>
                     </Link>
-                    <p className="text-zinc-600 leading-relaxed mb-6 flex-1">
+                    <p className="text-zinc-600 leading-relaxed mb-6 flex-1 font-medium">
                       A deep dive into load balancing, database sharding, and caching strategies for building high-traffic, resilient systems.
                     </p>
                     <div className="flex items-center gap-2 mb-6">

@@ -64,7 +64,7 @@ export default function Home() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-center md:text-left">
             <h2 className="font-serif text-2xl text-zinc-100 mb-2">ROHIT BHARDWAJ</h2>
-            <p className="text-xs font-mono">© 2025 The Dev Chronicles. All rights reserved.</p>
+            <p className="text-xs font-mono">© 2025 . All rights reserved.</p>
           </div>
           <div className="flex gap-6 text-xs font-mono uppercase tracking-widest">
             <a href="/Rohit_CV.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Resume</a>

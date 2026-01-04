@@ -53,8 +53,11 @@ export default function Header() {
         </motion.div>
         
         <FadeIn delay={0.2} duration={0.7}>
-          <h1 className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-serif font-black tracking-tight leading-none mb-2">
-              Rohit Bhardwaj
+          <h1 
+            className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-bold  leading-none mb-2"
+            style={{ fontFamily: 'var(--font-playfair), serif' }}
+          >
+              ROHIT BHARDWAJ
           </h1>
         </FadeIn>
         

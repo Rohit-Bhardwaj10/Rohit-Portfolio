@@ -1,3 +1,4 @@
+// Force rebuild for cleaner Hero layout
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {

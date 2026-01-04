@@ -1,23 +1,34 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, Inter } from "next/font/google";
+import { Titillium_Web, Quicksand, Montserrat, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import SmoothScrollProvider from "./components/SmoothScrollProvider";
 import CustomCursor from "./components/CustomCursor";
 
-const instrumentSerif = Instrument_Serif({
-  weight: "400",
+const titillium = Titillium_Web({
+  weight: ["200", "300", "400", "600", "700", "900"],
   subsets: ["latin"],
-  variable: "--font-instrument-serif",
+  variable: "--font-titillium",
 });
 
-const inter = Inter({
+const quicksand = Quicksand({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-quicksand",
+});
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  variable: "--font-montserrat",
+});
+
+const playfair = Instrument_Serif({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-playfair",
 });
 
 export const metadata: Metadata = {
   title: "Rohit Bhardwaj - Portfolio",
-  description: "Developer Portfolio - The Dev Chronicles",
+  description: "Developer Portfolio - Rohit Bhardwaj",
 };
 
 export default function RootLayout({
@@ -28,7 +39,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${instrumentSerif.variable} ${inter.variable} antialiased bg-[#C4BCB2] text-zinc-900 dark:bg-zinc-950 dark:text-zinc-50 font-sans`}
+        className={`${titillium.variable} ${quicksand.variable} ${montserrat.variable} ${playfair.variable} antialiased bg-[#C4BCB2] text-zinc-900 dark:bg-zinc-950 dark:text-zinc-50 font-sans`}
       >
         <SmoothScrollProvider>
           <CustomCursor />
