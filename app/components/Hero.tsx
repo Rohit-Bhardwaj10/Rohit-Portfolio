@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { Mail, Linkedin, Twitter, Github, ArrowUpRight } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
+import { Mail, Linkedin, Twitter, Github, ArrowUpRight, Play, Pause, Volume2, Music } from "lucide-react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { FadeIn, TypeWriter, MagneticButton, TiltCard } from "./animations";
@@ -9,6 +9,19 @@ import ContactModal from "./ContactModal";
 
 export default function Hero() {
   const [isContactOpen, setIsContactOpen] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  const togglePlay = () => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause();
+      } else {
+        audioRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
 
   return (
     <>
@@ -79,14 +92,57 @@ export default function Hero() {
 
           <FadeIn delay={2.8} duration={0.8}>
             <div className="mt-16 pt-8 border-t border-dashed border-white/10 hidden md:flex items-center justify-between">
-              <div className="flex items-center gap-4">
-                 <div className="w-8 h-8 rounded-full bg-zinc-900 border border-white/10 flex items-center justify-center">
-                   <span className="w-2 h-2 rounded-full bg-zinc-400 animate-pulse"></span>
+              <div className="flex items-center gap-8 xl:gap-12">
+                 <div className="flex items-center gap-4">
+                   <div className="w-8 h-8 rounded-full bg-zinc-900 border border-white/10 flex items-center justify-center">
+                     <span className="w-2 h-2 rounded-full bg-zinc-400 animate-pulse"></span>
+                   </div>
+                   <div className="flex flex-col">
+                     <span className="text-zinc-500 text-[9px] uppercase tracking-[0.3em] font-bold">Location</span>
+                     <span className="text-zinc-300 text-xs font-mono">India / Remote</span>
+                   </div>
                  </div>
-                 <div className="flex flex-col">
-                   <span className="text-zinc-500 text-[9px] uppercase tracking-[0.3em] font-bold">Location</span>
-                   <span className="text-zinc-300 text-xs font-mono">India / Remote</span>
-                 </div>
+
+                {/* Audio Player Widget */}
+                <div className="flex items-center gap-4 border-l border-zinc-800 pl-8 xl:pl-12">
+                  <button 
+                    onClick={togglePlay}
+                    className="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center hover:scale-105 transition-transform shadow-[0_0_15px_rgba(255,255,255,0.2)]"
+                  >
+                    {isPlaying ? <Pause className="w-4 h-4 fill-current" /> : <Play className="w-4 h-4 ml-[2px] fill-current" />}
+                  </button>
+                  <div className="flex flex-col items-start justify-center">
+                    <span className="text-[9px] uppercase tracking-[0.3em] font-bold mb-1 flex items-center gap-1.5 transition-colors duration-300">
+                      {isPlaying ? (
+                        <>
+                          <span className="flex items-end gap-[2px] h-2">
+                             <span className="w-[2px] h-full bg-emerald-500 animate-[bounce_0.8s_infinite] rounded-full"></span>
+                             <span className="w-[2px] h-[60%] bg-emerald-500 animate-[bounce_0.8s_infinite_0.2s] rounded-full"></span>
+                             <span className="w-[2px] h-[80%] bg-emerald-500 animate-[bounce_0.8s_infinite_0.4s] rounded-full"></span>
+                          </span>
+                          <span className="text-emerald-500">Now Playing</span>
+                        </>
+                      ) : (
+                        <>
+                          <Music className="w-3 h-3 text-zinc-500 -ml-[2px]" />
+                          <span className="text-zinc-500">Last Played</span>
+                        </>
+                      )}
+                    </span>
+                    <div className="text-zinc-300 text-xs font-mono max-w-[150px] truncate">Ordinary</div>
+                  </div>
+                  
+                  {/* Invisible Audio Element */}
+                  <audio 
+                    ref={audioRef} 
+                    src="/Alex warren - Ordinary.mp3" 
+                    loop
+                    preload="auto"
+                    onEnded={() => setIsPlaying(false)}
+                    onPause={() => setIsPlaying(false)}
+                    onPlay={() => setIsPlaying(true)}
+                  />
+                </div>
               </div>
               
               <div className="text-right flex flex-col items-end">
@@ -106,7 +162,7 @@ export default function Hero() {
           <div className="relative flex-1 min-h-[400px] lg:min-h-0 p-8 flex items-center justify-center border-b border-dashed border-white/10 overflow-hidden group">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.03)_0%,_transparent_70%)] pointer-events-none" />
             
-            <div className="absolute top-6 right-6 z-20">
+            <div className="absolute top-6 right-6 z-20 hidden sm:block">
               <FadeIn delay={0.9} duration={0.5}>
                 <div className="flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1.5 rounded-full backdrop-blur-md">
                   <span className="relative flex h-2 w-2">
