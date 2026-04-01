@@ -107,17 +107,22 @@ export default function ProjectsArchive() {
         </div>
       </main>
 
-      <footer className="w-full border-t border-zinc-800 py-12 px-6 md:px-12 mt-auto">
-         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] font-bold tracking-[0.2em] text-zinc-500 uppercase">
+      <footer className="w-full border-t border-solid border-white/10 py-6 px-6 md:py-8 md:px-12 mt-auto relative overflow-hidden group/footer">
+         {/* Backdrop Watermark */}
+         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[45px] sm:text-[65px] md:text-[100px] lg:text-[130px] font-serif font-black text-white/[0.02] pointer-events-none select-none group-hover/footer:text-white/[0.04] transition-colors duration-1000 tracking-tighter z-0 whitespace-nowrap">
+            ROHIT SHIPS
+         </div>
+
+         <div className="w-full max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] font-bold tracking-[0.2em] text-zinc-500 uppercase relative z-10">
             <div className="flex flex-col md:flex-row items-center gap-2">
-               <span className="text-zinc-400">ROHIT BHARDWAJ</span>
+               <span className="text-zinc-400 group-hover/footer:text-white transition-colors">ROHIT BHARDWAJ</span>
                <span className="opacity-30 hidden md:inline">/</span>
                <span>DEVELOPER PORTFOLIO © {new Date().getFullYear()}</span>
             </div>
             <div className="flex items-center gap-6">
-               <a href="#" className="hover:text-zinc-300 transition-colors underline-offset-4 hover:underline">TWITTER</a>
-               <a href="#" className="hover:text-zinc-300 transition-colors underline-offset-4 hover:underline">LINKEDIN</a>
-               <a href="#" className="hover:text-zinc-300 transition-colors underline-offset-4 hover:underline text-zinc-400">RESUME</a>
+               <a href="https://x.com/whoisrohit45" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-300 transition-colors underline-offset-4 hover:underline">TWITTER</a>
+               <a href="https://www.linkedin.com/in/dev-rohitbhardwaj/" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-300 transition-colors underline-offset-4 hover:underline">LINKEDIN</a>
+               <a href="/Rohit_CV.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-300 transition-colors underline-offset-4 hover:underline text-zinc-400">RESUME</a>
             </div>
          </div>
       </footer>

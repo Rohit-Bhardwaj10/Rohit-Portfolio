@@ -20,16 +20,16 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
   return (
     <>
       {/* Row 1: Featured & History Balance */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 border-b border-white/10">
+      <div className="grid grid-cols-1 lg:grid-cols-12 border-b border-solid border-white/10">
         {/* Experience / History - Prominent Modern Sidebar */}
-        <div className="lg:col-span-5 border-b lg:border-b-0 lg:border-r border-white/10 bg-gradient-to-b from-transparent to-black/20 relative overflow-hidden group/sidebar">
+        <div className="lg:col-span-5 border-b lg:border-b-0 lg:border-r border-solid border-white/10 bg-gradient-to-b from-transparent to-black/20 relative overflow-hidden group/sidebar">
           {/* Subtle Background Watermark - Minimalist and integrated */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[140px] font-serif font-black text-white/[0.015] -rotate-90 pointer-events-none select-none group-hover/sidebar:text-white/[0.03] transition-colors duration-1000 tracking-tighter">
             LOGBOOK
           </div>
 
           <div className="h-full flex flex-col relative z-10 w-full overflow-hidden">
-            <div className="px-6 md:px-8 h-[88px] border-b border-white/10 flex justify-between items-center bg-zinc-950/40 backdrop-blur-md sticky top-0 z-20 w-full shrink-0">
+            <div className="px-6 md:px-8 h-[88px] border-b border-solid border-white/10 flex justify-between items-center bg-zinc-950/40 backdrop-blur-md sticky top-0 z-20 w-full shrink-0">
               <ScrollFadeIn delay={0} duration={0.6}>
                 <h2 className="text-3xl md:text-4xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 to-zinc-400">
                   <span className="md:hidden">Experience</span>
@@ -65,7 +65,7 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
                     <span className="font-mono text-[10px] text-zinc-500 font-bold uppercase tracking-widest">Noida, IN</span>
                   </div>
                 </div>
-                <div className="pl-6 border-l border-white/10 group-hover/item:border-white/30 transition-all duration-500 relative">
+                <div className="pl-6 border-l border-solid border-white/10 group-hover/item:border-white/30 transition-all duration-500 relative">
                   <motion.div 
                     className="absolute top-0 -left-[1px] w-[2px] h-0 bg-white/40 shadow-[0_0_8px_rgba(255,255,255,0.3)]"
                     whileInView={{ height: "100%" }}
@@ -103,7 +103,7 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
                     <span className="font-mono text-[10px] text-zinc-500 font-bold uppercase tracking-widest">Remote</span>
                   </div>
                 </div>
-                <div className="pl-6 border-l border-white/10 group-hover/item:border-white/30 transition-all duration-500 relative">
+                <div className="pl-6 border-l border-solid border-white/10 group-hover/item:border-white/30 transition-all duration-500 relative">
                   <motion.div 
                     className="absolute top-0 -left-[1px] w-[2px] h-0 bg-white/40 shadow-[0_0_8px_rgba(255,255,255,0.3)]"
                     whileInView={{ height: "100%" }}
@@ -182,10 +182,10 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
         </div>
 
         {/* Recent Writings (Col 8) */}
-        <div className="lg:col-span-8 border-b lg:border-b-0 lg:border-r border-white/10 relative z-10 backdrop-blur-sm">
+        <div className="lg:col-span-8 border-b lg:border-b-0 lg:border-r border-solid border-white/10 relative z-10 backdrop-blur-sm">
           {/* Section Header */}
           <ScrollFadeIn delay={0} duration={0.6}>
-            <div className="px-6 md:px-8 h-[88px] flex justify-between items-center bg-zinc-950/40 backdrop-blur-md relative z-20 border-b border-white/10 shrink-0">
+            <div className="px-6 md:px-8 h-[88px] flex justify-between items-center bg-zinc-950/40 backdrop-blur-md relative z-20 border-b border-solid border-white/10 shrink-0">
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 to-zinc-400">
                 <span className="md:hidden">Recent Writings</span>
                 <TextScramble
@@ -200,15 +200,15 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
             </div>
           </ScrollFadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 relative z-10 h-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 relative z-10 h-full w-full">
             <ScrollFadeIn
               delay={0.1}
               duration={0.5}
               direction="left"
-              className="h-full border-r border-white/10"
+              className="h-full border-b md:border-b-0 md:border-r border-white/10"
             >
-              <div className="p-6 md:p-8 flex flex-col h-full border-b border-white/10 md:border-b-0 group/post hover:bg-white/[0.02] transition-colors">
-                <span className="font-sans font-bold text-[9px] text-zinc-500 uppercase tracking-[0.3em] mb-4">
+              <div className="p-6 md:p-8 flex flex-col h-full group/post hover:bg-white/[0.02] transition-colors relative">
+                <span className="font-sans font-bold text-[9px] text-zinc-500 uppercase tracking-[0.3em] mb-5 bg-white/5 border border-white/5 px-2.5 py-1 rounded-[2px] w-max">
                   Oct 22, 2025
                 </span>
                 <Link
@@ -216,30 +216,30 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <h3 className="text-2xl font-serif font-bold text-zinc-100 mb-3 hover:underline cursor-pointer">
+                  <h3 className="text-xl md:text-2xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-b from-zinc-100 to-zinc-400 mb-4 group-hover/post:from-white group-hover/post:to-zinc-300 transition-all duration-300 cursor-pointer w-fit line-clamp-2 leading-snug">
                     The Centralized Core of Decentralization
                   </h3>
                 </Link>
-                <p className="text-zinc-400 leading-relaxed mb-6 flex-1 font-medium italic">
+                <p className="text-zinc-400/80 leading-relaxed mb-6 font-light">
                   Rethinking Web3's Infrastructure. Examining the reliance of
                   decentralized networks on centralized cloud providers and
                   efficient infrastructure patterns.
                 </p>
-                <div className="flex items-center gap-2 mb-6">
-                  <span className="text-zinc-500 text-[10px] font-mono uppercase tracking-wider">
+                <div className="flex items-center gap-2 mb-8">
+                  <span className="text-[9px] font-bold font-sans uppercase tracking-[0.2em] text-zinc-300 border border-white/10 bg-white/5 px-2 py-0.5 rounded-[2px] shadow-[0_2px_10px_rgba(0,0,0,0.2)]">
                     #Web3
                   </span>
                 </div>
-                <div className="pt-4 border-t border-zinc-800 flex items-center gap-6">
+                <div className="mt-auto pt-5 border-t border-white/10 group-hover/post:border-white/20 flex items-center gap-6 transition-colors w-full">
                   <Link
                     href="https://dev.to/rohit_bhardwaj_94db62db7b/the-centralized-core-of-decentralization-rethinking-web3s-infrastructure-40da"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-zinc-400 hover:text-zinc-100 transition-colors"
+                    className="flex items-center gap-2 text-[10px] font-sans font-bold uppercase tracking-[0.25em] text-zinc-500 hover:text-zinc-100 transition-colors group/link"
                   >
-                    <BookOpen size={14} />
-                    <span>Read Article</span>
-                    <ArrowUpRight size={14} />
+                    <BookOpen size={14} className="opacity-70 group-hover/link:opacity-100 transition-opacity" />
+                    <span className="border-b border-transparent group-hover/link:border-zinc-300 transition-all pb-0.5 mt-0.5">Read Article</span>
+                    <ArrowUpRight size={14} className="opacity-70 group-hover/link:opacity-100 transition-opacity" />
                   </Link>
                 </div>
               </div>
@@ -249,10 +249,10 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
               delay={0.2}
               duration={0.5}
               direction="right"
-              className="h-full"
+              className="h-full border-b md:border-b-0 border-white/10 md:border-none"
             >
-              <div className="p-6 md:p-8 flex flex-col h-full">
-                <span className="font-mono text-[10px] text-zinc-500 uppercase tracking-widest mb-3">
+              <div className="p-6 md:p-8 flex flex-col h-full group/post hover:bg-white/[0.02] transition-colors relative">
+                <span className="font-sans font-bold text-[9px] text-zinc-500 uppercase tracking-[0.3em] mb-5 bg-white/5 border border-white/5 px-2.5 py-1 rounded-[2px] w-max">
                   Jun 9, 2025
                 </span>
                 <Link
@@ -260,30 +260,30 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <h3 className="text-2xl font-serif font-bold text-zinc-100 mb-3 hover:underline cursor-pointer">
+                  <h3 className="text-xl md:text-2xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-b from-zinc-100 to-zinc-400 mb-4 group-hover/post:from-white group-hover/post:to-zinc-300 transition-all duration-300 cursor-pointer w-fit line-clamp-2 leading-snug">
                     Backend Scaling Strategies
                   </h3>
                 </Link>
-                <p className="text-zinc-400 leading-relaxed mb-6 flex-1 font-medium italic">
+                <p className="text-zinc-400/80 leading-relaxed mb-6 font-light">
                   A deep dive into load balancing, database sharding, and
                   caching strategies for building high-traffic, resilient
                   systems.
                 </p>
-                <div className="flex items-center gap-2 mb-6">
-                  <span className="text-zinc-500 text-[10px] font-mono uppercase tracking-wider">
+                <div className="flex items-center gap-2 mb-8">
+                  <span className="text-[9px] font-bold font-sans uppercase tracking-[0.2em] text-zinc-300 border border-white/10 bg-white/5 px-2 py-0.5 rounded-[2px] shadow-[0_2px_10px_rgba(0,0,0,0.2)]">
                     #SystemDesign
                   </span>
                 </div>
-                <div className="pt-4 border-t border-zinc-800 flex items-center gap-6">
+                <div className="mt-auto pt-5 border-t border-white/10 group-hover/post:border-white/20 flex items-center gap-6 transition-colors w-full">
                   <Link
                     href="https://medium.com/@beastslayer23456/backend-scaling-strategies-for-high-traffic-systems-16c8d3ffccd2"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-zinc-400 hover:text-zinc-100 transition-colors"
+                    className="flex items-center gap-2 text-[10px] font-sans font-bold uppercase tracking-[0.25em] text-zinc-500 hover:text-zinc-100 transition-colors group/link"
                   >
-                    <BookOpen size={14} />
-                    <span>Read Article</span>
-                    <ArrowUpRight size={14} />
+                    <BookOpen size={14} className="opacity-70 group-hover/link:opacity-100 transition-opacity" />
+                    <span className="border-b border-transparent group-hover/link:border-zinc-300 transition-all pb-0.5 mt-0.5">Read Article</span>
+                    <ArrowUpRight size={14} className="opacity-70 group-hover/link:opacity-100 transition-opacity" />
                   </Link>
                 </div>
               </div>
@@ -292,10 +292,10 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
         </div>
 
         {/* Education (Col 4) */}
-        <div className="lg:col-span-4 flex flex-col border-b border-zinc-800">
-          <ScrollFadeIn delay={0.1} duration={0.6}>
-            <div className="px-6 py-4 md:px-8 md:py-6 flex items-end bg-zinc-950/80 relative z-10 border-b border-zinc-800">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-zinc-100">
+        <div className="lg:col-span-4 flex flex-col border-b lg:border-b-0 border-white/10 relative z-10 backdrop-blur-sm group/edu overflow-hidden">
+          <ScrollFadeIn delay={0.1} duration={0.6} className="w-full shrink-0">
+            <div className="px-6 md:px-8 h-[88px] flex justify-between items-center bg-zinc-950/40 backdrop-blur-md relative z-20 border-b border-solid border-white/10 w-full">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 to-zinc-400 w-full">
                 <span className="md:hidden">Education</span>
                 <TextScramble
                   className="hidden md:inline-block"
@@ -305,24 +305,25 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
               </h2>
             </div>
           </ScrollFadeIn>
-          <ScrollFadeIn delay={0.2} duration={0.5}>
-            <div className="px-6 py-4 md:px-8 md:py-6 h-full flex flex-col justify-center">
-              <h3 className="font-serif font-bold text-lg mb-1 text-zinc-100">
-                ABES Engineering College, AKTU
-              </h3>
-              <p className="text-zinc-400 mb-1 font-medium">
-                Bachelor in Computer Science and Engineering
-              </p>
-              <p className="font-mono text-xs text-zinc-600 font-bold uppercase tracking-widest">
-                Sept 2023 - May 2027
-              </p>
-            </div>
-          </ScrollFadeIn>
+          <div className="flex-1 w-full bg-transparent hover:bg-white/[0.02] transition-colors relative">
+            <ScrollFadeIn delay={0.2} duration={0.5} className="h-full w-full">
+              <div className="p-6 md:p-8 h-full flex flex-col w-full relative">
+                <h3 className="font-serif font-bold text-lg md:text-xl mb-4 mt-2 text-transparent bg-clip-text bg-gradient-to-b from-zinc-100 to-zinc-400 w-fit">
+                  ABES Engineering College, AKTU
+                </h3>
+                <p className="text-zinc-400/80 mb-8 font-light leading-relaxed">
+                  Bachelor in Computer Science and Engineering. Focusing on scalable system design and modern frontend architectures.
+                </p>
+                <div className="mt-auto pt-5 border-t border-white/10 group-hover/edu:border-white/20 transition-colors w-full">
+                  <p className="font-sans text-[9px] text-zinc-500 font-bold uppercase tracking-[0.3em] bg-white/5 border border-white/5 px-2.5 py-1.5 rounded-[2px] w-max">
+                    Sept '23 — May '27
+                  </p>
+                </div>
+              </div>
+            </ScrollFadeIn>
+          </div>
         </div>
       </div>
-
-      {/* Row 3 Seperator */}
-      <div className="border-b border-zinc-800 w-full" />
 
       <ThroughMyLens />
     </>

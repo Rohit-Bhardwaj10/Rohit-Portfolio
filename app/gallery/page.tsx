@@ -30,7 +30,7 @@ export default function GalleryPage() {
       
       {/* Navbar Brutalist */}
       <nav className="fixed top-0 w-full z-40 bg-[#0A0A0B]/90 backdrop-blur-md border-b border-zinc-800">
-        <div className="px-6 md:px-12 max-w-[1600px] mx-auto flex h-20 items-center justify-between border-b border-zinc-800/50 border-dashed">
+        <div className="px-6 md:px-12 max-w-[1600px] mx-auto flex h-20 items-center justify-between border-b border-zinc-800/50 border-solid">
           <Link 
             href="/" 
             className="group flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-zinc-100 font-bold hover:text-zinc-400 transition-colors"
@@ -103,10 +103,15 @@ export default function GalleryPage() {
       </div>
 
       {/* Global Footer */}
-      <footer className="bg-[#0A0A0B] border-t border-zinc-800 text-zinc-400 p-8 md:p-12 w-full mt-auto">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6 max-w-[1600px] mx-auto w-full">
+      <footer className="bg-[#0A0A0B] border-t border-solid border-white/10 text-zinc-400 py-6 px-6 md:py-8 md:px-12 w-full mt-auto relative overflow-hidden group/footer">
+        {/* Backdrop Watermark */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[45px] sm:text-[65px] md:text-[100px] lg:text-[130px] font-serif font-black text-white/[0.02] pointer-events-none select-none group-hover/footer:text-white/[0.04] transition-colors duration-1000 tracking-tighter z-0 whitespace-nowrap">
+          ROHIT SHIPS
+        </div>
+
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6 max-w-[1600px] mx-auto w-full relative z-10">
           <div className="text-center md:text-left">
-            <h2 className="font-serif text-2xl text-zinc-100 mb-2">ROHIT BHARDWAJ</h2>
+            <h2 className="font-serif text-2xl text-zinc-100 mb-2 group-hover/footer:text-white transition-colors">ROHIT BHARDWAJ</h2>
             <p className="text-xs font-mono text-zinc-500">© {new Date().getFullYear()} . All rights reserved.</p>
           </div>
           <div className="flex gap-6 text-xs font-mono uppercase tracking-widest flex-wrap justify-center">

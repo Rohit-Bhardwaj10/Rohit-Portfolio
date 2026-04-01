@@ -39,18 +39,23 @@ export default function TypeWriter({
   return (
     <span ref={scope} className={className}>
       {lines.map((line, lineIndex) => (
-        <span key={lineIndex}>
-          {line.split('').map((char, charIndex) => (
-            <motion.span
-              key={`${lineIndex}-${charIndex}`}
-              className="char"
-              initial={{ opacity: 0 }}
-              style={{ display: 'inline-block' }}
-            >
-              {char === ' ' ? '\u00A0' : char}
-            </motion.span>
+        <span key={lineIndex} className="inline">
+          {line.split(/( )/).map((word, wordIndex) => (
+            <span key={wordIndex} className="inline-block whitespace-nowrap">
+              {word.split('').map((char, charIndex) => (
+                <motion.span
+                  key={`${lineIndex}-${wordIndex}-${charIndex}`}
+                  className="char"
+                  initial={{ opacity: 0 }}
+                  style={{ display: 'inline-block' }}
+                >
+                  {char === ' ' ? '\u00A0' : char}
+                </motion.span>
+              ))}
+            </span>
           ))}
-          {lineIndex < lines.length - 1 && <br />}
+          {lineIndex < lines.length - 1 && <br className="hidden md:block" />}
+          {lineIndex < lines.length - 1 && <span className="md:hidden"> </span>}
         </span>
       ))}
       {showCursor && (

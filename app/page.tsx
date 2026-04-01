@@ -2,6 +2,7 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import AnimatedSections from "./components/AnimatedSections";
 import TechStack from "./components/TechStack";
+import GithubGraph from "./components/GithubGraph";
 import { projectsData } from "./data/projects";
 
 export default function Home() {
@@ -25,14 +26,20 @@ export default function Home() {
       <main>
         <Hero />
         <TechStack />
+        <GithubGraph />
         <AnimatedSections projects={featuredProjects} />
       </main>
 
-      <footer className="bg-zinc-950 text-zinc-400 p-8 md:p-12 border-t border-zinc-800">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+      <footer className="bg-zinc-950 text-zinc-400 py-6 px-6 md:py-8 md:px-12 border-t border-solid border-white/10 relative overflow-hidden group/footer mt-auto">
+        {/* Backdrop Watermark */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[45px] sm:text-[65px] md:text-[100px] lg:text-[130px] font-serif font-black text-white/[0.02] pointer-events-none select-none group-hover/footer:text-white/[0.04] transition-colors duration-1000 tracking-tighter z-0 whitespace-nowrap">
+          ROHIT SHIPS
+        </div>
+
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6 relative z-10 w-full">
           <div className="text-center md:text-left">
-            <h2 className="font-serif text-2xl text-zinc-100 mb-2">ROHIT BHARDWAJ</h2>
-            <p className="text-xs font-mono">© 2025 . All rights reserved.</p>
+            <h2 className="font-serif text-2xl text-zinc-100 mb-2 group-hover/footer:text-white transition-colors">ROHIT BHARDWAJ</h2>
+            <p className="text-xs font-mono">© {new Date().getFullYear()} . All rights reserved.</p>
           </div>
           <div className="flex gap-6 text-xs font-mono uppercase tracking-widest">
             <a href="/Rohit_CV.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Resume</a>

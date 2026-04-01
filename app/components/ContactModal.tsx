@@ -198,7 +198,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
               </form>
 
               {/* Footer Note */}
-              <div className="border-t border-zinc-800/50 border-dashed px-6 py-4">
+              <div className="border-t border-zinc-800/50 border-solid px-6 py-4">
                 <p className="font-mono text-[10px] text-zinc-500 text-center uppercase tracking-widest">
                   Or reach me directly at <a href="mailto:.beastslayer23456@gmail.com" className="underline hover:text-zinc-300">beastslayer23456@gmail.com</a>
                 </p>

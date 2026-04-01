@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { MagneticButton } from "./animations";
 
 const previewPhotos = [
   "/image10.jpeg",
@@ -14,7 +15,7 @@ const previewPhotos = [
 
 export default function ThroughMyLens() {
   return (
-    <section className="w-full stitch-b lg:border-r border-white/10 bg-gradient-to-b from-black/20 via-black/40 to-black/20 py-16 relative overflow-hidden backdrop-blur-md">
+    <section className="w-full border-y border-solid border-white/10 lg:border-r bg-gradient-to-b from-black/20 via-black/40 to-black/20 py-16 relative overflow-hidden backdrop-blur-md">
       
       {/* Aesthetic Background Glow */}
       <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-zinc-800/10 via-transparent to-transparent pointer-events-none" />
@@ -43,13 +44,15 @@ export default function ThroughMyLens() {
              <p className="font-sans text-sm md:text-base text-zinc-400/80 leading-relaxed mb-8 font-light max-w-md">
                A personal archive of moments frozen in time. Exploring dramatic lighting, composition, and human emotion away from the keyboard.
              </p>
-             <Link 
-               href="/gallery"
-               className="group inline-flex items-center gap-3 font-sans text-[11px] uppercase tracking-[0.2em] text-zinc-300 font-semibold border border-white/10 px-6 py-3 rounded-full hover:bg-white/5 hover:text-white hover:border-white/20 transition-all duration-300 backdrop-blur-md"
-             >
-               View Photography Archive
-               <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-             </Link>
+             <MagneticButton strength={0.25}>
+               <Link 
+                 href="/gallery"
+                 className="group inline-flex items-center gap-3 font-sans text-[11px] uppercase tracking-[0.2em] text-zinc-300 font-bold border border-white/10 bg-white/5 px-8 py-4 rounded-sm hover:bg-white/10 hover:text-white hover:-translate-y-1 hover:border-white/20 transition-all duration-300 backdrop-blur-md shadow-[0_8px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_10px_40px_rgba(0,0,0,0.7)] w-max"
+               >
+                 View Photography Archive
+                 <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+               </Link>
+             </MagneticButton>
            </motion.div>
 
            <div className="flex gap-4 md:gap-6 w-full lg:w-auto overflow-x-auto pb-6 lg:pb-0 scrollbar-hide snap-x object-contain relative perspective">

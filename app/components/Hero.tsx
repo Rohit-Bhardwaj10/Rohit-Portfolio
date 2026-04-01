@@ -14,10 +14,10 @@ export default function Hero() {
     <>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
         {/* Left Column: Intro */}
-        <div className="order-2 lg:order-1 p-6 md:p-10 stitch-b lg:border-r lg:border-white/10 flex flex-col justify-center relative bg-gradient-to-b from-transparent to-black/20">
+        <div className="order-2 lg:order-1 p-8 md:p-12 lg:p-16 xl:p-20 flex flex-col justify-center relative bg-gradient-to-b from-transparent to-black/20">
         <div className="w-full relative z-10">
             <h1 
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.05] mb-6 text-transparent bg-clip-text bg-gradient-to-tr from-zinc-300 to-zinc-50"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold leading-[1.1] md:leading-[1.05] tracking-tight mb-8 text-transparent bg-clip-text bg-gradient-to-tr from-zinc-300 to-zinc-50"
               style={{ fontFamily: 'var(--font-playfair), serif' }}
             >
               <TypeWriter 
@@ -53,7 +53,7 @@ export default function Hero() {
             </FadeIn>
 
             <FadeIn delay={2.8} duration={0.6}>
-              <div className="mt-14 pt-8 border-t border-white/10 grid grid-cols-2 md:grid-cols-3 gap-8">
+              <div className="mt-14 pt-8 border-t border-dashed border-white/10 grid grid-cols-2 md:grid-cols-3 gap-8">
                  <div className="group">
                     <h4 className="font-sans text-[10px] uppercase tracking-[0.3em] text-zinc-500 font-bold mb-5 flex items-center gap-2">
                       <span className="w-2 h-2 bg-gradient-to-br from-zinc-400 to-zinc-700 rounded-full inline-block"></span>
@@ -94,8 +94,8 @@ export default function Hero() {
                         </li>
                      </ul>
                  </div>
-                 <div className="flex items-end lg:items-start xl:items-end">
-                    <div className="bg-white/[0.02] p-5 border-l border-white/10 hover:border-white/30 hover:bg-white/[0.04] transition-all duration-500 rounded-r-sm backdrop-blur-sm">
+                 <div className="col-span-2 md:col-span-1 flex items-end lg:items-start xl:items-end mt-4 md:mt-0">
+                    <div className="w-full bg-white/[0.02] p-5 border-l border-solid border-white/10 hover:border-white/30 hover:bg-white/[0.04] transition-all duration-500 rounded-r-sm backdrop-blur-sm">
                         <p className="font-serif italic text-sm leading-relaxed text-zinc-300 font-medium">
                           "Good design is as little design as possible."
                         </p>
@@ -108,7 +108,7 @@ export default function Hero() {
         </div>
 
         {/* Right Column: Image & Connect */}
-        <div className="order-1 lg:order-2 p-6 md:p-10 flex flex-col items-center justify-center relative">
+        <div className="order-1 lg:order-2 p-8 md:p-12 lg:p-16 xl:p-20 border-b border-dashed border-white/10 lg:border-b-0 lg:border-l flex flex-col items-center justify-center relative bg-black/10">
           
           {/* Aesthetic Backlight */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-zinc-800/10 blur-[80px] rounded-full pointer-events-none" />
@@ -163,7 +163,7 @@ export default function Hero() {
 
             {/* Divider */}
             <motion.div 
-              className="w-full h-px stitch-t border-white/10 mb-8"
+              className="w-full border-t border-dashed border-white/10 mb-8"
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{ duration: 0.8, delay: 1.0 }}
@@ -199,7 +199,7 @@ export default function Hero() {
 
             {/* Divider */}
             <motion.div 
-              className="w-full h-px stitch-t border-white/10 mb-8"
+              className="w-full border-t border-dashed border-white/10 mb-8"
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{ duration: 0.8, delay: 1.2 }}
@@ -222,7 +222,7 @@ export default function Hero() {
       </div>
 
       {/* Bottom Separator */}
-      <div className="stitch-b"></div>
+      <div className="border-b border-dashed border-white/10"></div>
 
       {/* Contact Modal */}
       <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />

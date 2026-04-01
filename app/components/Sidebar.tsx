@@ -37,7 +37,7 @@ export default function Sidebar() {
 
        {/* Education Section */}
        <div className="mt-auto">
-          <div className="px-6 py-4 md:px-8 md:py-6 border-t border-b border-zinc-800 border-dashed">
+          <div className="px-6 py-4 md:px-8 md:py-6 border-t border-b border-zinc-800 border-solid">
              <h2 className="text-3xl md:text-4xl font-serif font-bold text-zinc-900">Education</h2>
           </div>
           <div className="px-6 py-6 md:px-8 md:py-8">

@@ -33,7 +33,7 @@ const categories = [
       <img 
         src="https://upload.wikimedia.org/wikipedia/commons/0/05/Ethereum_logo_2014.svg" 
         alt="Web3" 
-        className="w-4 h-4 object-contain brightness-0 invert" 
+        className="w-4 h-4 object-contain brightness-0" 
       />
     ),
     tools: [
@@ -58,7 +58,7 @@ const categories = [
 
 export default function TechStack() {
   return (
-    <section className="w-full py-20 bg-transparent relative border-y border-white/10 overflow-hidden group/stack">
+    <section className="w-full py-20 bg-transparent relative border-y border-dashed border-white/10 overflow-hidden group/stack">
       
       {/* Huge Background Watermark */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[150px] md:text-[250px] lg:text-[300px] font-serif font-black text-white/[0.015] pointer-events-none select-none group-hover/stack:text-white/[0.025] transition-colors duration-1000 tracking-tighter z-0 whitespace-nowrap">
@@ -69,7 +69,7 @@ export default function TechStack() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-zinc-800/10 via-transparent to-transparent pointer-events-none blur-3xl z-0" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-        <div className="flex items-center justify-between mb-12 pb-5 border-b border-white/10 backdrop-blur-sm">
+        <div className="flex items-center justify-between mb-12 pb-5 border-b border-dashed border-white/10 backdrop-blur-sm">
           <div className="flex items-center gap-5">
             <h2 className="text-2xl md:text-3xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 to-zinc-400 tracking-tight uppercase drop-shadow-sm">
               Arsenal
@@ -89,7 +89,7 @@ export default function TechStack() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.05 }}
-              className="bg-white/[0.02] backdrop-blur-sm group hover:bg-white/[0.04] p-6 flex flex-col gap-6 rounded-[2px] border border-white/10 hover:border-white/20 transition-all duration-500 shadow-[0_8px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_10px_40px_rgba(0,0,0,0.8)] relative overflow-hidden"
+              className="bg-white/[0.02] backdrop-blur-sm group hover:bg-white/[0.04] p-6 flex flex-col gap-6 rounded-[2px] border border-solid border-white/10 hover:border-white/20 transition-all duration-500 shadow-[0_8px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_10px_40px_rgba(0,0,0,0.8)] relative overflow-hidden"
             >
               {/* Card top edge gradient effect */}
               <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
