@@ -77,7 +77,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
             exit={{ opacity: 0 }}
           >
             <motion.div
-              className="bg-[#C4BCB2] border-4 border-zinc-900 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] w-full max-w-lg relative"
+              className="bg-[#0A0A0B] border border-zinc-800 shadow-[12px_12px_0px_0px_rgba(255,255,255,0.05)] w-full max-w-lg relative"
               initial={{ scale: 0.9, y: 50, opacity: 0 }}
               animate={{ scale: 1, y: 0, opacity: 1 }}
               exit={{ scale: 0.9, y: 50, opacity: 0 }}
@@ -85,14 +85,14 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
               onClick={(e) => e.stopPropagation()}
             >
               {/* Header */}
-              <div className="border-b-2 border-zinc-900 p-6 flex justify-between items-center">
+              <div className="border-b border-zinc-800/50 p-6 flex justify-between items-center">
                 <div>
-                  <h2 className="text-3xl md:text-4xl font-serif font-bold text-zinc-900">Get In Touch</h2>
-                  <p className="font-mono text-xs uppercase tracking-widest text-zinc-600 mt-1">Let's Build Something Great</p>
+                  <h2 className="text-3xl md:text-4xl font-serif font-bold text-zinc-100">Get In Touch</h2>
+                  <p className="font-mono text-xs uppercase tracking-widest text-zinc-500 mt-1">Let's Build Something Great</p>
                 </div>
                 <button
                   onClick={onClose}
-                  className="p-2 hover:bg-zinc-900 hover:text-zinc-50 transition-colors border border-zinc-900"
+                  className="p-2 hover:bg-zinc-800 text-zinc-400 hover:text-zinc-100 transition-colors border border-zinc-800"
                   aria-label="Close modal"
                 >
                   <X className="w-5 h-5" />
@@ -103,7 +103,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
               <form onSubmit={handleSubmit} className="p-6 space-y-6">
                 {/* Name Field */}
                 <div>
-                  <label htmlFor="name" className="block font-mono text-xs uppercase tracking-widest text-zinc-700 mb-2">
+                  <label htmlFor="name" className="block font-mono text-xs uppercase tracking-widest text-zinc-400 mb-2">
                     Your Name
                   </label>
                   <input
@@ -114,13 +114,13 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     onChange={handleChange}
                     required
                     placeholder="John Doe"
-                    className="w-full px-4 py-3 bg-white border-2 border-zinc-900 text-zinc-900 font-serif text-lg placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-900 focus:ring-offset-2 focus:ring-offset-[#C4BCB2] transition-all"
+                    className="w-full px-4 py-3 bg-zinc-900 border border-zinc-800 text-zinc-100 font-serif text-lg placeholder:text-zinc-600 focus:outline-none focus:ring-1 focus:ring-zinc-700 focus:border-zinc-700 transition-all"
                   />
                 </div>
 
                 {/* Email Field */}
                 <div>
-                  <label htmlFor="email" className="block font-mono text-xs uppercase tracking-widest text-zinc-700 mb-2">
+                  <label htmlFor="email" className="block font-mono text-xs uppercase tracking-widest text-zinc-400 mb-2">
                     Email Address
                   </label>
                   <input
@@ -131,13 +131,13 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     onChange={handleChange}
                     required
                     placeholder="john@example.com"
-                    className="w-full px-4 py-3 bg-white border-2 border-zinc-900 text-zinc-900 font-serif text-lg placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-900 focus:ring-offset-2 focus:ring-offset-[#C4BCB2] transition-all"
+                    className="w-full px-4 py-3 bg-zinc-900 border border-zinc-800 text-zinc-100 font-serif text-lg placeholder:text-zinc-600 focus:outline-none focus:ring-1 focus:ring-zinc-700 focus:border-zinc-700 transition-all"
                   />
                 </div>
 
                 {/* Message Field */}
                 <div>
-                  <label htmlFor="message" className="block font-mono text-xs uppercase tracking-widest text-zinc-700 mb-2">
+                  <label htmlFor="message" className="block font-mono text-xs uppercase tracking-widest text-zinc-400 mb-2">
                     Your Message
                   </label>
                   <textarea
@@ -148,7 +148,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     required
                     rows={4}
                     placeholder="Tell me about your project..."
-                    className="w-full px-4 py-3 bg-white border-2 border-zinc-900 text-zinc-900 font-serif text-lg placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-900 focus:ring-offset-2 focus:ring-offset-[#C4BCB2] transition-all resize-none"
+                    className="w-full px-4 py-3 bg-zinc-900 border border-zinc-800 text-zinc-100 font-serif text-lg placeholder:text-zinc-600 focus:outline-none focus:ring-1 focus:ring-zinc-700 focus:border-zinc-700 transition-all resize-none"
                   />
                 </div>
 
@@ -157,7 +157,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                   <motion.p
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="text-red-600 font-mono text-sm"
+                    className="text-red-400 font-mono text-sm"
                   >
                     {errorMessage}
                   </motion.p>
@@ -168,10 +168,10 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                   <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="bg-green-100 border-2 border-green-600 p-4 text-center"
+                    className="bg-emerald-950/30 border border-emerald-900/50 p-4 text-center"
                   >
-                    <p className="text-green-800 font-serif font-bold text-lg">Message Sent!</p>
-                    <p className="text-green-700 font-mono text-xs uppercase tracking-widest mt-1">I'll get back to you soon</p>
+                    <p className="text-emerald-400 font-serif font-bold text-lg">Message Sent!</p>
+                    <p className="text-emerald-500/70 font-mono text-xs uppercase tracking-widest mt-1">I'll get back to you soon</p>
                   </motion.div>
                 )}
 
@@ -180,16 +180,16 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                   <button
                     type="submit"
                     disabled={status === "loading"}
-                    className="w-full bg-zinc-900 text-zinc-50 px-8 py-4 text-sm font-bold uppercase tracking-widest shadow-[5px_5px_0px_0px_#71717a] hover:shadow-[2px_2px_0px_0px_#71717a] hover:translate-x-[3px] hover:translate-y-[3px] transition-all border border-zinc-900 cursor-pointer flex items-center justify-center gap-3 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:shadow-[5px_5px_0px_0px_#71717a] disabled:hover:translate-x-0 disabled:hover:translate-y-0"
+                    className="w-full bg-zinc-100 text-[#0A0A0B] px-8 py-4 text-sm font-bold uppercase tracking-widest shadow-[5px_5px_0px_0px_rgba(255,255,255,0.1)] hover:shadow-[2px_2px_0px_0px_rgba(255,255,255,0.1)] hover:translate-x-[3px] hover:translate-y-[3px] transition-all border border-zinc-100 cursor-pointer flex items-center justify-center gap-3 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:shadow-[5px_5px_0px_0px_rgba(255,255,255,0.1)] disabled:hover:translate-x-0 disabled:hover:translate-y-0"
                   >
                     {status === "loading" ? (
                       <>
-                        <Loader2 className="w-4 h-4 animate-spin" />
+                        <Loader2 className="w-4 h-4 animate-spin text-[#0A0A0B]" />
                         Sending...
                       </>
                     ) : (
                       <>
-                        <Send className="w-4 h-4" />
+                        <Send className="w-4 h-4 text-[#0A0A0B]" />
                         Send Message
                       </>
                     )}
@@ -198,9 +198,9 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
               </form>
 
               {/* Footer Note */}
-              <div className="border-t border-zinc-900/20 border-dashed px-6 py-4">
-                <p className="font-mono text-[10px] text-zinc-600 text-center uppercase tracking-widest">
-                  Or reach me directly at <a href="mailto:.beastslayer23456@gmail.com" className="underline hover:text-zinc-900">beastslayer23456@gmail.com</a>
+              <div className="border-t border-zinc-800/50 border-dashed px-6 py-4">
+                <p className="font-mono text-[10px] text-zinc-500 text-center uppercase tracking-widest">
+                  Or reach me directly at <a href="mailto:.beastslayer23456@gmail.com" className="underline hover:text-zinc-300">beastslayer23456@gmail.com</a>
                 </p>
               </div>
             </motion.div>

@@ -47,17 +47,17 @@ export function TimelineItem({ children, index, isFirst = false, isLast = false 
     >
       {/* Line Mask Top - only for first item */}
       {isFirst && (
-        <div className="absolute -left-[1px] top-0 h-2 w-1 bg-[#C4BCB2]"></div>
+        <div className="absolute -left-[1px] top-0 h-2 w-1 bg-[#0A0A0B]"></div>
       )}
       
       {/* Line Mask Bottom - only for last item */}
       {isLast && (
-        <div className="absolute -left-[1px] top-2 bottom-0 w-1 bg-[#C4BCB2]"></div>
+        <div className="absolute -left-[1px] top-2 bottom-0 w-1 bg-[#0A0A0B]"></div>
       )}
       
       {/* Animated Dot */}
       <motion.div 
-        className="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full bg-zinc-900 outline outline-4 outline-[#C4BCB2] z-10"
+        className="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full bg-zinc-100 outline outline-4 outline-[#0A0A0B] z-10"
         initial={{ scale: 0 }}
         animate={isInView ? { scale: 1 } : { scale: 0 }}
         transition={{ duration: 0.3, delay: 0.5 + index * 0.2, type: "spring", stiffness: 200 }}

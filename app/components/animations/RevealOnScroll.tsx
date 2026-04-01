@@ -52,7 +52,7 @@ export default function RevealOnScroll({
       
       {/* Reveal overlay that slides away */}
       <motion.div
-        className="absolute inset-0 bg-[#C4BCB2] z-10"
+        className="absolute inset-0 bg-[#0A0A0B] z-10"
         initial={{ 
           y: 0, 
           x: 0 

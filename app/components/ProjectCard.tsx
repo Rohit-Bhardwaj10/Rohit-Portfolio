@@ -17,92 +17,87 @@ interface ProjectProps {
 export default function ProjectCard({ title, description, tags, link, github, year, index = 0 }: ProjectProps) {
   return (
     <motion.div 
-      className="h-full bg-transparent border border-zinc-900/30 group-hover:border-zinc-900 p-4 md:p-6 flex flex-col justify-between relative group overflow-hidden"
+      className="h-full bg-white/[0.01] p-6 md:p-6 lg:p-7 flex flex-col justify-between relative group overflow-hidden border border-transparent rounded-[2px] backdrop-blur-sm"
       whileHover={{ 
-        scale: 1.02,
-        backgroundColor: "#d4cdc3",
+        backgroundColor: "rgba(255, 255, 255, 0.03)",
+        borderColor: "rgba(255, 255, 255, 0.1)",
+        boxShadow: "0 10px 40px -10px rgba(0,0,0,0.5)"
       }}
       transition={{ 
-        duration: 0.3,
+        duration: 0.4,
         ease: [0.22, 1, 0.36, 1]
       }}
     >
-      {/* Subtle shadow on hover */}
-      <motion.div 
-        className="absolute inset-0 pointer-events-none"
-        initial={{ boxShadow: "0 0 0 0 rgba(0,0,0,0)" }}
-        whileHover={{ boxShadow: "12px 12px 0px 0px rgba(0,0,0,0.15)" }}
-        transition={{ duration: 0.3 }}
-      />
-
-      {/* Corner Technical Mark */}
-      <div className="absolute top-3 right-3 w-3 h-3 border-t-2 border-r-2 border-zinc-900/20 group-hover:border-zinc-900/40 transition-colors" />
-      
-      {/* Watermark Index */}
-      <div className="absolute -bottom-4 -right-4 text-[120px] font-serif font-bold text-zinc-900/5 group-hover:text-zinc-900/10 transition-colors pointer-events-none select-none leading-none">
+      {/* Background Index Watermark - Very subtle */}
+      <div className="absolute -bottom-4 -right-4 text-7xl font-serif font-black text-zinc-100/[0.02] group-hover:text-zinc-100/[0.04] transition-colors pointer-events-none select-none">
         {String(index + 1).padStart(2, '0')}
       </div>
 
-      {/* Header */}
-      <div className="relative z-10 flex justify-between items-start mb-4">
-        <span className="font-serif text-3xl font-bold text-zinc-900/30 group-hover:text-zinc-900/50 transition-colors">
-          {String(index + 1).padStart(2, '0')}
-        </span>
-        <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-zinc-900 px-2 py-0.5 rounded-full border border-zinc-900/30 group-hover:border-zinc-900 group-hover:bg-zinc-900 group-hover:text-[#C4BCB2] transition-all">
-          {year}
-        </span>
+      {/* Aesthetic Top Gradient Line */}
+      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+      <div>
+        {/* Header - Narrower margin */}
+        <div className="relative z-10 flex justify-between items-start mb-4">
+          <span className="font-sans text-[9px] font-bold uppercase tracking-[0.3em] text-zinc-500 bg-white/5 px-2.5 py-1 rounded-full border border-white/5 group-hover:border-white/10 transition-colors">
+            {year} // {index < 9 ? `0${index + 1}` : index + 1}
+          </span>
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 flex-1 mb-6">
+          <h3 className="text-xl md:text-[22px] font-serif font-bold text-transparent bg-clip-text bg-gradient-to-b from-zinc-100 to-zinc-400 leading-tight mb-3 group-hover:from-white group-hover:to-zinc-300 transition-all duration-300">
+            {title}
+          </h3>
+          <p className="text-zinc-400/80 text-sm leading-relaxed font-light line-clamp-2 md:line-clamp-none group-hover:text-zinc-300/90 transition-colors duration-300">
+            {description}
+          </p>
+        </div>
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 flex-1 mb-4">
-        <h3 className="text-2xl md:text-3xl font-serif font-bold text-zinc-900 leading-tight mb-2 group-hover:translate-x-1 transition-transform duration-300">
-          {title}
-        </h3>
-        <p className="text-zinc-700 text-sm md:text-base leading-relaxed font-sans font-medium">
-          {description}
-        </p>
-      </div>
+      <div className="relative z-10 space-y-5">
+        {/* Tags */}
+        <div className="flex flex-wrap gap-2">
+          {tags.slice(0, 3).map((tag) => (
+            <span 
+              key={tag}
+              className="text-zinc-300 text-[9px] font-bold font-sans uppercase tracking-[0.2em] px-2.5 py-1 border border-white/10 rounded-sm bg-white/5 shadow-[0_2px_10px_rgba(0,0,0,0.2)]"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
 
-      {/* Tags */}
-      <div className="relative z-10 flex flex-wrap gap-2 mb-4">
-        {tags.slice(0, 4).map((tag, i) => (
-          <motion.span 
-            key={tag}
-            className="text-zinc-600 group-hover:text-zinc-900 text-[10px] font-bold font-mono uppercase tracking-wider px-2 py-1 border border-zinc-900/10 group-hover:border-zinc-900/30 rounded transition-all"
-            initial={{ opacity: 0.7 }}
-            whileHover={{ opacity: 1 }}
-            transition={{ delay: i * 0.05 }}
-          >
-            {tag}
-          </motion.span>
-        ))}
-      </div>
-
-      {/* Action Buttons */}
-      <div className="relative z-10 flex gap-3 pt-3 border-t border-zinc-900/10 group-hover:border-zinc-900/20 transition-colors">
-        {github && (
-          <Link 
-            href={github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-3 py-1.5 text-xs font-bold uppercase tracking-wider bg-transparent border border-zinc-900 bg-zinc-900 text-[#C4BCB2] transition-all duration-200"
-          >
-            <Github size={14} />
-            <span>Source</span>
-          </Link>
-        )}
-        {link && link !== "#" && (
-          <Link 
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-3 py-1.5 text-xs font-bold uppercase tracking-wider bg-zinc-900 text-[#C4BCB2] hover:bg-zinc-800 transition-all duration-200"
-          >
-            <span>Visit</span>
-            <ArrowUpRight size={14} />
-          </Link>
-        )}
+        {/* Action Buttons - Compact gap */}
+        <div className="flex gap-6 pt-5 border-t border-white/5 group-hover:border-white/10 transition-colors">
+          {github && (
+            <Link 
+              href={github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-[10px] font-bold font-sans uppercase tracking-[0.25em] text-zinc-500 hover:text-zinc-100 transition-colors group/link"
+            >
+              <Github size={14} className="opacity-70 group-hover/link:opacity-100 transition-opacity" />
+              <span className="border-b border-transparent group-hover/link:border-zinc-300 transition-all pb-0.5">Code</span>
+            </Link>
+          )}
+          {link && link !== "#" && (
+            <Link 
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-[10px] font-bold font-sans uppercase tracking-[0.25em] text-zinc-500 hover:text-zinc-100 transition-colors group/link"
+            >
+              <ArrowUpRight size={14} className="opacity-70 group-hover/link:opacity-100 transition-opacity" />
+              <span className="border-b border-transparent group-hover/link:border-zinc-300 transition-all pb-0.5">Live</span>
+            </Link>
+          )}
+        </div>
       </div>
     </motion.div>
   );
 }
+
+
+
+

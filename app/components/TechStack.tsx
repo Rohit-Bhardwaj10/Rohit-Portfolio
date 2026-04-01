@@ -1,111 +1,135 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Terminal, Database, Blocks, Wrench } from "lucide-react";
 
-const technologies = [
-  { name: "TypeScript", category: "Language" },
-  { name: "React", category: "Frontend" },
-  { name: "Next.js", category: "Framework" },
-  { name: "Node.js", category: "Backend" },
-  { name: "PostgreSQL", category: "Database" },
-  { name: "Docker", category: "DevOps" },
-  { name: "Solidity", category: "Web3" },
-  { name: "Tailwind", category: "Styling" },
-  { name: "Hardhat", category: "Web3" },
-  { name: "AWS", category: "Cloud" },
-  { name: "Figma", category: "Design" },
-  { name: "Solana", category: "Web3" },
-  { name: "Express", category: "Backend" },
-  { name: "MongoDB", category: "Database" },
-  { name: "Git", category: "Version Control" },
-  { name: "Bun", category: "Runtime" },
+const categories = [
+  {
+    name: "Frontend",
+    desc: "UX architecture & component systems.",
+    icon: <Terminal className="w-4 h-4" />,
+    tools: [
+      { name: "TypeScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+      { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+      { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
+      { name: "Tailwind", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
+    ]
+  },
+  {
+    name: "Backend",
+    desc: "Scalable APIs & systems logic.",
+    icon: <Database className="w-4 h-4" />,
+    tools: [
+      { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+      { name: "Go", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original-wordmark.svg" },
+      { name: "Postgres", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
+      { name: "Redis", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" },
+    ]
+  },
+  {
+    name: "Web3",
+    desc: "Smart contracts & trustless protocols.",
+    icon: (
+      <img 
+        src="https://upload.wikimedia.org/wikipedia/commons/0/05/Ethereum_logo_2014.svg" 
+        alt="Web3" 
+        className="w-4 h-4 object-contain brightness-0 invert" 
+      />
+    ),
+    tools: [
+      { name: "Solidity", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/solidity/solidity-plain.svg" },
+      { name: "Hardhat", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/hardhat/hardhat-original.svg" },
+      { name: "Ethereum", icon: "https://upload.wikimedia.org/wikipedia/commons/0/05/Ethereum_logo_2014.svg" },
+      { name: "Solana", icon: "https://upload.wikimedia.org/wikipedia/en/b/b9/Solana_logo.png" },
+    ]
+  },
+  {
+    name: "DevOps",
+    desc: "Infrastructure & system monitoring.",
+    icon: <Wrench className="w-4 h-4" />,
+    tools: [
+      { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+      { name: "Kafka", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachekafka/apachekafka-original.svg" },
+      { name: "Grafana", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/grafana/grafana-original.svg" },
+      { name: "Prometheus", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prometheus/prometheus-original.svg" },
+    ]
+  }
 ];
 
 export default function TechStack() {
-  // Split technologies into two overlapping arrays for visual balance
-  const row1 = technologies.slice(0, 8);
-  const row2 = technologies.slice(8);
-
   return (
-    <div className="w-full py-6 overflow-hidden bg-[#C4BCB2] relative flex flex-col gap-3 stitch-b">
+    <section className="w-full py-20 bg-transparent relative border-y border-white/10 overflow-hidden group/stack">
       
-      {/* Side Label */}
-      <div className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-zinc-900 py-0.5 px-2 hidden md:block border-y border-r border-[#C4BCB2]/20 shadow-xl shadow-zinc-900/10">
-        <span className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[#C4BCB2] leading-none">
-          The Arsenal
-        </span>
+      {/* Huge Background Watermark */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[150px] md:text-[250px] lg:text-[300px] font-serif font-black text-white/[0.015] pointer-events-none select-none group-hover/stack:text-white/[0.025] transition-colors duration-1000 tracking-tighter z-0 whitespace-nowrap">
+        ARSENAL
       </div>
+      
+      {/* Aesthetic ambient lighting for tech stack */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-zinc-800/10 via-transparent to-transparent pointer-events-none blur-3xl z-0" />
 
-      {/* Background Decor */}
-      <div className="absolute inset-0 pointer-events-none opacity-5" 
-           style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '20px 20px' }} 
-      />
-
-      {/* Row 1 - Moving Left */}
-      <div className="relative flex overflow-hidden border-y-2 border-zinc-900 bg-zinc-900/5 py-2">
-        <MarqueeRow items={[...row1, ...row1, ...row1, ...row1]} direction="left" speed={20} />
-        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#C4BCB2] to-transparent z-10" />
-        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#C4BCB2] to-transparent z-10" />
-      </div>
-
-      {/* Row 2 - Moving Right */}
-      <div className="relative flex overflow-hidden border-b-2 border-zinc-900 bg-zinc-900/5 py-2">
-         <MarqueeRow items={[...row2, ...row2, ...row2, ...row2]} direction="right" speed={20} />
-         <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#C4BCB2] to-transparent z-10" />
-         <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#C4BCB2] to-transparent z-10" />
-      </div>
-
-    </div>
-  );
-}
-
-const MarqueeRow = ({ items, direction, speed }: { items: typeof technologies, direction: "left" | "right", speed: number }) => {
-  return (
-    <motion.div 
-      className="flex gap-6 whitespace-nowrap px-6"
-      animate={{ 
-        x: direction === "left" ? ["0%", "-50%"] : ["-50%", "0%"] 
-      }}
-      transition={{ 
-        ease: "linear", 
-        duration: speed, 
-        repeat: Infinity 
-      }}
-      style={{ width: "fit-content" }}
-    >
-      {items.map((tech, i) => (
-        <TechChip key={`${tech.name}-${i}`} name={tech.name} category={tech.category} />
-      ))}
-    </motion.div>
-  );
-};
-
-const TechChip = ({ name, category }: { name: string, category: string }) => {
-  return (
-    <div className="group relative">
-        <div className="
-          relative z-10
-          flex items-center gap-3 
-          px-6 py-3 
-          border-2 border-zinc-900 
-          bg-[#C4BCB2] 
-          hover:bg-zinc-900 
-          hover:-translate-y-1 hover:-translate-x-1
-          transition-all duration-200
-          cursor-default
-        ">
-          <span className="w-1.5 h-1.5 bg-zinc-900 rounded-full group-hover:bg-[#C4BCB2] transition-colors" />
-          <div className="flex flex-col">
-            <span className="font-serif font-bold text-lg leading-none text-zinc-900 group-hover:text-[#C4BCB2] transition-colors uppercase">
-              {name}
-            </span>
-            <span className="font-mono text-[9px] uppercase tracking-wider text-zinc-600 group-hover:text-zinc-400 transition-colors">
-              {category}
-            </span>
+      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+        <div className="flex items-center justify-between mb-12 pb-5 border-b border-white/10 backdrop-blur-sm">
+          <div className="flex items-center gap-5">
+            <h2 className="text-2xl md:text-3xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 to-zinc-400 tracking-tight uppercase drop-shadow-sm">
+              Arsenal
+            </h2>
+            <div className="h-6 w-[1px] bg-white/20" />
+            <p className="font-sans text-[9px] md:text-[10px] text-zinc-500 font-bold uppercase tracking-[0.3em]">
+              Tech / Infrastructure // 01
+            </p>
           </div>
         </div>
-        {/* Shadow Plate */}
-        <div className="absolute inset-0 bg-zinc-900/20 translate-x-1 translate-y-1 -z-0" />
-    </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {categories.map((cat, idx) => (
+            <motion.div 
+              key={cat.name}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.05 }}
+              className="bg-white/[0.02] backdrop-blur-sm group hover:bg-white/[0.04] p-6 flex flex-col gap-6 rounded-[2px] border border-white/10 hover:border-white/20 transition-all duration-500 shadow-[0_8px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_10px_40px_rgba(0,0,0,0.8)] relative overflow-hidden"
+            >
+              {/* Card top edge gradient effect */}
+              <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              {/* Sidebar Info */}
+              <div className="flex flex-col gap-3 relative z-10">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 bg-zinc-100 text-zinc-900 flex items-center justify-center shadow-[0_0_15px_rgba(255,255,255,0.3)] group-hover:scale-105 group-hover:shadow-[0_0_20px_rgba(255,255,255,0.5)] transition-all duration-300 rounded-sm">
+                    {cat.icon}
+                  </div>
+                  <h3 className="text-xl font-serif font-bold text-zinc-100 group-hover:text-white transition-colors">
+                    {cat.name}
+                  </h3>
+                </div>
+                <p className="text-zinc-400 text-xs font-light leading-relaxed group-hover:text-zinc-300 transition-colors">
+                  {cat.desc}
+                </p>
+              </div>
+
+              {/* Tools Grid - Colored Logos Visible by Default */}
+              <div className="grid grid-cols-2 gap-3 relative z-10">
+                {cat.tools.map((tool) => (
+                  <div 
+                    key={tool.name}
+                    className="flex flex-col items-center gap-2 p-3 bg-black/40 border border-white/5 rounded-sm hover:-translate-y-1 transition-all duration-300 hover:border-white/10 group/item"
+                  >
+                    <div className="w-5 h-5 flex items-center justify-center filter drop-shadow-md group-hover/item:scale-110 transition-transform">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={tool.icon} alt={tool.name} className="max-w-full max-h-full object-contain" />
+                    </div>
+                    <span className="font-sans text-[8px] uppercase font-bold tracking-[0.2em] text-zinc-400 group-hover/item:text-zinc-200 transition-colors text-center w-full">
+                      {tool.name}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
-};
+}

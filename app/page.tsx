@@ -2,54 +2,22 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import AnimatedSections from "./components/AnimatedSections";
 import TechStack from "./components/TechStack";
+import { projectsData } from "./data/projects";
 
 export default function Home() {
-  const projects = [
-    {
-      title: "Flashmon",
-      description: "A lightweight CLI tool for auto-reloading Node.js applications on file changes, similar to Nodemon but with improved performance and cleaner logging.",
-      tags: ["TypeScript", "Node.js", "Commander.js", "Chokidar"],
-      year: "2024",
-      link: "#",
-      github: "https://github.com/Rohit-Bhardwaj10/flashmon"
-    },
-    {
-      title: "DePIN Uptime Monitor",
-      description: "A monitoring and rewards system for decentralized validators. Tracks uptime, logs performance, and automates payouts via on-chain execution.",
-      tags: ["Next.js", "PostgreSQL", "Solana", "Docker"],
-      year: "2025",
-      link: "#",
-      github: "https://github.com/Rohit-Bhardwaj10/stay-up"
-    },
-    {
-      title: "Events Flow",
-      description: "A full-stack event management platform for creating, listing, and registering for events with integrated online payments via Razorpay.",
-      tags: ["TypeScript", "Next.js", "Razorpay"],
-      year: "2025",
-      link: "#",
-      github: "https://github.com/Rohit-Bhardwaj10/EventFlow"
-    },
-    {
-      title: "DHiree",
-      description: "Decentralized freelance platform connecting developers with companies. Ensures transparent job postings and secure payments via Ethereum smart contracts.",
-      tags: ["React", "Solidity", "Hardhat", "IPFS"],
-      year: "2025",
-      link: "#",
-      github: "https://github.com/Rohit-Bhardwaj10/D-Hiree"
-    }
-  ];
+  const featuredProjects = projectsData.filter(p => p.featured);
 
   return (
-    <div className="min-h-screen text-zinc-900 bg-[#C4BCB2] relative overflow-x-hidden w-full">
-      {/* Grain texture overlay */}
+    <div className="min-h-screen text-foreground bg-background relative overflow-x-hidden w-full">
+      {/* Structural grid pattern */}
       <div 
         className="fixed inset-0 pointer-events-none" 
         style={{
           zIndex: 9999,
-          background: 'radial-gradient(circle at center, rgba(0,0,0,0.5) 0.5px, transparent 0.5px)',
-          backgroundSize: '2px 2px',
+          background: 'radial-gradient(circle at center, rgba(255,255,255,0.15) 0.5px, transparent 0.5px)',
+          backgroundSize: '24px 24px',
           opacity: 0.15,
-          mixBlendMode: 'multiply'
+          mixBlendMode: 'screen'
         }}
       />
       <Header />
@@ -57,10 +25,10 @@ export default function Home() {
       <main>
         <Hero />
         <TechStack />
-        <AnimatedSections projects={projects} />
+        <AnimatedSections projects={featuredProjects} />
       </main>
 
-      <footer className="bg-zinc-900 text-zinc-400 p-8 md:p-12">
+      <footer className="bg-zinc-950 text-zinc-400 p-8 md:p-12 border-t border-zinc-800">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-center md:text-left">
             <h2 className="font-serif text-2xl text-zinc-100 mb-2">ROHIT BHARDWAJ</h2>

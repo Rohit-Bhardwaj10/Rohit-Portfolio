@@ -1,83 +1,82 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
-import { TextScramble } from "./animations";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
-const photos = [
+const previewPhotos = [
+  "/image10.jpeg",
   "/image1.jpeg",
   "/image2.jpeg",
-  "/image3.jpeg",
-  "/image4.jpeg",
-  "/image5.jpeg",
   "/image6.jpeg",
-  "/image7.jpeg",
 ];
 
 export default function ThroughMyLens() {
-  const containerRef = useRef<HTMLDivElement>(null);
-
   return (
-    <div className="w-full stitch-b lg:stitch-r bg-[#C4BCB2] overflow-hidden">
-
+    <section className="w-full stitch-b lg:border-r border-white/10 bg-gradient-to-b from-black/20 via-black/40 to-black/20 py-16 relative overflow-hidden backdrop-blur-md">
       
-      {/* Header */}
-      <div className="px-6 py-4 md:px-8 md:py-6 flex justify-between items-end border-b border-zinc-900/10 border-dashed">
-        <h2 className="text-3xl md:text-4xl font-serif font-bold text-zinc-900">
-           <span className="md:hidden">Through My Lens</span>
-           <TextScramble className="hidden md:inline-block" text="Through My Lens" duration={1.2} />
-        </h2>
+      {/* Aesthetic Background Glow */}
+      <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-zinc-800/10 via-transparent to-transparent pointer-events-none" />
+
+      <div className="px-6 md:px-12 max-w-[1600px] mx-auto relative z-10">
         
-        {/* Mobile Swipe Hint */}
-        <span className="md:hidden font-mono text-[10px] text-zinc-500 mb-1 uppercase tracking-widest animate-pulse">
-          Swipe &rarr;
-        </span>
+        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10 lg:gap-12 w-full">
+           
+           <motion.div 
+             initial={{ opacity: 0, y: 20 }}
+             whileInView={{ opacity: 1, y: 0 }}
+             transition={{ duration: 0.6 }}
+             viewport={{ once: true, margin: "-50px" }}
+             className="flex flex-col max-w-lg"
+           >
+             <div className="flex items-center gap-4 mb-4">
+                <span className="w-2 h-2 bg-gradient-to-br from-zinc-200 to-zinc-500 rounded-full inline-block shadow-[0_0_10px_rgba(255,255,255,0.3)]"></span>
+                <h2 className="font-sans text-[11px] uppercase tracking-[0.3em] text-zinc-400 font-semibold">
+                  Side Quest
+                </h2>
+             </div>
+             
+             <h3 className="font-serif text-4xl md:text-5xl lg:text-6xl text-transparent bg-clip-text bg-gradient-to-br from-zinc-100 to-zinc-500 mb-5 font-bold tracking-tight">
+               Through My Lens
+             </h3>
+             <p className="font-sans text-sm md:text-base text-zinc-400/80 leading-relaxed mb-8 font-light max-w-md">
+               A personal archive of moments frozen in time. Exploring dramatic lighting, composition, and human emotion away from the keyboard.
+             </p>
+             <Link 
+               href="/gallery"
+               className="group inline-flex items-center gap-3 font-sans text-[11px] uppercase tracking-[0.2em] text-zinc-300 font-semibold border border-white/10 px-6 py-3 rounded-full hover:bg-white/5 hover:text-white hover:border-white/20 transition-all duration-300 backdrop-blur-md"
+             >
+               View Photography Archive
+               <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+             </Link>
+           </motion.div>
 
-        <span className="hidden md:inline font-mono text-xs text-zinc-700 mb-1 uppercase tracking-widest">
-          Captured Moments
-        </span>
-      </div>
+           <div className="flex gap-4 md:gap-6 w-full lg:w-auto overflow-x-auto pb-6 lg:pb-0 scrollbar-hide snap-x object-contain relative perspective">
+             {previewPhotos.map((src, i) => (
+                <motion.div 
+                  key={i} 
+                  initial={{ opacity: 0, x: 30, rotateY: 15 }}
+                  whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
+                  transition={{ duration: 0.7, delay: i * 0.15, type: "spring", bounce: 0.4 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  className="shrink-0 relative w-[140px] h-[190px] md:w-[180px] md:h-[240px] border border-white/10 rounded-sm shadow-[0_8px_30px_rgba(0,0,0,0.8)] bg-zinc-950/80 p-2 group transition-all duration-700 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.9)] hover:border-white/20"
+                >
+                   <div className="relative w-full h-full border border-white/5 overflow-hidden rounded-sm bg-zinc-900">
+                     <Image 
+                       src={src} 
+                       alt={`Preview ${i}`} 
+                       fill
+                       className="object-cover group-hover:scale-105 transition-all duration-700 ease-out" 
+                       sizes="(max-width: 768px) 140px, 180px"
+                     />
+                   </div>
+                </motion.div>
+             ))}
+           </div>
 
-      {/* Film Strip */}
-      <div 
-        ref={containerRef}
-        className="relative w-full overflow-x-auto pb-6 pt-6 px-6 md:px-8 scrollbar-hide cursor-grab active:cursor-grabbing"
-      >
-        <div className="flex gap-6 md:gap-8 w-max">
-          {photos.map((src, index) => (
-            <motion.div
-              key={index}
-              className="relative shrink-0 group"
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-              viewport={{ once: true }}
-            >
-              {/* Photo Frame */}
-              <div className="relative h-[200px] md:h-[240px] aspect-[4/5] md:aspect-[3/4] p-2 bg-white border border-zinc-200 shadow-md rotate-1 hover:rotate-0 transition-transform duration-300 ease-out">
-                <div className="relative w-full h-full overflow-hidden bg-zinc-100 filter md:grayscale group-hover:grayscale-0 transition-all duration-500">
-                  <Image
-                    src={src}
-                    alt={`Photo ${index + 1}`}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                {/* Tape effect */}
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-4 bg-yellow-100/50 backdrop-blur-sm border border-white/20 rotate-[-2deg] shadow-sm transform" />
-              </div>
-
-              {/* Caption or Number */}
-              <div className="mt-3 text-center">
-                <span className="font-mono text-[9px] text-zinc-500 uppercase tracking-widest">
-                  No. {String(index + 1).padStart(3, '0')}
-                </span>
-              </div>
-            </motion.div>
-          ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }

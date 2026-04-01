@@ -39,8 +39,22 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${titillium.variable} ${quicksand.variable} ${montserrat.variable} ${playfair.variable} antialiased bg-[#C4BCB2] text-zinc-900 dark:bg-zinc-950 dark:text-zinc-50 font-sans`}
+        className={`${titillium.variable} ${quicksand.variable} ${montserrat.variable} ${playfair.variable} antialiased bg-background text-foreground font-sans relative`}
       >
+        {/* Abstract Dark Theme Background */}
+        <div className="fixed inset-0 z-[-2] bg-[#050505]" />
+        
+        {/* Glowing Orb / Gradient Top */}
+        <div className="fixed inset-0 z-[-1] pointer-events-none flex justify-center">
+          <div className="w-[80vw] h-[500px] bg-gradient-to-b from-zinc-800/20 to-transparent blur-[120px] rounded-full translate-y-[-50%]" />
+        </div>
+
+        {/* Minimal Grid Pattern Overlay */}
+        <div className="fixed inset-0 z-[-1] pointer-events-none opacity-[0.03]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)", backgroundSize: "64px 64px", backgroundPosition: "center center" }} />
+
+        {/* Noise overlay for texture */}
+        <div className="fixed inset-0 z-[9999] pointer-events-none opacity-[0.015]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }} />
+
         <SmoothScrollProvider>
           <CustomCursor />
           {children}

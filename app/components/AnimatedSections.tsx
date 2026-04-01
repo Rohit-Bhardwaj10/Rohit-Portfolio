@@ -2,24 +2,15 @@
 
 import {
   ScrollFadeIn,
-  AnimatedTimeline,
-  TimelineItem,
   TextScramble,
 } from "./animations";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import ProjectCard from "./ProjectCard";
 import ThroughMyLens from "./ThroughMyLens";
-import { ArrowUpRight, BookOpen } from "lucide-react";
+import { ArrowUpRight, BookOpen, ArrowRight } from "lucide-react";
 
-interface Project {
-  title: string;
-  description: string;
-  tags: string[];
-  year: string;
-  link: string;
-  github: string;
-}
+import { Project } from "../data/projects";
 
 interface AnimatedSectionsProps {
   projects: Project[];
@@ -28,121 +19,174 @@ interface AnimatedSectionsProps {
 export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
   return (
     <>
-      {/* Row 1: Featured Works & Professional Experience */}
-      <div className="grid grid-cols-1 lg:grid-cols-12">
-        {/* Main Content Area (Projects) */}
-        <div className="lg:col-span-8 stitch-b lg:stitch-br">
-          {/* Section Header */}
-          <ScrollFadeIn delay={0} duration={0.6}>
-            <div className="px-6 py-3 md:px-8 md:py-4 stitch-b lg:stitch-br flex justify-between items-end bg-[#C4BCB2] relative z-10">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold">
-                <span className="md:hidden">Featured Works</span>
-                <TextScramble
-                  className="hidden md:inline-block"
-                  text="Featured Works"
-                  duration={1}
-                />
-              </h2>
-              <span className="font-mono text-xs text-zinc-700 mb-1 uppercase tracking-widest">
-                Selected Projects • 2023-2025
-              </span>
-            </div>
-          </ScrollFadeIn>
+      {/* Row 1: Featured & History Balance */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 border-b border-white/10">
+        {/* Experience / History - Prominent Modern Sidebar */}
+        <div className="lg:col-span-5 border-b lg:border-b-0 lg:border-r border-white/10 bg-gradient-to-b from-transparent to-black/20 relative overflow-hidden group/sidebar">
+          {/* Subtle Background Watermark - Minimalist and integrated */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[140px] font-serif font-black text-white/[0.015] -rotate-90 pointer-events-none select-none group-hover/sidebar:text-white/[0.03] transition-colors duration-1000 tracking-tighter">
+            LOGBOOK
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2">
-            {projects.map((project, index) => (
-              <ScrollFadeIn
-                key={index}
-                delay={0.1 * index}
-                duration={0.5}
-                direction={index % 2 === 0 ? "left" : "right"}
-                className="h-full"
-              >
-                <div
-                  className={`
-                    ${index % 2 === 0 ? "desktop-stitch-br" : "desktop-stitch-b"} 
-                    h-full
-                  `}
-                >
-                  <ProjectCard {...project} index={index} />
-                </div>
+          <div className="h-full flex flex-col relative z-10 w-full overflow-hidden">
+            <div className="px-6 md:px-8 h-[88px] border-b border-white/10 flex justify-between items-center bg-zinc-950/40 backdrop-blur-md sticky top-0 z-20 w-full shrink-0">
+              <ScrollFadeIn delay={0} duration={0.6}>
+                <h2 className="text-3xl md:text-4xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 to-zinc-400">
+                  <span className="md:hidden">Experience</span>
+                  <TextScramble
+                    className="hidden md:inline-block"
+                    text="Experience"
+                    duration={1.2}
+                  />
+                </h2>
               </ScrollFadeIn>
-            ))}
+              <span className="font-sans text-[9px] text-zinc-500 font-bold tracking-[0.3em]">VOL. 02</span>
+            </div>
+            
+            <div className="p-6 md:p-8 space-y-10 pr-4">
+              {/* Exp 1 */}
+              <motion.div 
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
+                className="group/item relative"
+              >
+                <div className="flex justify-between items-start mb-4">
+                  <div className="space-y-1">
+                    <h3 className="text-xl font-bold text-zinc-100 uppercase tracking-tighter group-hover/item:text-white transition-colors flex items-center gap-2">
+                      BarterNow 
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
+                    </h3>
+                    <p className="font-serif italic text-base text-zinc-400">Backend Intern</p>
+                  </div>
+                  <div className="flex flex-col items-end gap-1">
+                    <span className="font-mono text-[11px] text-zinc-300 bg-zinc-800 px-2 py-0.5 rounded-sm font-black uppercase tracking-tighter">'25 — '26</span>
+                    <span className="font-mono text-[10px] text-zinc-500 font-bold uppercase tracking-widest">Noida, IN</span>
+                  </div>
+                </div>
+                <div className="pl-6 border-l border-white/10 group-hover/item:border-white/30 transition-all duration-500 relative">
+                  <motion.div 
+                    className="absolute top-0 -left-[1px] w-[2px] h-0 bg-white/40 shadow-[0_0_8px_rgba(255,255,255,0.3)]"
+                    whileInView={{ height: "100%" }}
+                    transition={{ duration: 1.5, ease: "circOut", delay: 0.2 }}
+                    viewport={{ once: true }}
+                  />
+                  <p className="text-zinc-400 leading-relaxed text-sm md:text-base font-medium mb-6">
+                    Performance-critical backend infrastructure for a high-traffic barter system. Architected the core API layer and optimized service-to-service communication.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {['JavaScript', 'Node.js', 'PostgreSQL', 'Prisma'].map(tech => (
+                      <span key={tech} className="text-[10px] font-bold font-sans uppercase tracking-[0.2em] text-zinc-400 border border-white/10 bg-white/5 px-2.5 py-1 rounded-[2px] group-hover/item:text-zinc-100 group-hover/item:border-white/20 transition-all duration-500">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Exp 2 */}
+              <motion.div 
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1], delay: 0.1 }}
+                className="group/item relative"
+              >
+                <div className="flex justify-between items-start mb-4">
+                  <div className="space-y-1">
+                    <h3 className="text-xl font-bold text-zinc-100 uppercase tracking-tighter group-hover/item:text-white transition-colors">Freelance</h3>
+                    <p className="font-serif italic text-base text-zinc-400">Full Stack Engineer</p>
+                  </div>
+                  <div className="flex flex-col items-end gap-1">
+                    <span className="font-mono text-[11px] text-zinc-300 bg-zinc-800 px-2 py-0.5 rounded-sm font-black uppercase tracking-tighter">Current</span>
+                    <span className="font-mono text-[10px] text-zinc-500 font-bold uppercase tracking-widest">Remote</span>
+                  </div>
+                </div>
+                <div className="pl-6 border-l border-white/10 group-hover/item:border-white/30 transition-all duration-500 relative">
+                  <motion.div 
+                    className="absolute top-0 -left-[1px] w-[2px] h-0 bg-white/40 shadow-[0_0_8px_rgba(255,255,255,0.3)]"
+                    whileInView={{ height: "100%" }}
+                    transition={{ duration: 1.5, ease: "circOut", delay: 0.3 }}
+                    viewport={{ once: true }}
+                  />
+                  <p className="text-zinc-400 leading-relaxed text-sm md:text-base font-medium mb-6">
+                    Delivering end-to-end production systems for diverse clients. Focus on performance optimization, clean code patterns, and modern frontend architectures.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {['Next.js', 'TypeScript', 'Node.js', 'AWS' ,'GO'].map(tech => (
+                      <span key={tech} className="text-[10px] font-bold font-sans uppercase tracking-[0.2em] text-zinc-400 border border-white/10 bg-white/5 px-2.5 py-1 rounded-[2px] group-hover/item:text-zinc-100 group-hover/item:border-white/20 transition-all duration-500">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+
+            <div className="flex-1 p-6 md:p-8 pt-0 flex flex-col justify-end opacity-60 group-hover/sidebar:opacity-100 transition-opacity">
+              <div className="font-mono text-[10px] space-y-1 uppercase tracking-widest text-zinc-300 font-black">
+                <div>[SYSTEM::READY]</div>
+                <div>[INDEX_FETCHED]</div>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Sidebar Area (Experience) */}
-        <div className="lg:col-span-4 stitch-b flex flex-col">
-          <ScrollFadeIn delay={0.1} duration={0.6}>
-            <div className="px-6 py-3 md:px-8 md:py-4 stitch-b bg-[#C4BCB2] relative z-10">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-zinc-900">
-                <span className="md:hidden">Experience</span>
+        {/* Featured Projects - Column Header */}
+        <div className="lg:col-span-7 flex flex-col relative group/projects overflow-hidden">
+          
+          {/* Subtle Background Watermark for Projects */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[180px] font-serif font-black text-white/[0.015] pointer-events-none select-none group-hover/projects:text-white/[0.03] transition-colors duration-1000 tracking-tighter z-0">
+            WORKS
+          </div>
+
+          <div className="px-6 md:px-8 h-[88px] border-b border-white/10 flex justify-between items-center bg-zinc-950/40 backdrop-blur-md sticky top-0 z-20 w-full shrink-0">
+            <ScrollFadeIn delay={0} duration={0.6}>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 to-zinc-400">
+                <span className="md:hidden">Projects</span>
                 <TextScramble
                   className="hidden md:inline-block"
-                  text="Experience"
-                  duration={1.2}
+                  text="Projects"
+                  duration={1}
                 />
               </h2>
-            </div>
-          </ScrollFadeIn>
+            </ScrollFadeIn>
+            <Link
+              href="/projects"
+              className="font-sans text-[9px] md:text-[10px] text-zinc-400 hover:text-zinc-100 uppercase tracking-[0.2em] transition-all font-bold group flex items-center gap-2 border-b border-white/10 hover:border-zinc-300 pb-0.5"
+            >
+              See More <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
 
-          {/* Animated Timeline with Draw Effect (B3) */}
-          <AnimatedTimeline>
-            {/* Experience Item 1 */}
-            <TimelineItem index={0} isFirst={true}>
-              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2">
-                <h3 className="text-lg font-bold uppercase tracking-wider text-zinc-900">
-                  BarterNow
-                </h3>
-                <span className="font-mono text-[10px] text-zinc-600 uppercase tracking-widest mt-1 sm:mt-0">
-                  oct 2025 - Jan 2026
-                </span>
+          <div className="grid grid-cols-1 md:grid-cols-2 relative z-10 h-full">
+            {projects.slice(0, 4).map((project, index) => (
+              <div 
+                key={index} 
+                className={`border-white/10 ${index % 2 === 0 ? "md:border-r" : ""} ${index < 2 ? "border-b" : ""} h-full backdrop-blur-sm`}
+              >
+                <ProjectCard {...project} index={index} />
               </div>
-              <p className="font-serif italic text-zinc-700 mb-3 text-base">
-                Backend Developer Intern
-              </p>
-              <p className="text-zinc-600 leading-relaxed text-sm md:text-base font-medium">
-                Working on scalable backend architecture, optimizing database
-                performance, and building robust API services. Implemented
-                caching strategies and query optimization to improve response
-                times. Collaborated with cross-functional teams to design and
-                develop RESTful APIs serving thousands of daily users.
-              </p>
-            </TimelineItem>
-
-            {/* Experience Item 2 */}
-            <TimelineItem index={1} isLast={true}>
-              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2">
-                <h3 className="text-lg font-bold uppercase tracking-wider text-zinc-900">
-                  Freelance
-                </h3>
-                <span className="font-mono text-[10px] text-zinc-600 uppercase tracking-widest mt-1 sm:mt-0">
-                  2025 - Present
-                </span>
-              </div>
-              <p className="font-serif italic text-zinc-700 mb-3 text-base">
-                Full Stack Developer
-              </p>
-              <p className="text-zinc-600 leading-relaxed text-sm md:text-base font-medium">
-                Developed multiple end-to-end production-grade systems and
-                developer tools, focusing on performance, scalability, and clean
-                code architecture. Built responsive web applications using
-                modern frameworks and delivered projects that handled high
-                traffic loads.
-              </p>
-            </TimelineItem>
-          </AnimatedTimeline>
+            ))}
+          </div>
         </div>
       </div>
 
       {/* Row 2: Recent Writings & Education */}
-      <div className="grid grid-cols-1 lg:grid-cols-12">
+      <div className="grid grid-cols-1 lg:grid-cols-12 relative overflow-hidden group/bottom">
+        
+        {/* Shared Bottom Background Watermark */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[200px] font-serif font-black text-white/[0.015] pointer-events-none select-none group-hover/bottom:text-white/[0.03] transition-colors duration-1000 tracking-tighter z-0 whitespace-nowrap">
+          INSIGHTS
+        </div>
+
         {/* Recent Writings (Col 8) */}
-        <div className="lg:col-span-8 stitch-b lg:stitch-br">
+        <div className="lg:col-span-8 border-b lg:border-b-0 lg:border-r border-white/10 relative z-10 backdrop-blur-sm">
           {/* Section Header */}
           <ScrollFadeIn delay={0} duration={0.6}>
-            <div className="px-6 py-2 md:px-8 md:py-3 stitch-b lg:stitch-br flex justify-between items-end bg-[#C4BCB2] relative z-10">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold">
+            <div className="px-6 md:px-8 h-[88px] flex justify-between items-center bg-zinc-950/40 backdrop-blur-md relative z-20 border-b border-white/10 shrink-0">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 to-zinc-400">
                 <span className="md:hidden">Recent Writings</span>
                 <TextScramble
                   className="hidden md:inline-block"
@@ -150,21 +194,21 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
                   duration={1}
                 />
               </h2>
-              <span className="font-mono text-xs text-zinc-700 mb-1 uppercase tracking-widest">
+              <span className="font-sans text-[9px] text-zinc-500 font-bold uppercase tracking-[0.3em] mb-1">
                 Thoughts & Insights
               </span>
             </div>
           </ScrollFadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 relative z-10 h-full">
             <ScrollFadeIn
               delay={0.1}
               duration={0.5}
               direction="left"
-              className="h-full"
+              className="h-full border-r border-white/10"
             >
-              <div className="desktop-stitch-r p-6 md:p-8 flex flex-col h-full">
-                <span className="font-mono text-[10px] text-zinc-600 uppercase tracking-widest mb-3">
+              <div className="p-6 md:p-8 flex flex-col h-full border-b border-white/10 md:border-b-0 group/post hover:bg-white/[0.02] transition-colors">
+                <span className="font-sans font-bold text-[9px] text-zinc-500 uppercase tracking-[0.3em] mb-4">
                   Oct 22, 2025
                 </span>
                 <Link
@@ -172,26 +216,26 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <h3 className="text-2xl font-serif font-bold text-zinc-900 mb-3 hover:underline cursor-pointer">
+                  <h3 className="text-2xl font-serif font-bold text-zinc-100 mb-3 hover:underline cursor-pointer">
                     The Centralized Core of Decentralization
                   </h3>
                 </Link>
-                <p className="text-zinc-600 leading-relaxed mb-6 flex-1 font-medium">
+                <p className="text-zinc-400 leading-relaxed mb-6 flex-1 font-medium italic">
                   Rethinking Web3's Infrastructure. Examining the reliance of
                   decentralized networks on centralized cloud providers and
                   efficient infrastructure patterns.
                 </p>
                 <div className="flex items-center gap-2 mb-6">
-                  <span className="text-zinc-600 text-[10px] font-mono uppercase tracking-wider">
+                  <span className="text-zinc-500 text-[10px] font-mono uppercase tracking-wider">
                     #Web3
                   </span>
                 </div>
-                <div className="pt-4 stitch-t flex items-center gap-6">
+                <div className="pt-4 border-t border-zinc-800 flex items-center gap-6">
                   <Link
                     href="https://dev.to/rohit_bhardwaj_94db62db7b/the-centralized-core-of-decentralization-rethinking-web3s-infrastructure-40da"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-zinc-700 hover:text-zinc-900 transition-colors"
+                    className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-zinc-400 hover:text-zinc-100 transition-colors"
                   >
                     <BookOpen size={14} />
                     <span>Read Article</span>
@@ -208,7 +252,7 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
               className="h-full"
             >
               <div className="p-6 md:p-8 flex flex-col h-full">
-                <span className="font-mono text-[10px] text-zinc-600 uppercase tracking-widest mb-3">
+                <span className="font-mono text-[10px] text-zinc-500 uppercase tracking-widest mb-3">
                   Jun 9, 2025
                 </span>
                 <Link
@@ -216,26 +260,26 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <h3 className="text-2xl font-serif font-bold text-zinc-900 mb-3 hover:underline cursor-pointer">
+                  <h3 className="text-2xl font-serif font-bold text-zinc-100 mb-3 hover:underline cursor-pointer">
                     Backend Scaling Strategies
                   </h3>
                 </Link>
-                <p className="text-zinc-600 leading-relaxed mb-6 flex-1 font-medium">
+                <p className="text-zinc-400 leading-relaxed mb-6 flex-1 font-medium italic">
                   A deep dive into load balancing, database sharding, and
                   caching strategies for building high-traffic, resilient
                   systems.
                 </p>
                 <div className="flex items-center gap-2 mb-6">
-                  <span className="text-zinc-600 text-[10px] font-mono uppercase tracking-wider">
+                  <span className="text-zinc-500 text-[10px] font-mono uppercase tracking-wider">
                     #SystemDesign
                   </span>
                 </div>
-                <div className="pt-4 stitch-t flex items-center gap-6">
+                <div className="pt-4 border-t border-zinc-800 flex items-center gap-6">
                   <Link
                     href="https://medium.com/@beastslayer23456/backend-scaling-strategies-for-high-traffic-systems-16c8d3ffccd2"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-zinc-700 hover:text-zinc-900 transition-colors"
+                    className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-zinc-400 hover:text-zinc-100 transition-colors"
                   >
                     <BookOpen size={14} />
                     <span>Read Article</span>
@@ -248,10 +292,10 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
         </div>
 
         {/* Education (Col 4) */}
-        <div className="lg:col-span-4 flex flex-col stitch-b">
+        <div className="lg:col-span-4 flex flex-col border-b border-zinc-800">
           <ScrollFadeIn delay={0.1} duration={0.6}>
-            <div className="px-6 py-2 md:px-8 md:py-3 stitch-b flex items-end bg-[#C4BCB2] relative z-10">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-zinc-900">
+            <div className="px-6 py-4 md:px-8 md:py-6 flex items-end bg-zinc-950/80 relative z-10 border-b border-zinc-800">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-zinc-100">
                 <span className="md:hidden">Education</span>
                 <TextScramble
                   className="hidden md:inline-block"
@@ -262,14 +306,14 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
             </div>
           </ScrollFadeIn>
           <ScrollFadeIn delay={0.2} duration={0.5}>
-            <div className="px-6 py-4 md:px-8 md:py-6">
-              <h3 className="font-serif font-bold text-lg mb-1">
+            <div className="px-6 py-4 md:px-8 md:py-6 h-full flex flex-col justify-center">
+              <h3 className="font-serif font-bold text-lg mb-1 text-zinc-100">
                 ABES Engineering College, AKTU
               </h3>
-              <p className="text-zinc-700 mb-1">
+              <p className="text-zinc-400 mb-1 font-medium">
                 Bachelor in Computer Science and Engineering
               </p>
-              <p className="font-mono text-xs text-zinc-600">
+              <p className="font-mono text-xs text-zinc-600 font-bold uppercase tracking-widest">
                 Sept 2023 - May 2027
               </p>
             </div>
@@ -277,7 +321,9 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
         </div>
       </div>
 
-      {/* Photography Section (Ended) */}
+      {/* Row 3 Seperator */}
+      <div className="border-b border-zinc-800 w-full" />
+
       <ThroughMyLens />
     </>
   );
