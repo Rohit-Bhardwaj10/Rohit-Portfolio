@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     siteName: "Rohit Portfolio",
     images: [
       {
-        url: "/cool.png", // MUST be absolute
+        url: "https://rohitships.tech/cool.png", // MUST be absolute
         width: 1200,
         height: 630,
       },
