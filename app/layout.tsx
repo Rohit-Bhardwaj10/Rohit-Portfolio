@@ -27,8 +27,22 @@ const playfair = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Rohit Bhardwaj - Portfolio",
+ title: "Rohit Bhardwaj - Portfolio",
   description: "Developer Portfolio - Rohit Bhardwaj",
+  openGraph: {
+    title: "Rohit Bhardwaj - Portfolio",
+    description: "Developer Portfolio - Rohit Bhardwaj",
+    url: "https://rohitships.tech",
+    siteName: "Rohit Portfolio",
+    images: [
+      {
+        url: "download.jpg", // MUST be absolute
+        width: 1200,
+        height: 630,
+      },
+    ],
+    type: "website",
+  },
 };
 
 export default function RootLayout({
