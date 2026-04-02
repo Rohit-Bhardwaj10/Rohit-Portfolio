@@ -27,21 +27,37 @@ const playfair = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
- title: "Rohit Bhardwaj - Portfolio",
-  description: "Developer Portfolio - Rohit Bhardwaj",
+  metadataBase: new URL("https://rohitships.tech"),
+  title: "Rohit Bhardwaj | Software Engineer & Builder",
+  description: "Architecting scalable backend systems and high-fidelity frontends. Digital portfolio of Rohit Bhardwaj, featuring expertise in Node.js, Next.js, Go, and system design.",
+  keywords: ["Software Engineer", "Full Stack Developer", "Backend Developer", "Next.js Portfolio", "Rohit Bhardwaj", "System Architecture"],
+  authors: [{ name: "Rohit Bhardwaj" }],
   openGraph: {
-    title: "Rohit Bhardwaj - Portfolio",
-    description: "Developer Portfolio - Rohit Bhardwaj",
+    title: "Rohit Bhardwaj | Software Engineer & Builder",
+    description: "Turning ideas into digital magic through scalable code and premium design. Focused on performance-critical backend infrastructure and immersive frontends.",
     url: "https://rohitships.tech",
     siteName: "Rohit Portfolio",
     images: [
       {
-        url: "https://rohitships.tech/cool.png", // MUST be absolute
+        url: "/download.jpg",
         width: 1200,
-        height: 630,
+        height: 1200,
+        alt: "Rohit Bhardwaj Portfolio Header",
       },
     ],
+    locale: "en_US",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Rohit Bhardwaj | Software Engineer & Builder",
+    description: "Full Stack Engineer specializing in scalable backend systems and high-fidelity frontends.",
+    images: ["/download.jpg"],
+    creator: "@whoisrohit45",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
