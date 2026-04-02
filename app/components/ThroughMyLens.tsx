@@ -24,13 +24,7 @@ export default function ThroughMyLens() {
         
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10 lg:gap-12 w-full">
            
-           <motion.div 
-             initial={{ opacity: 0, y: 20 }}
-             whileInView={{ opacity: 1, y: 0 }}
-             transition={{ duration: 0.6 }}
-             viewport={{ once: true, margin: "-50px" }}
-             className="flex flex-col max-w-lg"
-           >
+           <div className="flex flex-col max-w-lg">
              <div className="flex items-center gap-4 mb-4">
                 <span className="w-2 h-2 bg-gradient-to-br from-zinc-200 to-zinc-500 rounded-full inline-block shadow-[0_0_10px_rgba(255,255,255,0.3)]"></span>
                 <h2 className="font-sans text-[11px] uppercase tracking-[0.3em] text-zinc-400 font-semibold">
@@ -53,7 +47,7 @@ export default function ThroughMyLens() {
                  <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                </Link>
              </MagneticButton>
-           </motion.div>
+           </div>
 
            <div className="flex gap-4 md:gap-6 w-full lg:w-auto overflow-x-auto pb-6 lg:pb-0 scrollbar-hide snap-x object-contain relative perspective">
              {previewPhotos.map((src, i) => (

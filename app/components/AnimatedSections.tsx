@@ -30,16 +30,14 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
 
           <div className="h-full flex flex-col relative z-10 w-full overflow-hidden">
             <div className="px-6 md:px-8 h-[88px] border-b border-solid border-white/10 flex justify-between items-center bg-zinc-950/40 backdrop-blur-md sticky top-0 z-20 w-full shrink-0">
-              <ScrollFadeIn delay={0} duration={0.6}>
-                <h2 className="text-3xl md:text-4xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 to-zinc-400">
-                  <span className="md:hidden">Experience</span>
-                  <TextScramble
-                    className="hidden md:inline-block"
-                    text="Experience"
-                    duration={1.2}
-                  />
-                </h2>
-              </ScrollFadeIn>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 to-zinc-400">
+                <span className="md:hidden">Experience</span>
+                <TextScramble
+                  className="hidden md:inline-block"
+                  text="Experience"
+                  duration={1.2}
+                />
+              </h2>
               <span className="font-sans text-[9px] text-zinc-500 font-bold tracking-[0.3em]">VOL. 02</span>
             </div>
             
@@ -142,16 +140,14 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
           </div>
 
           <div className="px-6 md:px-8 h-[88px] border-b border-white/10 flex justify-between items-center bg-zinc-950/40 backdrop-blur-md sticky top-0 z-20 w-full shrink-0">
-            <ScrollFadeIn delay={0} duration={0.6}>
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 to-zinc-400">
-                <span className="md:hidden">Projects</span>
-                <TextScramble
-                  className="hidden md:inline-block"
-                  text="Projects"
-                  duration={1}
-                />
-              </h2>
-            </ScrollFadeIn>
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 to-zinc-400">
+              <span className="md:hidden">Projects</span>
+              <TextScramble
+                className="hidden md:inline-block"
+                text="Projects"
+                duration={1}
+              />
+            </h2>
             <Link
               href="/projects"
               className="font-sans text-[9px] md:text-[10px] text-zinc-400 hover:text-zinc-100 uppercase tracking-[0.2em] transition-all font-bold group flex items-center gap-2 border-b border-white/10 hover:border-zinc-300 pb-0.5"
@@ -184,7 +180,6 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
         {/* Recent Writings (Col 8) */}
         <div className="lg:col-span-8 border-b lg:border-b-0 lg:border-r border-solid border-white/10 relative z-10 backdrop-blur-sm">
           {/* Section Header */}
-          <ScrollFadeIn delay={0} duration={0.6}>
             <div className="px-6 md:px-8 h-[88px] flex justify-between items-center bg-zinc-950/40 backdrop-blur-md relative z-20 border-b border-solid border-white/10 shrink-0">
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 to-zinc-400">
                 <span className="md:hidden">Recent Writings</span>
@@ -198,7 +193,6 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
                 Thoughts & Insights
               </span>
             </div>
-          </ScrollFadeIn>
 
           <div className="grid grid-cols-1 md:grid-cols-2 relative z-10 h-full w-full">
             <ScrollFadeIn
@@ -293,7 +287,6 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
 
         {/* Education (Col 4) */}
         <div className="lg:col-span-4 flex flex-col border-b lg:border-b-0 border-white/10 relative z-10 backdrop-blur-sm group/edu overflow-hidden">
-          <ScrollFadeIn delay={0.1} duration={0.6} className="w-full shrink-0">
             <div className="px-6 md:px-8 h-[88px] flex justify-between items-center bg-zinc-950/40 backdrop-blur-md relative z-20 border-b border-solid border-white/10 w-full">
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 to-zinc-400 w-full">
                 <span className="md:hidden">Education</span>
@@ -304,7 +297,6 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
                 />
               </h2>
             </div>
-          </ScrollFadeIn>
           <div className="flex-1 w-full bg-transparent hover:bg-white/[0.02] transition-colors relative">
             <ScrollFadeIn delay={0.2} duration={0.5} className="h-full w-full">
               <div className="p-6 md:p-8 h-full flex flex-col w-full relative">

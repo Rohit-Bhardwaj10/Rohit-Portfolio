@@ -46,21 +46,12 @@ export const projectsData: Project[] = [
     featured: true
   },
   {
-    title: "Coming Soon 1",
-    description: "Placeholder for your upcoming project. It will be displayed cleanly in the archive.",
-    tags: ["React", "TypeScript", "Tailwind"],
+    title: "Semantic Cache Proxy",
+    description: "An enterprise-grade, high-performance caching proxy designed specifically for Large Language Models (LLMs). It reduces API costs by up to 85% and latencies by 98% by intelligently reusing semantic matches using time-aware, intent-based policies.",
+    tags: ["Go", "Docker", "Prometheus", "Grafana"],
     year: "2025",
     link: "#",
-    github: "#",
-    featured: false
-  },
-  {
-    title: "Coming Soon 2",
-    description: "Another placeholder for your side project or open-source contribution.",
-    tags: ["Node.js", "Express", "MongoDB"],
-    year: "2025",
-    link: "#",
-    github: "#",
+    github: "https://github.com/Rohit-Bhardwaj10/smart-cache-proxy",
     featured: false
   }
 ];
