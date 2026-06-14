@@ -24,10 +24,10 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
     setErrorMessage("");
 
     try {
-     
+
       await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      
+
+
       // const response = await fetch('/api/contact', {
       //   method: 'POST',
       //   headers: { 'Content-Type': 'application/json' },
@@ -37,7 +37,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
       setStatus("success");
       setFormData({ name: "", email: "", message: "" });
-      
+
       // Auto-close after success
       setTimeout(() => {
         onClose();

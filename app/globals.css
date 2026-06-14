@@ -3,7 +3,7 @@
 @theme {
   --font-serif: var(--font-titillium);
   --font-sans: var(--font-quicksand);
-  
+
   /* Technical dark theme base */
   --color-background: #050505;
   --color-foreground: #FAFAFA;
@@ -27,7 +27,12 @@ body {
 }
 
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-titillium);
 }
 
@@ -43,7 +48,7 @@ h1, h2, h3, h4, h5, h6 {
   z-index: -1;
   opacity: 1;
   pointer-events: none;
-  background: 
+  background:
     linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   background-size: 32px 32px;
@@ -56,17 +61,19 @@ h1, h2, h3, h4, h5, h6 {
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.6) 100%);
+  background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.6) 100%);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #050505; /* Sleeker, sophisticated pitch-dark base */
+    --background: #050505;
+    /* Sleeker, sophisticated pitch-dark base */
     --foreground: #FAFAFA;
   }
-  
+
   .bg-paper-pattern::before {
-    opacity: 0.03; /* Make it more subtle */
+    opacity: 0.03;
+    /* Make it more subtle */
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opactiy='1'/%3E%3C/svg%3E");
   }
 }
@@ -76,7 +83,7 @@ h1, h2, h3, h4, h5, h6 {
   .stitch-b {
     border-bottom: 1px dashed rgba(255, 255, 255, 0.12);
   }
-  
+
   .stitch-t {
     border-top: 1px dashed rgba(255, 255, 255, 0.12);
   }
@@ -89,7 +96,7 @@ h1, h2, h3, h4, h5, h6 {
   .stitch-r {
     border-right: 1px dashed rgba(255, 255, 255, 0.12);
   }
-  
+
   .stitch-br {
     border-bottom: 1px dashed rgba(255, 255, 255, 0.12);
     border-right: 1px dashed rgba(255, 255, 255, 0.12);
@@ -98,40 +105,42 @@ h1, h2, h3, h4, h5, h6 {
   /* Existing lg classes inside @layer utilities */
   @media (min-width: 1024px) {
     .lg\:stitch-r {
-        border-right: 1px dashed rgba(255, 255, 255, 0.12);
+      border-right: 1px dashed rgba(255, 255, 255, 0.12);
     }
+
     .lg\:stitch-b {
-        border-bottom: 1px dashed rgba(255, 255, 255, 0.12);
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.12);
     }
+
     .lg\:stitch-br {
-        border-bottom: 1px dashed rgba(255, 255, 255, 0.12);
-        border-right: 1px dashed rgba(255, 255, 255, 0.12);
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.12);
+      border-right: 1px dashed rgba(255, 255, 255, 0.12);
     }
   }
 }
 
 /* Hide scrollbar - Global Utility */
 .scrollbar-hide::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* Global Responsive Utilities - Defined outside layer for priority */
 @media (min-width: 768px) {
-    .desktop-stitch-br {
-        border-bottom: 1px dashed rgba(255, 255, 255, 0.12) !important;
-        border-right: 1px dashed rgba(255, 255, 255, 0.12) !important;
-    }
+  .desktop-stitch-br {
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.12) !important;
+    border-right: 1px dashed rgba(255, 255, 255, 0.12) !important;
+  }
 
-    .desktop-stitch-r {
-        border-right: 1px dashed rgba(255, 255, 255, 0.12) !important;
-    }
+  .desktop-stitch-r {
+    border-right: 1px dashed rgba(255, 255, 255, 0.12) !important;
+  }
 
-    .desktop-stitch-b {
-        border-bottom: 1px dashed rgba(255, 255, 255, 0.12) !important;
-    }
+  .desktop-stitch-b {
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.12) !important;
+  }
 }

@@ -7,6 +7,7 @@ export default function CustomCursor() {
   const [isHovering, setIsHovering] = useState(false);
   const [isPointer, setIsPointer] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
+  const [isDragHandle, setIsDragHandle] = useState(false);
   
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
@@ -39,7 +40,9 @@ export default function CustomCursor() {
                            target.tagName === 'BUTTON' ||
                            target.closest('a') ||
                            target.closest('button');
+      const onDragHandle = !!target.closest('[data-drag-handle]');
       
+      setIsDragHandle(onDragHandle);
       setIsPointer(isPointerCursor || !!isInteractive);
       setIsHovering(!!isInteractive);
     };
@@ -63,7 +66,7 @@ export default function CustomCursor() {
     };
   }, [moveCursor]);
 
-  if (isHidden) return null;
+  if (isHidden || isDragHandle) return null;
 
   return (
     <>
@@ -134,6 +137,12 @@ export default function CustomCursor() {
       <style jsx global>{`
         * {
           cursor: none !important;
+        }
+        [data-drag-handle] {
+          cursor: grab !important;
+        }
+        [data-drag-handle]:active {
+          cursor: grabbing !important;
         }
       `}</style>
     </>

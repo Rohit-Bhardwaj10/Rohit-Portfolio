@@ -4,9 +4,12 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Stamp from "./Stamp";
 import { FadeIn } from "./animations";
+import CommandPalette from "./CommandPalette";
+import ContactModal from "./ContactModal";
 
 export default function Header() {
   const [date, setDate] = useState("");
+  const [contactOpen, setContactOpen] = useState(false);
 
   useEffect(() => {
     setDate(new Date().toLocaleDateString("en-US", { 
@@ -18,6 +21,7 @@ export default function Header() {
   }, []);
 
   return (
+    <>
     <motion.header 
       className="border-b border-solid border-white/10 mb-0 bg-[#050505]/70 backdrop-blur-xl sticky top-0 z-50 transition-all duration-300"
       initial={{ opacity: 0 }}
@@ -36,6 +40,7 @@ export default function Header() {
           </div>
           <div className="flex gap-4 items-center">
             <span className="hidden md:inline opacity-60">Late Night Protocol</span>
+            <CommandPalette onContactOpen={() => setContactOpen(true)} />
           </div>
         </div>
       </FadeIn>
@@ -85,5 +90,7 @@ export default function Header() {
         </FadeIn>
       </div>
     </motion.header>
+    <ContactModal isOpen={contactOpen} onClose={() => setContactOpen(false)} />
+  </>
   );
 }

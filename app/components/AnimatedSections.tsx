@@ -22,15 +22,15 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
       {/* Row 1: Featured & History Balance */}
       <div className="grid grid-cols-1 lg:grid-cols-12 border-b border-solid border-white/10">
         {/* Experience / History - Prominent Modern Sidebar */}
-        <div className="lg:col-span-5 border-b lg:border-b-0 lg:border-r border-solid border-white/10 bg-gradient-to-b from-transparent to-black/20 relative overflow-hidden group/sidebar">
+        <div id="experience-section" className="lg:col-span-5 border-b lg:border-b-0 lg:border-r border-solid border-white/10 bg-gradient-to-b from-transparent to-black/20 relative overflow-hidden group/sidebar">
           {/* Subtle Background Watermark - Minimalist and integrated */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[140px] font-serif font-black text-white/[0.015] -rotate-90 pointer-events-none select-none group-hover/sidebar:text-white/[0.03] transition-colors duration-1000 tracking-tighter">
             LOGBOOK
           </div>
 
           <div className="h-full flex flex-col relative z-10 w-full overflow-hidden">
-            <div className="px-6 md:px-8 h-[88px] border-b border-solid border-white/10 flex justify-between items-center bg-zinc-950/40 backdrop-blur-md sticky top-0 z-20 w-full shrink-0">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 to-zinc-400">
+            <div className="px-4 md:px-6 lg:px-8 h-[72px] md:h-[88px] border-b border-solid border-white/10 flex justify-between items-center bg-zinc-950/40 backdrop-blur-md sticky top-0 z-20 w-full shrink-0">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 to-zinc-400">
                 <span className="md:hidden">Experience</span>
                 <TextScramble
                   className="hidden md:inline-block"
@@ -41,7 +41,7 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
               <span className="font-sans text-[9px] text-zinc-500 font-bold tracking-[0.3em]">VOL. 02</span>
             </div>
 
-            <div className="p-6 md:p-8 space-y-10 pr-4">
+            <div className="p-4 md:p-6 lg:p-8 space-y-8 md:space-y-10 pr-2 md:pr-4">
               {/* Exp 1 */}
               <motion.div
                 initial={{ opacity: 0, x: -10 }}
@@ -122,7 +122,7 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
               </motion.div>
             </div>
 
-            <div className="flex-1 p-6 md:p-8 pt-0 flex flex-col justify-end opacity-60 group-hover/sidebar:opacity-100 transition-opacity">
+            <div className="flex-1 p-4 md:p-6 lg:p-8 pt-0 flex flex-col justify-end opacity-60 group-hover/sidebar:opacity-100 transition-opacity">
               <div className="font-mono text-[10px] space-y-1 uppercase tracking-widest text-zinc-300 font-black">
                 <div>[SYSTEM::READY]</div>
                 <div>[INDEX_FETCHED]</div>
@@ -132,15 +132,15 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
         </div>
 
         {/* Featured Projects - Column Header */}
-        <div className="lg:col-span-7 flex flex-col relative group/projects overflow-hidden">
+        <div id="projects-section" className="lg:col-span-7 flex flex-col relative group/projects overflow-hidden">
 
           {/* Subtle Background Watermark for Projects */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[180px] font-serif font-black text-white/[0.015] pointer-events-none select-none group-hover/projects:text-white/[0.03] transition-colors duration-1000 tracking-tighter z-0">
             WORKS
           </div>
 
-          <div className="px-6 md:px-8 h-[88px] border-b border-white/10 flex justify-between items-center bg-zinc-950/40 backdrop-blur-md sticky top-0 z-20 w-full shrink-0">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 to-zinc-400">
+          <div className="px-4 md:px-6 lg:px-8 h-[72px] md:h-[88px] border-b border-white/10 flex justify-between items-center bg-zinc-950/40 backdrop-blur-md sticky top-0 z-20 w-full shrink-0">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 to-zinc-400">
               <span className="md:hidden">Projects</span>
               <TextScramble
                 className="hidden md:inline-block"
@@ -178,10 +178,10 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
         </div>
 
         {/* Recent Writings (Col 8) */}
-        <div className="lg:col-span-8 border-b lg:border-b-0 lg:border-r border-solid border-white/10 relative z-10 backdrop-blur-sm">
+        <div id="writings-section" className="lg:col-span-8 border-b lg:border-b-0 lg:border-r border-solid border-white/10 relative z-10 backdrop-blur-sm">
           {/* Section Header */}
-          <div className="px-6 md:px-8 h-[88px] flex justify-between items-center bg-zinc-950/40 backdrop-blur-md relative z-20 border-b border-solid border-white/10 shrink-0">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 to-zinc-400">
+          <div className="px-4 md:px-6 lg:px-8 h-[72px] md:h-[88px] flex justify-between items-center bg-zinc-950/40 backdrop-blur-md relative z-20 border-b border-solid border-white/10 shrink-0">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 to-zinc-400">
               <span className="md:hidden">Recent Writings</span>
               <TextScramble
                 className="hidden md:inline-block"
@@ -201,7 +201,7 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
               direction="left"
               className="h-full border-b md:border-b-0 md:border-r border-white/10"
             >
-              <div className="p-6 md:p-8 flex flex-col h-full group/post hover:bg-white/[0.02] transition-colors relative">
+              <div className="p-4 md:p-6 lg:p-8 flex flex-col h-full group/post hover:bg-white/[0.02] transition-colors relative">
                 <span className="font-sans font-bold text-[9px] text-zinc-500 uppercase tracking-[0.3em] mb-5 bg-white/5 border border-white/5 px-2.5 py-1 rounded-[2px] w-max">
                   Oct 22, 2025
                 </span>
@@ -245,7 +245,7 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
               direction="right"
               className="h-full border-b md:border-b-0 border-white/10 md:border-none"
             >
-              <div className="p-6 md:p-8 flex flex-col h-full group/post hover:bg-white/[0.02] transition-colors relative">
+              <div className="p-4 md:p-6 lg:p-8 flex flex-col h-full group/post hover:bg-white/[0.02] transition-colors relative">
                 <span className="font-sans font-bold text-[9px] text-zinc-500 uppercase tracking-[0.3em] mb-5 bg-white/5 border border-white/5 px-2.5 py-1 rounded-[2px] w-max">
                   Jun 9, 2025
                 </span>
@@ -287,8 +287,8 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
 
         {/* Education (Col 4) */}
         <div className="lg:col-span-4 flex flex-col border-b lg:border-b-0 border-white/10 relative z-10 backdrop-blur-sm group/edu overflow-hidden">
-          <div className="px-6 md:px-8 h-[88px] flex justify-between items-center bg-zinc-950/40 backdrop-blur-md relative z-20 border-b border-solid border-white/10 w-full">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 to-zinc-400 w-full">
+          <div className="px-4 md:px-6 lg:px-8 h-[72px] md:h-[88px] flex justify-between items-center bg-zinc-950/40 backdrop-blur-md relative z-20 border-b border-solid border-white/10 w-full">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 to-zinc-400 w-full">
               <span className="md:hidden">Education</span>
               <TextScramble
                 className="hidden md:inline-block"
@@ -299,7 +299,7 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
           </div>
           <div className="flex-1 w-full bg-transparent hover:bg-white/[0.02] transition-colors relative">
             <ScrollFadeIn delay={0.2} duration={0.5} className="h-full w-full">
-              <div className="p-6 md:p-8 h-full flex flex-col w-full relative">
+              <div className="p-4 md:p-6 lg:p-8 h-full flex flex-col w-full relative">
                 <h3 className="font-serif font-bold text-lg md:text-xl mb-4 mt-2 text-transparent bg-clip-text bg-gradient-to-b from-zinc-100 to-zinc-400 w-fit">
                   ABES Engineering College, AKTU
                 </h3>

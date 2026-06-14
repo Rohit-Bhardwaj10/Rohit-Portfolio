@@ -6,13 +6,11 @@ import GithubGraph from "./components/GithubGraph";
 import { projectsData } from "./data/projects";
 
 export default function Home() {
-  const featuredProjects = projectsData.filter(p => p.featured);
-
   return (
     <div className="min-h-screen text-foreground bg-background relative overflow-x-hidden w-full">
       {/* Structural grid pattern */}
-      <div 
-        className="fixed inset-0 pointer-events-none" 
+      <div
+        className="fixed inset-0 pointer-events-none"
         style={{
           zIndex: 9999,
           background: 'radial-gradient(circle at center, rgba(255,255,255,0.15) 0.5px, transparent 0.5px)',
@@ -22,12 +20,12 @@ export default function Home() {
         }}
       />
       <Header />
-      
+
       <main>
         <Hero />
         <TechStack />
         <GithubGraph />
-        <AnimatedSections projects={featuredProjects} />
+        <AnimatedSections projects={projectsData} />
       </main>
 
       <footer className="bg-zinc-950 text-zinc-400 py-6 px-6 md:py-8 md:px-12 border-t border-solid border-white/10 relative overflow-hidden group/footer mt-auto">
