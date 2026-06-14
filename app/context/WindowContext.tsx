@@ -11,6 +11,7 @@ export interface WindowState {
   isMaximized: boolean;
   isMinimized: boolean;
   zIndex: number;
+  openIndex: number;
 }
 
 interface WindowContextType {
@@ -45,8 +46,9 @@ export function WindowProvider({ children }: { children: ReactNode }) {
         // Already exists, just focus it and un-minimize if needed
         return prev;
       }
-      // Open new window
-      return [...prev, { id, title, isOpen: true, isMaximized: false, isMinimized: false, zIndex: highestZIndex + 1 }];
+      // Cascade offset: how many non-minimized windows are currently open
+      const openIndex = prev.filter(w => !w.isMinimized).length;
+      return [...prev, { id, title, isOpen: true, isMaximized: false, isMinimized: false, zIndex: highestZIndex + 1, openIndex }];
     });
     setHighestZIndex((prev) => prev + 1);
     setActiveWindowId(id);

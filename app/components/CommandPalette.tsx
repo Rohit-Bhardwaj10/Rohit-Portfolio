@@ -163,7 +163,15 @@ export default function CommandPalette({ onContactOpen }: CommandPaletteProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const { openWindow } = useWindowContext();
 
-  const openWin = (id: string) => { openWindow(id); setIsOpen(false); };
+  const windowTitles: Record<string, string> = {
+    about: 'About',
+    experience: 'Experience',
+    projects: 'Projects',
+    techstack: 'Tech Stack',
+    writings: 'Writings',
+    contact: 'Contact',
+  };
+  const openWin = (id: string) => { openWindow(id as any, windowTitles[id] ?? id); setIsOpen(false); };
 
   const commands: Command[] = [
     // Navigation

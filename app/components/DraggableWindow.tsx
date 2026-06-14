@@ -17,9 +17,12 @@ export default function DraggableWindow({ id, children, defaultSize = { width: 8
   const windowRef = useRef<HTMLDivElement>(null);
   
   const [initialPos] = useState(() => {
+    if (typeof window === 'undefined') return { x: 0, y: 0 };
+    if (window.innerWidth < 1024) return { x: 0, y: 0 };
+    const cascade = (windowState?.openIndex ?? 0) * 30;
     return {
-      x: typeof window !== 'undefined' ? (window.innerWidth / 2) - (defaultSize.width / 2) : 0,
-      y: typeof window !== 'undefined' ? (window.innerHeight / 2) - (defaultSize.height / 2) : 0
+      x: (window.innerWidth / 2) - (defaultSize.width / 2) + cascade,
+      y: (window.innerHeight / 2) - (defaultSize.height / 2) + cascade,
     };
   });
 
