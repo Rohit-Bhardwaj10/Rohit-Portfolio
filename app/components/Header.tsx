@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Stamp from "./Stamp";
 import { FadeIn } from "./animations";
-import CommandPalette from "./CommandPalette";
 import ContactModal from "./ContactModal";
 
 export default function Header() {
@@ -40,7 +39,6 @@ export default function Header() {
           </div>
           <div className="flex gap-4 items-center">
             <span className="hidden md:inline opacity-60">Late Night Protocol</span>
-            <CommandPalette onContactOpen={() => setContactOpen(true)} />
           </div>
         </div>
       </FadeIn>

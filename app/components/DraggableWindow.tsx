@@ -17,12 +17,9 @@ export default function DraggableWindow({ id, children, defaultSize = { width: 8
   const windowRef = useRef<HTMLDivElement>(null);
   
   const [initialPos] = useState(() => {
-    // Calculate a cascading offset based on zIndex to prevent complete overlap
-    const offset = windowState ? (windowState.zIndex - 100) * 30 : 0;
-    
     return {
-      x: typeof window !== 'undefined' ? (window.innerWidth / 2) - (defaultSize.width / 2) + offset : 0,
-      y: typeof window !== 'undefined' ? (window.innerHeight / 2) - (defaultSize.height / 2) + offset : 0
+      x: typeof window !== 'undefined' ? (window.innerWidth / 2) - (defaultSize.width / 2) : 0,
+      y: typeof window !== 'undefined' ? (window.innerHeight / 2) - (defaultSize.height / 2) : 0
     };
   });
 

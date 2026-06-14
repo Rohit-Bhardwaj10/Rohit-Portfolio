@@ -17,6 +17,7 @@ import {
   Zap,
   X,
 } from "lucide-react";
+import { useWindowContext } from "../context/WindowContext";
 
 interface Command {
   id: string;
@@ -160,50 +161,47 @@ export default function CommandPalette({ onContactOpen }: CommandPaletteProps) {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [showAbout, setShowAbout] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
+  const { openWindow } = useWindowContext();
 
-  const scrollTo = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-    setIsOpen(false);
-  };
+  const openWin = (id: string) => { openWindow(id); setIsOpen(false); };
 
   const commands: Command[] = [
     // Navigation
     {
       id: "nav-projects",
-      label: "Go to Projects",
+      label: "Open Projects",
       description: "View all featured works",
       icon: <Folder size={15} />,
       category: "Navigate",
       keywords: ["works", "portfolio", "code"],
-      action: () => scrollTo("projects-section"),
+      action: () => openWin("projects"),
     },
     {
       id: "nav-experience",
-      label: "Go to Experience",
+      label: "Open Experience",
       description: "My work history & roles",
       icon: <User size={15} />,
       category: "Navigate",
       keywords: ["work", "job", "career", "history"],
-      action: () => scrollTo("experience-section"),
+      action: () => openWin("experience"),
     },
     {
       id: "nav-stack",
-      label: "Go to Tech Stack",
+      label: "Open Tech Stack",
       description: "Tools & technologies I use",
       icon: <Hash size={15} />,
       category: "Navigate",
       keywords: ["tools", "technologies", "react", "node"],
-      action: () => scrollTo("techstack-section"),
+      action: () => openWin("techstack"),
     },
     {
       id: "nav-writings",
-      label: "Go to Writings",
+      label: "Open Writings",
       description: "Articles & blog posts",
       icon: <FileText size={15} />,
       category: "Navigate",
       keywords: ["blog", "articles", "posts"],
-      action: () => scrollTo("writings-section"),
+      action: () => openWin("writings"),
     },
     // Projects
     {
@@ -362,14 +360,15 @@ export default function CommandPalette({ onContactOpen }: CommandPaletteProps) {
 
   return (
     <>
-      {/* Trigger hint button */}
+      {/* Fixed Trigger Button — Bottom Right */}
       <button
         onClick={open}
-        className="hidden md:flex items-center gap-2 font-mono text-[10px] text-zinc-500 hover:text-zinc-300 transition-colors border border-white/10 hover:border-white/20 px-2.5 py-1.5 rounded-md bg-white/[0.02] hover:bg-white/[0.04] group"
+        className="fixed bottom-6 right-6 z-[9990] hidden md:flex items-center gap-2 font-mono text-[10px] text-zinc-400 hover:text-zinc-100 transition-all border border-white/10 hover:border-white/25 px-3 py-2 rounded-lg bg-[#111]/80 backdrop-blur-xl hover:bg-[#1a1a1a]/90 shadow-[0_8px_32px_rgba(0,0,0,0.5)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.7)] group"
         title="Open command palette (Ctrl+K)"
       >
         <Terminal size={11} className="opacity-60 group-hover:opacity-100 transition-opacity" />
         <span className="tracking-widest uppercase">Ctrl K</span>
+        <kbd className="text-[8px] font-mono text-zinc-600 border border-white/10 px-1 py-0.5 rounded ml-1">⌘K</kbd>
       </button>
 
       {/* Floating About Window */}

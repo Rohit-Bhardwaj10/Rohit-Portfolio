@@ -57,31 +57,27 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
   };
 
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="wait">
       {isOpen && (
         <>
           {/* Backdrop */}
           <motion.div
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[9998]"
+            className="fixed inset-0 bg-black/70 backdrop-blur-md z-[9998]"
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            animate={{ opacity: 1, transition: { duration: 0.25, ease: "easeOut" } }}
+            exit={{ opacity: 0, transition: { duration: 0.2, ease: "easeIn" } }}
             onClick={onClose}
           />
 
           {/* Modal */}
           <motion.div
             className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
           >
             <motion.div
-              className="bg-[#0A0A0B] border border-zinc-800 shadow-[12px_12px_0px_0px_rgba(255,255,255,0.05)] w-full max-w-lg relative"
-              initial={{ scale: 0.9, y: 50, opacity: 0 }}
-              animate={{ scale: 1, y: 0, opacity: 1 }}
-              exit={{ scale: 0.9, y: 50, opacity: 0 }}
-              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              className="bg-[#0A0A0B] border border-zinc-800 shadow-[0_32px_80px_rgba(0,0,0,0.9),12px_12px_0px_0px_rgba(255,255,255,0.04)] w-full max-w-lg relative"
+              initial={{ scale: 0.88, y: 40, opacity: 0, filter: "blur(8px)" }}
+              animate={{ scale: 1, y: 0, opacity: 1, filter: "blur(0px)", transition: { type: "spring", damping: 22, stiffness: 280, duration: 0.4 } }}
+              exit={{ scale: 0.92, y: 24, opacity: 0, filter: "blur(4px)", transition: { duration: 0.22, ease: [0.4, 0, 1, 1] } }}
               onClick={(e) => e.stopPropagation()}
             >
               {/* Header */}

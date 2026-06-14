@@ -84,8 +84,8 @@ export default function DesktopWidgets() {
           </div>
           <div className="flex flex-col">
             <span className="text-[9px] font-mono text-zinc-500 uppercase tracking-widest font-bold">Last Played</span>
-            <p className="text-xs font-sans font-bold text-zinc-200 leading-tight">Tu Hi Mera</p>
-            <p className="text-[10px] font-sans text-zinc-400">Pritam, Shafqat Amanat Ali</p>
+            <p className="text-xs font-sans font-bold text-zinc-200 leading-tight">Farebi</p>
+            <p className="text-[10px] font-sans text-zinc-400">Chaar Diwaari , Raftaar </p>
           </div>
         </div>
 
@@ -102,15 +102,15 @@ export default function DesktopWidgets() {
       <motion.div
         drag
         dragMomentum={false}
-        className="absolute bottom-34 right-8 md:bottom-12 md:right-12 bg-[#111]/80 backdrop-blur-xl border border-white/10 rounded-xl p-5 shadow-[0_10px_40px_rgba(0,0,0,0.5)] z-10 pointer-events-auto cursor-grab active:cursor-grabbing group hidden xl:block"
+        className="absolute bottom-10 right-8 md:bottom-30 md:right-12 bg-[#111]/80 backdrop-blur-xl border border-white/10 rounded-xl p-5 shadow-[0_10px_40px_rgba(0,0,0,0.5)] z-10 pointer-events-auto cursor-grab active:cursor-grabbing group hidden xl:block"
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 1.4, duration: 0.5 }}
       >
-        <div className="absolute top-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-white/10 rounded-full group-hover:bg-white/20 transition-colors" />
+        <div className="absolute top-2 left-1/2 -translate-x-1/2 w-10 h-1 bg-white/10 rounded-full group-hover:bg-white/20 transition-colors" />
 
         <div className="mb-3 flex items-center justify-between mt-1">
-          <p className="font-sans text-[10px] text-zinc-400 font-bold uppercase tracking-widest">
+          <p className="font-sans text-[14px] text-zinc-400 font-bold uppercase tracking-widest">
             GitHub Contributions
           </p>
           <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)] animate-pulse" />

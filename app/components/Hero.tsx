@@ -85,23 +85,23 @@ export default function Hero() {
         {/* Right Column: Visual + Bento Details (45% width) */}
         <div className="w-full lg:w-[45%] flex flex-col bg-black/10">
 
-          <div className="relative flex-1 min-h-[350px] lg:min-h-0 px-8 pb-8 pt-4 lg:pt-12 flex flex-col xl:flex-row items-center justify-center xl:justify-start xl:gap-12 overflow-hidden group">
+          <div className="relative flex-1 min-h-[350px] lg:min-h-0 px-8 pb-8 pt-0 lg:pt-4 flex flex-col xl:flex-row items-start justify-center xl:justify-start xl:gap-12 overflow-hidden group">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.03)_0%,_transparent_70%)] pointer-events-none" />
 
             {/* The Image */}
             <FadeIn delay={0.5} duration={0.8} direction="none" className="w-full max-w-[320px] relative z-10 xl:ml-8 shrink-0">
               <TiltCard tiltAmount={10} glareEnabled={true}>
                 <motion.div
-                  className="border border-white/10 bg-zinc-950 p-2 shadow-[0_20px_50px_rgba(0,0,0,0.8)] rounded-sm relative"
+                  className="p-2 shadow-[0_20px_50px_rgba(0,0,0,0.8)] rounded-sm relative"
                   whileHover={{ boxShadow: "0 30px 60px rgba(0,0,0,0.9)", borderColor: "rgba(255,255,255,0.2)" }}
                   transition={{ duration: 0.4 }}
                 >
-                  <div className="relative aspect-square w-full border border-white/5 bg-zinc-900 overflow-hidden rounded-[2px]">
+                  <div className="relative aspect-square w-full overflow-hidden rounded">
                     <Image
-                      src="/cool.png"
+                      src="/jpeg.jpeg"
                       alt="The Developer"
                       fill
-                      className="object-cover object-top grayscale scale-100 group-hover:scale-105 transition-transform duration-1000 ease-out"
+                      className="object-cover object-[center_90%] grayscale scale-100 group-hover:scale-105 transition-transform duration-1000 ease-out"
                     />
                   </div>
                 </motion.div>
