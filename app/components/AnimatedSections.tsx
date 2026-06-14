@@ -40,10 +40,10 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
               </h2>
               <span className="font-sans text-[9px] text-zinc-500 font-bold tracking-[0.3em]">VOL. 02</span>
             </div>
-            
+
             <div className="p-6 md:p-8 space-y-10 pr-4">
               {/* Exp 1 */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: -10 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -53,7 +53,7 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
                 <div className="flex justify-between items-start mb-4">
                   <div className="space-y-1">
                     <h3 className="text-xl font-bold text-zinc-100 uppercase tracking-tighter group-hover/item:text-white transition-colors flex items-center gap-2">
-                      BarterNow 
+                      BarterNow
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
                     </h3>
                     <p className="font-serif italic text-base text-zinc-400">Backend Intern</p>
@@ -64,7 +64,7 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
                   </div>
                 </div>
                 <div className="pl-6 border-l border-solid border-white/10 group-hover/item:border-white/30 transition-all duration-500 relative">
-                  <motion.div 
+                  <motion.div
                     className="absolute top-0 -left-[1px] w-[2px] h-0 bg-white/40 shadow-[0_0_8px_rgba(255,255,255,0.3)]"
                     whileInView={{ height: "100%" }}
                     transition={{ duration: 1.5, ease: "circOut", delay: 0.2 }}
@@ -84,7 +84,7 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
               </motion.div>
 
               {/* Exp 2 */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: -10 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -102,7 +102,7 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
                   </div>
                 </div>
                 <div className="pl-6 border-l border-solid border-white/10 group-hover/item:border-white/30 transition-all duration-500 relative">
-                  <motion.div 
+                  <motion.div
                     className="absolute top-0 -left-[1px] w-[2px] h-0 bg-white/40 shadow-[0_0_8px_rgba(255,255,255,0.3)]"
                     whileInView={{ height: "100%" }}
                     transition={{ duration: 1.5, ease: "circOut", delay: 0.3 }}
@@ -112,7 +112,7 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
                     Delivering end-to-end production systems for diverse clients. Focus on performance optimization, clean code patterns, and modern frontend architectures.
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {['Next.js', 'TypeScript', 'Node.js', 'AWS' ,'GO'].map(tech => (
+                    {['Next.js', 'TypeScript', 'Node.js', 'AWS', 'GO'].map(tech => (
                       <span key={tech} className="text-[10px] font-bold font-sans uppercase tracking-[0.2em] text-zinc-400 border border-white/10 bg-white/5 px-2.5 py-1 rounded-[2px] group-hover/item:text-zinc-100 group-hover/item:border-white/20 transition-all duration-500">
                         {tech}
                       </span>
@@ -133,7 +133,7 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
 
         {/* Featured Projects - Column Header */}
         <div className="lg:col-span-7 flex flex-col relative group/projects overflow-hidden">
-          
+
           {/* Subtle Background Watermark for Projects */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[180px] font-serif font-black text-white/[0.015] pointer-events-none select-none group-hover/projects:text-white/[0.03] transition-colors duration-1000 tracking-tighter z-0">
             WORKS
@@ -158,8 +158,8 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
 
           <div className="grid grid-cols-1 md:grid-cols-2 relative z-10 h-full">
             {projects.slice(0, 4).map((project, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className={`border-white/10 ${index % 2 === 0 ? "md:border-r" : ""} ${index < 2 ? "border-b" : ""} h-full backdrop-blur-sm`}
               >
                 <ProjectCard {...project} index={index} />
@@ -171,7 +171,7 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
 
       {/* Row 2: Recent Writings & Education */}
       <div className="grid grid-cols-1 lg:grid-cols-12 relative overflow-hidden group/bottom">
-        
+
         {/* Shared Bottom Background Watermark */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[200px] font-serif font-black text-white/[0.015] pointer-events-none select-none group-hover/bottom:text-white/[0.03] transition-colors duration-1000 tracking-tighter z-0 whitespace-nowrap">
           INSIGHTS
@@ -180,19 +180,19 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
         {/* Recent Writings (Col 8) */}
         <div className="lg:col-span-8 border-b lg:border-b-0 lg:border-r border-solid border-white/10 relative z-10 backdrop-blur-sm">
           {/* Section Header */}
-            <div className="px-6 md:px-8 h-[88px] flex justify-between items-center bg-zinc-950/40 backdrop-blur-md relative z-20 border-b border-solid border-white/10 shrink-0">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 to-zinc-400">
-                <span className="md:hidden">Recent Writings</span>
-                <TextScramble
-                  className="hidden md:inline-block"
-                  text="Recent Writings"
-                  duration={1}
-                />
-              </h2>
-              <span className="font-sans text-[9px] text-zinc-500 font-bold uppercase tracking-[0.3em] mb-1">
-                Thoughts & Insights
-              </span>
-            </div>
+          <div className="px-6 md:px-8 h-[88px] flex justify-between items-center bg-zinc-950/40 backdrop-blur-md relative z-20 border-b border-solid border-white/10 shrink-0">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 to-zinc-400">
+              <span className="md:hidden">Recent Writings</span>
+              <TextScramble
+                className="hidden md:inline-block"
+                text="Recent Writings"
+                duration={1}
+              />
+            </h2>
+            <span className="font-sans text-[9px] text-zinc-500 font-bold uppercase tracking-[0.3em] mb-1">
+              Thoughts & Insights
+            </span>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 relative z-10 h-full w-full">
             <ScrollFadeIn
@@ -287,16 +287,16 @@ export default function AnimatedSections({ projects }: AnimatedSectionsProps) {
 
         {/* Education (Col 4) */}
         <div className="lg:col-span-4 flex flex-col border-b lg:border-b-0 border-white/10 relative z-10 backdrop-blur-sm group/edu overflow-hidden">
-            <div className="px-6 md:px-8 h-[88px] flex justify-between items-center bg-zinc-950/40 backdrop-blur-md relative z-20 border-b border-solid border-white/10 w-full">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 to-zinc-400 w-full">
-                <span className="md:hidden">Education</span>
-                <TextScramble
-                  className="hidden md:inline-block"
-                  text="Education"
-                  duration={0.8}
-                />
-              </h2>
-            </div>
+          <div className="px-6 md:px-8 h-[88px] flex justify-between items-center bg-zinc-950/40 backdrop-blur-md relative z-20 border-b border-solid border-white/10 w-full">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 to-zinc-400 w-full">
+              <span className="md:hidden">Education</span>
+              <TextScramble
+                className="hidden md:inline-block"
+                text="Education"
+                duration={0.8}
+              />
+            </h2>
+          </div>
           <div className="flex-1 w-full bg-transparent hover:bg-white/[0.02] transition-colors relative">
             <ScrollFadeIn delay={0.2} duration={0.5} className="h-full w-full">
               <div className="p-6 md:p-8 h-full flex flex-col w-full relative">

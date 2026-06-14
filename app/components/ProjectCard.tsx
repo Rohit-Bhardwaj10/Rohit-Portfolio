@@ -16,14 +16,14 @@ interface ProjectProps {
 
 export default function ProjectCard({ title, description, tags, link, github, year, index = 0 }: ProjectProps) {
   return (
-    <motion.div 
+    <motion.div
       className="h-full bg-white/[0.01] p-6 md:p-6 lg:p-7 flex flex-col justify-between relative group overflow-hidden border border-transparent rounded-[2px] backdrop-blur-sm"
-      whileHover={{ 
+      whileHover={{
         backgroundColor: "rgba(255, 255, 255, 0.03)",
         borderColor: "rgba(255, 255, 255, 0.1)",
         boxShadow: "0 10px 40px -10px rgba(0,0,0,0.5)"
       }}
-      transition={{ 
+      transition={{
         duration: 0.4,
         ease: [0.22, 1, 0.36, 1]
       }}
@@ -59,7 +59,7 @@ export default function ProjectCard({ title, description, tags, link, github, ye
         {/* Tags */}
         <div className="flex flex-wrap gap-2">
           {tags.slice(0, 3).map((tag) => (
-            <span 
+            <span
               key={tag}
               className="text-zinc-300 text-[9px] font-bold font-sans uppercase tracking-[0.2em] px-2.5 py-1 border border-white/10 rounded-sm bg-white/5 shadow-[0_2px_10px_rgba(0,0,0,0.2)]"
             >
@@ -71,7 +71,7 @@ export default function ProjectCard({ title, description, tags, link, github, ye
         {/* Action Buttons - Compact gap */}
         <div className="flex gap-6 pt-5 border-t border-white/5 group-hover:border-white/10 transition-colors">
           {github && (
-            <Link 
+            <Link
               href={github}
               target="_blank"
               rel="noopener noreferrer"
@@ -82,7 +82,7 @@ export default function ProjectCard({ title, description, tags, link, github, ye
             </Link>
           )}
           {link && link !== "#" && (
-            <Link 
+            <Link
               href={link}
               target="_blank"
               rel="noopener noreferrer"
