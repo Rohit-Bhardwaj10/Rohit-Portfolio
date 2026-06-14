@@ -17,7 +17,7 @@ interface ProjectProps {
 export default function ProjectCard({ title, description, tags, link, github, year, index = 0 }: ProjectProps) {
   return (
     <motion.div
-      className="h-full bg-white/[0.01] p-6 md:p-6 lg:p-7 flex flex-col justify-between relative group overflow-hidden border border-transparent rounded-[2px] backdrop-blur-sm"
+      className="h-full bg-white/[0.01] p-4 md:p-5 flex flex-col justify-between relative group overflow-hidden border border-transparent rounded-[2px] backdrop-blur-sm"
       whileHover={{
         backgroundColor: "rgba(255, 255, 255, 0.03)",
         borderColor: "rgba(255, 255, 255, 0.1)",
@@ -39,17 +39,17 @@ export default function ProjectCard({ title, description, tags, link, github, ye
       <div>
         {/* Header - Narrower margin */}
         <div className="relative z-10 flex justify-between items-start mb-4">
-          <span className="font-sans text-[9px] font-bold uppercase tracking-[0.3em] text-zinc-500 bg-white/5 px-2.5 py-1 rounded-full border border-white/5 group-hover:border-white/10 transition-colors">
+          <span className="font-sans text-[8px] font-bold uppercase tracking-[0.2em] text-zinc-500 bg-white/5 px-2 py-0.5 rounded-full border border-white/5 group-hover:border-white/10 transition-colors">
             {year} // {index < 9 ? `0${index + 1}` : index + 1}
           </span>
         </div>
 
         {/* Content */}
-        <div className="relative z-10 flex-1 mb-6">
-          <h3 className="text-xl md:text-[22px] font-serif font-bold text-transparent bg-clip-text bg-gradient-to-b from-zinc-100 to-zinc-400 leading-tight mb-3 group-hover:from-white group-hover:to-zinc-300 transition-all duration-300">
+        <div className="relative z-10 flex-1 mb-4">
+          <h3 className="text-lg md:text-xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-b from-zinc-100 to-zinc-400 leading-tight mb-2 group-hover:from-white group-hover:to-zinc-300 transition-all duration-300">
             {title}
           </h3>
-          <p className="text-zinc-400/80 text-sm leading-relaxed font-light line-clamp-2 md:line-clamp-none group-hover:text-zinc-300/90 transition-colors duration-300">
+          <p className="text-zinc-400/80 text-xs leading-relaxed font-light line-clamp-2 group-hover:text-zinc-300/90 transition-colors duration-300">
             {description}
           </p>
         </div>
@@ -61,7 +61,7 @@ export default function ProjectCard({ title, description, tags, link, github, ye
           {tags.slice(0, 3).map((tag) => (
             <span
               key={tag}
-              className="text-zinc-300 text-[9px] font-bold font-sans uppercase tracking-[0.2em] px-2.5 py-1 border border-white/10 rounded-sm bg-white/5 shadow-[0_2px_10px_rgba(0,0,0,0.2)]"
+              className="text-zinc-300 text-[8px] font-bold font-sans uppercase tracking-[0.2em] px-2 py-0.5 border border-white/10 rounded-sm bg-white/5 shadow-[0_2px_10px_rgba(0,0,0,0.2)]"
             >
               {tag}
             </span>
@@ -69,7 +69,7 @@ export default function ProjectCard({ title, description, tags, link, github, ye
         </div>
 
         {/* Action Buttons - Compact gap */}
-        <div className="flex gap-6 pt-5 border-t border-white/5 group-hover:border-white/10 transition-colors">
+        <div className="flex gap-4 pt-3 border-t border-white/5 group-hover:border-white/10 transition-colors">
           {github && (
             <Link
               href={github}
