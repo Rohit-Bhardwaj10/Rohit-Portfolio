@@ -52,7 +52,7 @@ function DockIcon({
     return val - bounds.x - bounds.width / 2;
   });
 
-  let widthSync = useTransform(distance, [-150, 0, 150], [48, 80, 48]);
+  let widthSync = useTransform(distance, [-150, 0, 150], [40, 64, 40]);
   let width = useSpring(widthSync, { mass: 0.1, stiffness: 150, damping: 12 });
 
   const Icon = item.icon;
@@ -73,7 +73,7 @@ function DockIcon({
   );
 
   return (
-    <div className="relative group flex items-end justify-center w-12 h-12">
+    <div className="relative group flex items-end justify-center w-10 h-10">
       <AnimatePresence>
         {isHovered && (
           <motion.div
@@ -141,7 +141,7 @@ export default function Dock() {
         initial={{ y: 100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className="flex items-center gap-2 p-2 rounded-2xl bg-[#111]/80 backdrop-blur-xl border border-white/10 shadow-2xl h-16"
+        className="flex items-center gap-2 p-2 rounded-2xl bg-[#111]/80 backdrop-blur-xl border border-white/10 shadow-2xl h-14"
         onMouseMove={(e) => mouseX.set(e.pageX)}
         onMouseLeave={() => mouseX.set(Infinity)}
       >
@@ -155,7 +155,7 @@ export default function Dock() {
           />
         ))}
 
-        <div className="w-[1px] h-8 bg-white/10 mx-2" />
+        <div className="w-[1px] h-6 bg-white/10 mx-2" />
 
         {socialItems.map((item) => (
           <DockIcon 

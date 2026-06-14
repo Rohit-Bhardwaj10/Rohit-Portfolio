@@ -1,9 +1,29 @@
 "use client";
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { GitHubCalendar } from 'react-github-calendar';
+
+const quotes = [
+  { text: "Avoidance doesn't eliminate pain — it compounds it.", author: "CB • WRITING" },
+  { text: "First, solve the problem. Then, write the code.", author: "JOHN JOHNSON" },
+  { text: "Experience is the name everyone gives to their mistakes.", author: "OSCAR WILDE" },
+  { text: "Code is like humor. When you have to explain it, it's bad.", author: "CORY HOUSE" },
+  { text: "Simplicity is the soul of efficiency.", author: "AUSTIN FREEMAN" },
+  { text: "Before software can be reusable it first has to be usable.", author: "RALPH JOHNSON" },
+  { text: "Make it work, make it right, make it fast.", author: "KENT BECK" }
+];
 
 export default function DesktopWidgets() {
+  const [currentQuote, setCurrentQuote] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentQuote((prev) => (prev + 1) % quotes.length);
+    }, 8000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <>
       {/* Quote Widget */}
@@ -18,21 +38,30 @@ export default function DesktopWidgets() {
         {/* Drag Handle Indicator */}
         <div className="absolute top-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-white/10 rounded-full group-hover:bg-white/20 transition-colors" />
 
-        <p className="font-serif text-[15px] leading-relaxed text-zinc-300 mt-2 mb-6">
-          "Avoidance doesn't eliminate pain — it compounds it."
-        </p>
+        <motion.div
+          key={currentQuote}
+          initial={{ opacity: 0, y: 5 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -5 }}
+          transition={{ duration: 0.5 }}
+        >
+          <p className="font-serif text-[15px] leading-relaxed text-zinc-300 mt-2 mb-6">
+            "{quotes[currentQuote].text}"
+          </p>
 
-        <div className="flex items-center gap-2 mb-4">
-          <div className="w-1.5 h-1.5 rounded-full bg-zinc-700" />
-          <div className="w-1.5 h-1.5 rounded-full bg-zinc-700" />
-          <div className="w-4 h-1.5 rounded-full bg-zinc-400" />
-          <div className="w-1.5 h-1.5 rounded-full bg-zinc-700" />
-          <div className="w-1.5 h-1.5 rounded-full bg-zinc-700" />
-        </div>
+          <div className="flex items-center gap-2 mb-4">
+            {quotes.map((_, i) => (
+              <div
+                key={i}
+                className={`h-1.5 rounded-full transition-all duration-500 ${i === currentQuote ? 'w-4 bg-zinc-400' : 'w-1.5 bg-zinc-700'}`}
+              />
+            ))}
+          </div>
 
-        <p className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest font-bold">
-          — CB • WRITING
-        </p>
+          <p className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest font-bold">
+            — {quotes[currentQuote].author}
+          </p>
+        </motion.div>
       </motion.div>
 
       {/* Spotify Widget */}
@@ -48,23 +77,61 @@ export default function DesktopWidgets() {
         <div className="absolute top-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-white/10 rounded-full group-hover:bg-white/20 transition-colors" />
 
         <div className="flex items-center gap-4 mt-2">
-          <div className="w-10 h-10 rounded-lg bg-zinc-800 border border-white/5 flex items-center justify-center">
-            <svg className="w-5 h-5 text-zinc-400" viewBox="0 0 24 24" fill="currentColor">
+          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-emerald-900 to-zinc-900 border border-emerald-500/20 flex items-center justify-center relative overflow-hidden shadow-[0_0_15px_rgba(16,185,129,0.2)]">
+            <svg className="w-6 h-6 text-emerald-400 absolute opacity-50" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.6.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.56.3z" />
             </svg>
           </div>
-          <p className="text-xs font-mono text-zinc-400">not playing</p>
+          <div className="flex flex-col">
+            <span className="text-[9px] font-mono text-zinc-500 uppercase tracking-widest font-bold">Last Played</span>
+            <p className="text-xs font-sans font-bold text-zinc-200 leading-tight">Tu Hi Mera</p>
+            <p className="text-[10px] font-sans text-zinc-400">Pritam, Shafqat Amanat Ali</p>
+          </div>
         </div>
 
-        <div className="mt-2">
-          <svg className="w-4 h-4 text-emerald-500" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.6.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.56.3z" />
-          </svg>
+        <div className="mt-2 flex gap-[2px] items-end h-4 pb-1 pr-1">
+          <motion.div animate={{ height: [4, 10, 4] }} transition={{ repeat: Infinity, duration: 1, ease: "easeInOut" }} className="w-1 bg-emerald-500/80 rounded-t-sm" />
+          <motion.div animate={{ height: [10, 14, 10] }} transition={{ repeat: Infinity, duration: 1.2, delay: 0.2, ease: "easeInOut" }} className="w-1 bg-emerald-500 rounded-t-sm" />
+          <motion.div animate={{ height: [6, 12, 6] }} transition={{ repeat: Infinity, duration: 0.8, delay: 0.4, ease: "easeInOut" }} className="w-1 bg-emerald-500/80 rounded-t-sm" />
         </div>
       </motion.div>
 
       {/* Visitors Widget */}
 
+      {/* Github Widget positioned at bottom right */}
+      <motion.div
+        drag
+        dragMomentum={false}
+        className="absolute bottom-34 right-8 md:bottom-12 md:right-12 bg-[#111]/80 backdrop-blur-xl border border-white/10 rounded-xl p-5 shadow-[0_10px_40px_rgba(0,0,0,0.5)] z-10 pointer-events-auto cursor-grab active:cursor-grabbing group hidden xl:block"
+        initial={{ y: 20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 1.4, duration: 0.5 }}
+      >
+        <div className="absolute top-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-white/10 rounded-full group-hover:bg-white/20 transition-colors" />
+
+        <div className="mb-3 flex items-center justify-between mt-1">
+          <p className="font-sans text-[10px] text-zinc-400 font-bold uppercase tracking-widest">
+            GitHub Contributions
+          </p>
+          <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)] animate-pulse" />
+        </div>
+
+        <div className="w-full max-w-full overflow-hidden flex justify-center pb-2 scale-90 origin-center">
+          <GitHubCalendar
+            username="Rohit-Bhardwaj10"
+            colorScheme="dark"
+            blockSize={8}
+            blockMargin={3}
+            fontSize={10}
+            // hideTotalCount
+            // hideColorLegend
+            theme={{
+              light: ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39'],
+              dark: ['#18181b', '#064e3b', '#059669', '#10b981', '#34d399']
+            }}
+          />
+        </div>
+      </motion.div>
     </>
   );
 }
