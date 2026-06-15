@@ -348,6 +348,113 @@ function MobileAbout() {
   );
 }
 
+/* ─── Spotify Section ────────────────────────────────────────── */
+function MobileSpotify() {
+  const [track, setTrack] = useState<any>(null);
+  const [configured, setConfigured] = useState<boolean | null>(null);
+
+  const fetchTrack = async () => {
+    try {
+      const res = await fetch('/api/spotify');
+      const data = await res.json();
+      setConfigured(data.configured);
+      if (data.track) setTrack(data.track);
+    } catch {
+      // silently fail
+    }
+  };
+
+  useEffect(() => {
+    fetchTrack();
+    const interval = setInterval(fetchTrack, 30_000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const SpotifyLogo = () => (
+    <svg className="w-5 h-5 text-emerald-400 absolute opacity-60" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.6.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.56.3z" />
+    </svg>
+  );
+
+  return (
+    <section className="px-5 pb-14">
+      <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-4 flex items-center justify-between shadow-xl">
+        {/* Not configured */}
+        {configured === false && (
+          <div className="flex items-center gap-3 w-full">
+            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-emerald-900 to-zinc-900 flex items-center justify-center relative shadow-inner shrink-0">
+              <SpotifyLogo />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[9px] font-mono text-zinc-500 uppercase tracking-widest font-bold">Spotify</span>
+              <p className="text-xs font-sans font-bold text-zinc-400 italic">Not Playing</p>
+            </div>
+          </div>
+        )}
+
+        {/* Loading */}
+        {configured === null && (
+          <div className="flex items-center gap-3 w-full">
+            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-emerald-900 to-zinc-900 flex items-center justify-center relative shrink-0 animate-pulse">
+              <SpotifyLogo />
+            </div>
+            <div className="flex flex-col gap-1.5 mt-1">
+              <div className="h-2 w-16 bg-white/10 rounded animate-pulse" />
+              <div className="h-2 w-24 bg-white/5 rounded animate-pulse" />
+            </div>
+          </div>
+        )}
+
+        {/* Live data */}
+        {configured === true && track && (
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={track.title}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="flex items-center gap-3 w-full"
+            >
+              <div className="w-10 h-10 rounded-lg bg-zinc-900 border border-emerald-500/20 flex items-center justify-center relative overflow-hidden shrink-0 shadow-[0_0_10px_rgba(16,185,129,0.1)]">
+                {track.albumArt ? (
+                  <Image src={track.albumArt} alt={track.album} fill className="object-cover" sizes="40px" unoptimized />
+                ) : (
+                  <div className="bg-gradient-to-br from-emerald-900 to-zinc-900 w-full h-full flex items-center justify-center">
+                    <SpotifyLogo />
+                  </div>
+                )}
+              </div>
+              <div className="flex flex-col min-w-0 flex-1">
+                <span className="text-[9px] font-mono text-zinc-500 uppercase tracking-widest font-bold flex items-center gap-1.5">
+                  {track.isPlaying ? (
+                    <>
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_4px_rgba(16,185,129,0.6)]" />
+                      Now Playing
+                    </>
+                  ) : (
+                    'Last Played'
+                  )}
+                </span>
+                <p className="text-xs font-sans font-bold text-zinc-200 leading-tight truncate">{track.title}</p>
+                <p className="text-[10px] font-sans text-zinc-400 truncate">{track.artist}</p>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        )}
+
+        {/* Equalizer */}
+        {track?.isPlaying && (
+          <div className="flex gap-[2px] items-end h-4 shrink-0 pb-1 pr-1">
+            <motion.div animate={{ height: [4, 10, 4] }} transition={{ repeat: Infinity, duration: 1, ease: "easeInOut" }} className="w-[3px] bg-emerald-500/80 rounded-t-sm" />
+            <motion.div animate={{ height: [10, 14, 10] }} transition={{ repeat: Infinity, duration: 1.2, delay: 0.2, ease: "easeInOut" }} className="w-[3px] bg-emerald-500 rounded-t-sm" />
+            <motion.div animate={{ height: [6, 12, 6] }} transition={{ repeat: Infinity, duration: 0.8, delay: 0.4, ease: "easeInOut" }} className="w-[3px] bg-emerald-500/80 rounded-t-sm" />
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
+
 /* ─── Experience Section ─────────────────────────────────────── */
 const experiences = [
   {
