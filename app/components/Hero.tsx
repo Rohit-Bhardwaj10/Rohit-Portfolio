@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Mail, Linkedin, Twitter, Github, ArrowUpRight, Play, Pause, Volume2, Music, Clock } from "lucide-react";
+import { Mail, Linkedin, Twitter, Github, ArrowUpRight, Play, Pause, Volume2, Music } from "lucide-react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { FadeIn, TypeWriter, MagneticButton, TiltCard } from "./animations";
@@ -108,36 +108,7 @@ export default function Hero() {
               </TiltCard>
             </FadeIn>
 
-            {/* Cool Widgets Area */}
-            <FadeIn delay={0.7} duration={0.8} direction="none" className="hidden xl:flex flex-col gap-4 w-full max-w-[240px] z-10">
-              {/* Widget 1: Availability */}
-              <div className="bg-[#050505]/50 backdrop-blur-md border border-white/5 rounded-xl p-4 flex flex-col gap-2 hover:border-white/10 transition-colors">
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
-                  <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider font-bold">Status</span>
-                </div>
-                <p className="text-xs text-zinc-300 font-sans font-semibold">Available for new opportunities</p>
-              </div>
 
-              {/* Widget 2: Local Time */}
-              <div className="bg-[#050505]/50 backdrop-blur-md border border-white/5 rounded-xl p-4 flex flex-col gap-2 hover:border-white/10 transition-colors">
-                <div className="flex items-center gap-2">
-                  <Clock className="w-3 h-3 text-zinc-500" />
-                  <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider font-bold">Local Time</span>
-                </div>
-                <p className="text-sm text-zinc-300 font-sans font-semibold font-mono">IST (UTC +5:30)</p>
-              </div>
-
-              {/* Widget 3: Tech Focus */}
-              <div className="bg-[#050505]/50 backdrop-blur-md border border-white/5 rounded-xl p-4 flex flex-col gap-3 hover:border-white/10 transition-colors">
-                <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider font-bold">Current Focus</span>
-                <div className="flex flex-wrap gap-2">
-                  <span className="px-2 py-1 bg-white/5 rounded-md text-[9px] text-zinc-300 font-mono font-bold">TypeScript</span>
-                  <span className="px-2 py-1 bg-white/5 rounded-md text-[9px] text-zinc-300 font-mono font-bold">Golang</span>
-                  <span className="px-2 py-1 bg-white/5 rounded-md text-[9px] text-zinc-300 font-mono font-bold">Next.js</span>
-                </div>
-              </div>
-            </FadeIn>
 
             <span className="absolute bottom-6 left-6 font-sans text-[9px] font-bold uppercase tracking-[0.3em] text-zinc-600 -rotate-90 origin-bottom-left">
 
