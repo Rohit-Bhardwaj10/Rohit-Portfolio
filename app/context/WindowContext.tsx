@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext, useState, useCallback, ReactNode } from 'react';
 
-export type WindowId = 'about' | 'experience' | 'projects' | 'techstack' | 'writings' | 'contact';
+export type WindowId = 'about' | 'experience' | 'projects' | 'techstack' | 'writings' | 'contact' | 'gallery';
 
 export interface WindowState {
   id: WindowId;

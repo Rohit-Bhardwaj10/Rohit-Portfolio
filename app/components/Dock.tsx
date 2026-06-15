@@ -3,7 +3,7 @@
 import React, { useState, useRef } from "react";
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform, MotionValue } from "framer-motion";
 import { 
-  User, Briefcase, Code, BookOpen, Mail, FileText, Cpu, Github, Twitter, Linkedin
+  User, Briefcase, Code, BookOpen, Mail, FileText, Cpu, Github, Twitter, Linkedin, Images
 } from "lucide-react";
 import Link from "next/link";
 import { useWindowContext, WindowId } from "../context/WindowContext";
@@ -23,6 +23,7 @@ const dockItems: DockItem[] = [
   { label: 'Projects', icon: Code, id: 'projects' },
   { label: 'Tech Stack', icon: Cpu, id: 'techstack' },
   { label: 'Writings', icon: BookOpen, id: 'writings' },
+  { label: 'Gallery', icon: Images, id: 'gallery' },
   { label: 'Resume', icon: FileText, href: '/Rohit_CV.pdf', isExternal: true },
   { label: 'Contact', icon: Mail, id: 'contact' },
 ];

@@ -22,6 +22,7 @@ import {
   Menu,
   X,
   ChevronDown,
+  Music2,
 } from "lucide-react";
 import { GitHubCalendar } from "react-github-calendar";
 import { projectsData } from "../data/projects";
@@ -311,33 +312,36 @@ function MobileHero({ onContact }: { onContact: () => void }) {
 /* ─── About Section ──────────────────────────────────────────── */
 function MobileAbout() {
   return (
-    <section id="about" className="px-5 py-14 border-t border-dashed border-white/10">
+    <section id="about" className="px-5 py-14 border-t border-dashed border-white/10 relative">
+      <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 blur-3xl rounded-full pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 w-32 h-32 bg-blue-500/10 blur-3xl rounded-full pointer-events-none"></div>
       <SectionLabel vol="Vol. 00">About</SectionLabel>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="space-y-4"
+        className="relative z-10"
       >
-        <p className="text-zinc-400 text-sm leading-relaxed">
-          I'm a Full Stack & Backend Engineer focused on creating end-to-end digital experiences that are robust,
-          performant, and timeless. I architect reliable and scalable backend systems while building interactive
-          frontends using React and Next.js.
-        </p>
-        <p className="text-zinc-400 text-sm leading-relaxed">
-          This portfolio was redesigned into a macOS-style windowing system to demonstrate advanced state management and
-          Framer Motion capabilities — you're viewing the mobile-optimised version.
-        </p>
-        <div className="flex flex-wrap gap-2 pt-2">
-          {["Backend", "Frontend", "Web3", "System Design", "Open Source"].map((tag) => (
-            <span
-              key={tag}
-              className="px-3 py-1.5 border border-white/10 bg-white/[0.03] rounded-sm text-[9px] font-mono font-bold uppercase tracking-[0.2em] text-zinc-400"
-            >
-              {tag}
-            </span>
-          ))}
+        <div className="p-6 rounded-2xl bg-gradient-to-br from-white/[0.05] to-transparent border border-white/10 backdrop-blur-sm shadow-xl relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(255,255,255,0.02)_0%,transparent_70%)] pointer-events-none"></div>
+          <div className="w-12 h-12 mb-4 rounded-xl bg-gradient-to-tr from-zinc-800 to-zinc-900 border border-white/10 flex items-center justify-center shadow-lg relative z-10">
+            <span className="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-br from-white to-zinc-500">R</span>
+          </div>
+          <h3 className="text-xl font-bold text-white mb-2 tracking-tight relative z-10">Crafting Digital Experiences</h3>
+          <p className="text-zinc-400 text-sm leading-relaxed mb-6 relative z-10">
+            I'm a Full Stack & Backend Engineer focused on creating end-to-end systems that are robust, performant, and timeless. I specialize in architecting reliable backend infrastructure while building interactive frontends using <strong className="text-zinc-200">React</strong> and <strong className="text-zinc-200">Next.js</strong>.
+          </p>
+          <div className="flex flex-wrap gap-2 relative z-10">
+            {["Backend", "Frontend", "Web3", "System Design", "Open Source"].map((tag) => (
+              <span
+                key={tag}
+                className="px-3 py-1.5 border border-white/10 bg-white/[0.03] rounded-sm text-[9px] font-mono font-bold uppercase tracking-[0.2em] text-zinc-300 shadow-sm"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
         </div>
       </motion.div>
     </section>
@@ -774,6 +778,7 @@ export default function MobileLayout() {
         <main>
           <MobileHero onContact={() => setIsContactOpen(true)} />
           <MobileAbout />
+          <MobileSpotify />
           <MobileExperience />
           <MobileProjects />
           <MobileStack />
