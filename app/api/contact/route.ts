@@ -23,15 +23,15 @@ export async function POST(req: Request) {
 
     // Email content
     const mailOptions = {
-      from: process.env.EMAIL_USER,
+      from: `"${name} (Portfolio)" <${process.env.EMAIL_USER}>`,
       to: process.env.EMAIL_USER, // Send to your own email address
-      replyTo: email,
+      // Removed replyTo because Gmail often silently drops emails with third-party reply-to headers
       subject: `Portfolio Contact from ${name}`,
       text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
       html: `
         <h3>New Contact Form Submission</h3>
         <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
         <p><strong>Message:</strong></p>
         <p>${message.replace(/\n/g, '<br>')}</p>
       `,
