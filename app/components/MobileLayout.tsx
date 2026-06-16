@@ -731,12 +731,25 @@ function MobileContact() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
+  const [errorMessage, setErrorMessage] = useState("");
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("loading");
-    await new Promise((r) => setTimeout(r, 1500));
-    setStatus("success");
-    setFormData({ name: "", email: "", message: "" });
+    setErrorMessage("");
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+      if (!response.ok) throw new Error('Failed to send message');
+      setStatus("success");
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      setStatus("error");
+      setErrorMessage("Failed to send message. Please try again.");
+    }
   };
 
   return (
@@ -797,6 +810,15 @@ function MobileContact() {
                   className="w-full px-4 py-3 bg-zinc-900 border border-zinc-800 text-zinc-100 font-serif text-base placeholder:text-zinc-600 focus:outline-none focus:ring-1 focus:ring-zinc-700 rounded-sm resize-none"
                 />
               </div>
+              {status === "error" && (
+                <motion.p
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="text-red-400 font-mono text-xs text-center"
+                >
+                  {errorMessage}
+                </motion.p>
+              )}
               <button
                 type="submit"
                 disabled={status === "loading"}
