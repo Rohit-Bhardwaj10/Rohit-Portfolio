@@ -4,7 +4,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { GitHubCalendar } from 'react-github-calendar';
 import Image from 'next/image';
-import { Clock } from 'lucide-react';
+import { Clock, BookOpen, ArrowUpRight, Calendar } from 'lucide-react';
+import Link from "next/link";
 
 const quotes = [
   { text: "Avoidance doesn't eliminate pain — it compounds it.", author: "CB • WRITING" },
@@ -14,6 +15,23 @@ const quotes = [
   { text: "Simplicity is the soul of efficiency.", author: "AUSTIN FREEMAN" },
   { text: "Before software can be reusable it first has to be usable.", author: "RALPH JOHNSON" },
   { text: "Make it work, make it right, make it fast.", author: "KENT BECK" }
+];
+
+const writings = [
+  {
+    date: "Oct 22, 2025",
+    title: "The Centralized Core of Decentralization",
+    description: "Examining the reliance of decentralized networks on centralized cloud providers and efficient infrastructure patterns.",
+    tag: "#Web3",
+    readTime: "6 min read",
+  },
+  {
+    date: "Jun 9, 2025",
+    title: "A Developer's Dilemma",
+    description: "Between Perfection and Shipping. Exploring the balance between writing perfect code and actually getting products out the door.",
+    tag: "#Thoughts",
+    readTime: "5 min read",
+  },
 ];
 
 interface SpotifyTrack {
@@ -194,6 +212,60 @@ function SpotifyWidget() {
   );
 }
 
+function BlogWidget() {
+  const latestPost = writings[0];
+
+  return (
+    <motion.div
+      drag
+      dragMomentum={false}
+      className="absolute bottom-8 left-8 md:bottom-12 md:left-12 bg-[#111]/80 backdrop-blur-xl border border-white/10 rounded-xl p-5 w-80 shadow-[0_10px_40px_rgba(0,0,0,0.5)] z-10 pointer-events-auto cursor-grab active:cursor-grabbing group"
+      initial={{ y: 20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ delay: 1.6, duration: 0.5 }}
+    >
+      <div className="absolute top-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-white/10 rounded-full group-hover:bg-white/20 transition-colors" />
+
+      <div className="mb-4 flex items-center justify-between mt-1">
+        <div className="flex items-center gap-2">
+          <BookOpen className="w-4 h-4 text-emerald-400/80" />
+          <span className="font-sans text-[11px] text-zinc-300 font-bold uppercase tracking-widest">
+            Latest Writing
+          </span>
+        </div>
+        <a 
+          href="https://rohitsblog.vercel.app"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-1 text-[9px] font-mono text-zinc-500 hover:text-emerald-400 transition-colors uppercase tracking-widest group/link"
+        >
+          View All
+          <ArrowUpRight size={10} className="group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
+        </a>
+      </div>
+
+      <Link href="/blogs" className="block group-post">
+        <h3 className="text-sm font-bold text-zinc-100 group-hover/post:text-emerald-400 transition-colors leading-snug mb-2">
+          {latestPost.title}
+        </h3>
+        <p className="text-[13px] text-zinc-400 group-hover/post:text-zinc-300 leading-relaxed mb-4 line-clamp-3">
+          {latestPost.description}
+        </p>
+        
+        <div className="flex items-center justify-between">
+          <time className="text-[10px] font-mono text-zinc-500">
+            {latestPost.date}
+          </time>
+          <span className="text-[10px] font-sans font-bold uppercase tracking-widest text-zinc-400 group-hover/post:text-emerald-400 transition-colors flex items-center gap-1">
+            Read
+            <ArrowUpRight size={12} className="group-hover/post:translate-x-0.5 group-hover/post:-translate-y-0.5 transition-transform" />
+          </span>
+        </div>
+      </Link>
+    </motion.div>
+  );
+}
+
 export default function DesktopWidgets() {
   const [currentQuote, setCurrentQuote] = useState(0);
 
@@ -210,10 +282,10 @@ export default function DesktopWidgets() {
       <motion.div
         drag
         dragMomentum={false}
-        className="absolute bottom-8 left-8 md:bottom-12 md:left-12 bg-[#111]/80 backdrop-blur-xl border border-white/10 rounded-xl p-6 w-72 shadow-[0_10px_40px_rgba(0,0,0,0.5)] z-10 pointer-events-auto cursor-grab active:cursor-grabbing group"
-        initial={{ y: 20, opacity: 0 }}
+        className="hidden xl:block absolute top-48 right-8 bg-[#111]/80 backdrop-blur-xl border border-white/10 rounded-xl p-4 w-56 shadow-[0_10px_40px_rgba(0,0,0,0.5)] z-10 pointer-events-auto cursor-grab active:cursor-grabbing group"
+        initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 1, duration: 0.5 }}
+        transition={{ delay: 0.95, duration: 0.5 }}
       >
         {/* Drag Handle Indicator */}
         <div className="absolute top-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-white/10 rounded-full group-hover:bg-white/20 transition-colors" />
@@ -246,6 +318,9 @@ export default function DesktopWidgets() {
 
       {/* Spotify Widget */}
       <SpotifyWidget />
+
+      {/* Blog Widget */}
+      <BlogWidget />
 
       {/* Github Widget positioned at bottom right */}
       <motion.div
@@ -298,7 +373,8 @@ export default function DesktopWidgets() {
         </p>
       </motion.div>
 
-      {/* Local Time Widget */}
+      {/* Local Time Widget (Hidden as per new layout) */}
+      {/* 
       <motion.div
         drag
         dragMomentum={false}
@@ -314,8 +390,9 @@ export default function DesktopWidgets() {
         </div>
         <LiveClock />
       </motion.div>
+      */}
 
-      {/* Current Focus Widget */}
+      {/* Current Focus Widget
       <motion.div
         drag
         dragMomentum={false}
@@ -338,7 +415,7 @@ export default function DesktopWidgets() {
             </span>
           ))}
         </div>
-      </motion.div>
+      </motion.div> */}
     </>
   );
 }

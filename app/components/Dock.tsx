@@ -45,7 +45,7 @@ function DockIcon({
   mouseX: MotionValue; 
   onClick?: (e: React.MouseEvent) => void 
 }) {
-  let ref = useRef<HTMLButtonElement | HTMLAnchorElement | null>(null);
+  let ref = useRef<HTMLDivElement | null>(null);
   const [isHovered, setIsHovered] = useState(false);
 
   let distance = useTransform(mouseX, (val) => {
@@ -54,12 +54,12 @@ function DockIcon({
   });
 
   let widthSync = useTransform(distance, [-150, 0, 150], [40, 64, 40]);
-  let width = useSpring(widthSync, { mass: 0.1, stiffness: 150, damping: 12 });
+  let width = useSpring(widthSync, { mass: 0.1, stiffness: 200, damping: 15 });
 
   const Icon = item.icon;
 
   const innerProps = {
-    className: "relative flex items-center justify-center rounded-xl text-zinc-400 hover:text-white transition-colors duration-200 outline-none",
+    className: "relative flex items-center justify-center rounded-xl text-zinc-400 hover:text-white transition-colors duration-200 outline-none bg-transparent",
     onMouseEnter: () => setIsHovered(true),
     onMouseLeave: () => setIsHovered(false),
   };
@@ -74,7 +74,7 @@ function DockIcon({
   );
 
   return (
-    <div className="relative group flex items-end justify-center w-10 h-10">
+    <div ref={ref} className="relative group flex items-end justify-center w-10 h-10">
       <AnimatePresence>
         {isHovered && (
           <motion.div
@@ -92,7 +92,6 @@ function DockIcon({
       <div className="absolute bottom-0 flex items-end justify-center">
         {item.id ? (
           <motion.button
-            ref={ref as any}
             style={{ width, height: width }}
             onClick={(e) => onClick && onClick(e as any)}
             {...innerProps}
@@ -101,7 +100,6 @@ function DockIcon({
           </motion.button>
         ) : item.href ? (
           <motion.a
-            ref={ref as any}
             style={{ width, height: width }}
             href={item.href}
             target={item.isExternal ? "_blank" : undefined}
@@ -113,7 +111,6 @@ function DockIcon({
           </motion.a>
         ) : (
           <motion.div
-            ref={ref as any}
             style={{ width, height: width }}
             {...innerProps}
           >

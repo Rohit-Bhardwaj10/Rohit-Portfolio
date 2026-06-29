@@ -19,7 +19,7 @@ export default function DesktopEnvironment() {
   const { windows } = useWindowContext();
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-40">
+    <div className="fixed inset-0 pointer-events-none z-[60]">
       {/* 
         The container itself is pointer-events-none so we can click through to the Desktop (Hero), 
         but we re-enable pointer-events on the actual windows.
