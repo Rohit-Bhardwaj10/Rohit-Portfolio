@@ -36,14 +36,14 @@ export default function DraggableWindow({ id, children, defaultSize = { width: 8
         dragMomentum={false}
         dragElastic={0}
         onMouseDown={() => focusWindow(id)}
-        initial={{ opacity: 0, scale: 0.95, ...initialPos }}
+        initial={{ opacity: 0, scale: 0.85, ...initialPos }}
         animate={
           windowState.isMaximized 
             ? { x: 0, y: 0, width: '100vw', height: '100vh', opacity: 1, scale: 1, borderRadius: 0 }
             : { width: defaultSize.width, height: defaultSize.height, opacity: 1, scale: 1, borderRadius: 12 }
         }
-        exit={{ opacity: 0, scale: 0.95 }}
-        transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+        exit={{ opacity: 0, scale: 0.85 }}
+        transition={{ type: 'spring', damping: 24, stiffness: 170, mass: 0.6 }}
         style={{ zIndex: windowState.zIndex }}
         className={`absolute flex flex-col overflow-hidden border border-white/10 shadow-2xl bg-[#0a0a0a]/90 backdrop-blur-xl ${
           windowState.isMaximized ? 'top-0 left-0' : ''
